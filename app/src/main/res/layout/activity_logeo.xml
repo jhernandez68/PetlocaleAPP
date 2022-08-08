@@ -67,15 +67,15 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="157dp"
-        android:layout_height="137dp"
+        android:layout_width="278dp"
+        android:layout_height="222dp"
         app:layout_constraintBottom_toTopOf="@+id/entrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051"
-        app:srcCompat="@mipmap/iconpetlocale" />
+        app:layout_constraintVertical_bias="0.068"
+        app:srcCompat="@mipmap/Prototype_1_without_background" />
 
     <TextView
         android:id="@+id/textView3"

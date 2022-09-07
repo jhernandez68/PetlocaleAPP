@@ -35,11 +35,19 @@ android {
 
 dependencies {
 
+    //Dependencias APIs
+    //Google Maps
+
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    //Dependencias de firebase
+
+    implementation 'com.google.firebase:firebase-auth'
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth-ktx'
 
     // Also declare the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
+
 
     implementation platform('com.google.firebase:firebase-bom:30.3.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'

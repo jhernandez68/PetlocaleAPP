@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Petlocale</string>
-    <string name="prefs_file">com.petlocale_db.PREFERENCE_FILE_LEY </string>
+    <string name="prefs_file">com.example.petlocale_final.PREFERENCE_FILE_KEY </string>
 </resources>

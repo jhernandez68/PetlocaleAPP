@@ -46,9 +46,10 @@ class Logeo : AppCompatActivity() {
             }
         }
 
-        /*googleButton.setOnClickListener{
+        googleButton.setOnClickListener{
             //Configuracion
-            val googleConf= GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN)
+            val googleConf=
+                GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
@@ -57,7 +58,7 @@ class Logeo : AppCompatActivity() {
 
             googleClient.signOut()
             startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
-        }*/
+        }
         //Setup
         session()
     }
@@ -95,7 +96,9 @@ class Logeo : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)
 
                 if(account != null){
+
                     val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+
                     FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener{
                         if(it.isSuccessful){
                             showMain(account.email ?: "", ProviderType.GOOGLE)
@@ -107,8 +110,6 @@ class Logeo : AppCompatActivity() {
             }catch (e: ApiException){
                 showAlert()
             }
-
-
         }
     }
 }

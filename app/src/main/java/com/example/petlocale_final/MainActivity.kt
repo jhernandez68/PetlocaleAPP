@@ -19,10 +19,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //Setup
-        val bundle:Bundle? = intent.extras
-        val email:String? = bundle?.getString("email")
-        val provider:String? = bundle?.getString("'provider")
-        setup(email ?:"", provider ?: "")
+        val bundle = intent.extras
+        val email = bundle?.getString("email")
+        val provider = bundle?.getString("'provider")
 
         //Guardado de datos
 
@@ -36,7 +35,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setup(email: String, provider: String){
-        title="Inicio"
-    }
 }

@@ -18,7 +18,7 @@ class Registro : AppCompatActivity() {
                 Toast.makeText(this, "Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
 
-            if(editTextTextEmailAddress.text.isNotEmpty() && editTextPhone.text.isNotEmpty() && editTextTextPassword.text.isNotEmpty()){
+            if(editTextTextEmailAddress.text.isNotEmpty() && editTextTextPassword.text.isNotEmpty()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(editTextTextEmailAddress.text.toString()
                     , editTextTextPassword.text.toString()).addOnCompleteListener{
                     if(it.isSuccessful){

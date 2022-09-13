@@ -92,15 +92,23 @@
         app:layout_constraintTop_toBottomOf="@+id/entrar"
         app:layout_constraintVertical_bias="0.549" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/googleButton"
         android:layout_width="268dp"
         android:layout_height="42dp"
-        android:background="#FFFFFF"
+        android:background="#FF0000"
         android:text="Google"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/entrar" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="466dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

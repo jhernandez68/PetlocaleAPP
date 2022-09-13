@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintVertical_bias="0.72" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -30,34 +30,20 @@
         app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379" />
-
-    <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Telefono"
-        android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/registrarse"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintVertical_bias="0.095" />
+        app:layout_constraintVertical_bias="0.446" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:hint="Contraseña"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
         android:ems="10"
+        android:hint="Contraseña"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/registrarse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
         app:layout_constraintVertical_bias="0.197" />
 
     <ImageView

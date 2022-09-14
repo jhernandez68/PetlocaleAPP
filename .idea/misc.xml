@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_edit_user.xml" value="0.13722826086956522" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_inicio.xml" value="0.13722826086956522" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_logeo.xml" value="0.25" />
+        <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_logeo_veterinaria.xml" value="0.13134057971014493" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_main.xml" value="0.1859375" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_maps.xml" value="0.17255434782608695" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_registro.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_registro_veterinaria.xml" value="0.2" />
       </map>
     </option>
   </component>

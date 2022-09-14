@@ -35,6 +35,10 @@ android {
 
 dependencies {
 
+
+    //Firestore
+
+    implementation 'com.google.firebase:firebase-firestore:24.3.0'
     //Dependencias APIs
     //Google Maps
 

@@ -15,10 +15,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Petlocale_final">
         <activity
+            android:name=".VeterinariaMain"
+            android:exported="true" />
+        <activity
+            android:name=".RegistroVeterinaria"
+            android:exported="true" />
+        <activity
+            android:name=".LogeoVeterinaria"
+            android:exported="true" />
+        <activity
+            android:name=".EditUser"
+            android:exported="true" />
+        <activity
             android:name=".Inicio"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -35,9 +48,7 @@
             android:exported="true" />
         <activity
             android:name=".Logeo"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

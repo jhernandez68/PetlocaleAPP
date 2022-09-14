@@ -17,7 +17,7 @@
         app:srcCompat="@mipmap/veterinaria" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/infoUsers"
         android:layout_width="144dp"
         android:layout_height="145dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,8 +38,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.885"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintTop_toBottomOf="@+id/infoUsers"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView3"

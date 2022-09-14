@@ -13,5 +13,9 @@ class Inicio : AppCompatActivity() {
         usuariosButton.setOnClickListener{
             startActivity(Intent(this, Logeo::class.java))
         }
+
+        veterinariasButton.setOnClickListener {
+            startActivity(Intent(this, LogeoVeterinaria::class.java))
+        }
     }
 }

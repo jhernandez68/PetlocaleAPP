@@ -42,7 +42,7 @@ class LogeoVeterinaria : AppCompatActivity() {
                         passwordfb.setText(it.get("password") as String?)
 
                         if(passwordfb.text.toString() == passwordLoginVet.text.toString()){
-                            startActivity(Intent(this, VeterinariaMain::class.java))
+                            startActivity(Intent(this, VeterinariaMain::class.java).putExtra("nit", nitlogin.text.toString()))
                         }
 
                         if(passwordfb.text.toString() != passwordLoginVet.text.toString()){

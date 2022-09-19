@@ -14,19 +14,27 @@ class Registro : AppCompatActivity() {
         setContentView(R.layout.activity_registro)
 
         registrarse.setOnClickListener{
-            if(editTextTextPassword.text.isEmpty() || editTextTextEmailAddress.text.isEmpty()){
+            if(editTextTextPassword.text.isEmpty() || editTextTextEmailAddress.text.isEmpty() || editTextTextPassword2.text.isEmpty()){
                 Toast.makeText(this, "Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
 
-            if(editTextTextEmailAddress.text.isNotEmpty() && editTextTextPassword.text.isNotEmpty()){
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(editTextTextEmailAddress.text.toString()
-                    , editTextTextPassword.text.toString()).addOnCompleteListener{
-                    if(it.isSuccessful){
-                        showMain(it.result?.user?.email?: "", ProviderType.BASIC)
-                    }else{
-                        showAlert()
-                    }
+            if(editTextTextEmailAddress.text.isNotEmpty() && editTextTextPassword.text.isNotEmpty() && editTextTextPassword2.text.isNotEmpty()){
+
+                if(editTextTextPassword.text.toString() == editTextTextPassword2.text.toString()){
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(editTextTextEmailAddress.text.toString(), editTextTextPassword.text.toString())
+                        .addOnCompleteListener{
+                            if(it.isSuccessful){
+                                showMain(it.result?.user?.email ?:"" , ProviderType.BASIC)
+                            }else{
+                                showAlert()
+                            }
+                        }
                 }
+
+                if( editTextTextPassword.text.toString() != editTextTextPassword2.text.toString() ){
+                    Toast.makeText(this, "Las contraseñas no son iguales!", Toast.LENGTH_LONG).show()
+                }
+
             }
 
         }
@@ -42,7 +50,8 @@ class Registro : AppCompatActivity() {
 
     private fun showMain(email: String, provider: ProviderType){
         val homeIntent = Intent(this,MainActivity::class.java).apply {
-
+            putExtra("email", email)
+            putExtra("provider", provider.name)
         }
         startActivity(homeIntent)
     }

@@ -25,15 +25,22 @@ class RegistroVeterinaria : AppCompatActivity() {
             if( nit.text.isNotEmpty() &&
                 nameVeterinaria.text.isNotEmpty() &&
                 passwordVeterinaria.text.isNotEmpty() &&
-                yearsExperience.text.isNotEmpty()){
+                yearsExperience.text.isNotEmpty() &&
+                    passwordVeterinaria2.text.isNotEmpty()){
 
-                    db.collection("veterinarias").document(nit.text.toString()).set(
-                    hashMapOf( "nombre" to nameVeterinaria.text.toString(),
-                        "password" to passwordVeterinaria.text.toString(),
-                        "years" to yearsExperience.text.toString()
-                    )
-                )
-                startActivity(Intent(this, LogeoVeterinaria::class.java))
+                        //Se verifica que las contraseñas sean iguales
+                        if(passwordVeterinaria.text.toString() == passwordVeterinaria2.text.toString()){
+                            db.collection("veterinarias").document(nit.text.toString()).set(
+                                hashMapOf( "nombre" to nameVeterinaria.text.toString(),
+                                    "password" to passwordVeterinaria.text.toString(),
+                                    "years" to yearsExperience.text.toString()
+                                ))
+                            startActivity(Intent(this, LogeoVeterinaria::class.java))
+                        }
+
+                         if(passwordVeterinaria.text.toString() != passwordVeterinaria2.text.toString()){
+                             Toast.makeText(this, "¡Las contraseñas no son iguales!", Toast.LENGTH_LONG).show()
+                         }
             }
 
             //Si el usuario no digitó todos los datos

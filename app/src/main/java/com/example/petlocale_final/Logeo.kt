@@ -2,7 +2,6 @@ package com.example.petlocale_final
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -10,7 +9,6 @@ import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_logeo.*
@@ -34,8 +32,10 @@ class Logeo : AppCompatActivity() {
                 Toast.makeText(this, "Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
 
-            if(password.text.isNotEmpty() && password.text.isNotEmpty() && username.text.isNotEmpty()){
-                FirebaseAuth.getInstance().signInWithEmailAndPassword(username.text.toString()
+            if(password.text.isNotEmpty() &&
+                password.text.isNotEmpty() &&
+                nombreService.text.isNotEmpty() ){
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(nombreService.text.toString()
                     , password.text.toString()).addOnCompleteListener{
                     if(it.isSuccessful){
                         showMain(it.result?.user?.email?: "", ProviderType.BASIC)

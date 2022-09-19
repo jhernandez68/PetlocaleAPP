@@ -13,7 +13,7 @@
     tools:context=".Logeo">
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/nombreService"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="228dp"
@@ -37,9 +37,12 @@
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/nombreService"
+        app:layout_constraintVertical_bias="0.041" />
+
 
     <ProgressBar
         android:id="@+id/loading"
@@ -64,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintVertical_bias="0.377" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -72,10 +75,10 @@
         android:layout_height="222dp"
         app:layout_constraintBottom_toTopOf="@+id/entrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.068"
+        app:layout_constraintVertical_bias="0.015"
         app:srcCompat="@mipmap/petlocaleicon" />
 
     <TextView

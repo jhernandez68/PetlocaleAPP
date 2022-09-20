@@ -24,5 +24,9 @@ class VeterinariaMain : AppCompatActivity() {
         serviciosButton.setOnClickListener {
             startActivity(Intent(this, VeterinariaMainServicios::class.java).putExtra("Nombre",  nit))
         }
+
+        infoButton.setOnClickListener {
+            startActivity(Intent(this, VeterinariaMainInfo::class.java).putExtra("Nombre",  nit))
+        }
     }
 }

@@ -22,6 +22,8 @@ class ServiciosAdapter (private val serviciosList : ArrayList<Servicio>): Recycl
         val servicio : Servicio = serviciosList[position]
         holder.nombre.text =servicio.nombre
         holder.tipo.text = servicio.tipo
+        holder.precio.text = servicio.precio
+        holder.descripcion.text = servicio.descripcion
     }
 
     override fun getItemCount(): Int {
@@ -29,7 +31,9 @@ class ServiciosAdapter (private val serviciosList : ArrayList<Servicio>): Recycl
     }
 
     public class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        val nombre : TextView = itemView.findViewById(R.id.tvServicioName)
-        val tipo : TextView = itemView.findViewById(R.id.tvRealNameServicio)
+        val nombre : TextView = itemView.findViewById(R.id.nombreDetailed2)
+        val tipo : TextView = itemView.findViewById(R.id.nitDetailed2)
+        val precio: TextView = itemView.findViewById(R.id.yearsDetailed2)
+        val descripcion: TextView = itemView.findViewById(R.id.emailDetailed2)
     }
 }

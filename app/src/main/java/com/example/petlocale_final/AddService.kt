@@ -22,20 +22,34 @@ class AddService : AppCompatActivity() {
     //Tipos de mascota
     val tipos = arrayOf("Gato", "Perro")
 
+    //Variable para guardar el tipo
+    private lateinit var tipo_mascota : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_service)
 
+        //Se trae el nombre de la veterinaria
         val objetoIntent: Intent = intent
 
         var Nombre = objetoIntent.getStringExtra("nit")
-        //enviar tambien el nit en esta actividad
 
         //Spinner
         val spinner = findViewById<Spinner>(R.id.spinner)
         val arrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, tipos)
         spinner.adapter = arrayAdapter
 
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                //Variable para guardar el tipo
+                tipo_mascota = tipos[p2]
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                tipo_mascota = tipos[0]
+            }
+
+        }
         addServicebutton2.setOnClickListener {
 
             if(nombreService.text.isNotEmpty() &&
@@ -44,8 +58,9 @@ class AddService : AppCompatActivity() {
                 db.collection("veterinarias").document(Nombre.toString()).collection("productos").document(nombreService.text.toString()).set(
                     hashMapOf(
                         "nombre" to nombreService.text.toString(),
-                        "costo" to descripcionService.text.toString(),
-                        "descripcion" to costoService2.text.toString()
+                        "precio" to costoService2.text.toString(),
+                        "descripcion" to descripcionService.text.toString(),
+                        "tipo" to tipo_mascota
                     ))
                 startActivity(Intent(this, VeterinariaMainServicios::class.java).putExtra("Nombre", Nombre ))
             }

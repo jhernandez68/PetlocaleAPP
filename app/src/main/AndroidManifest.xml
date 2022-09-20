@@ -15,6 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Petlocale_final">
         <activity
+            android:name=".VeterinariaMainDetailedInfo"
+            android:exported="true" />
+        <activity
+            android:name=".VeterinariaMainHorarios"
+            android:exported="true" />
+        <activity
+            android:name=".VeterinariaMainInfo"
+            android:exported="true" />
+        <activity
+            android:name=".DeleteService"
+            android:exported="true" />
+        <activity
             android:name=".AddService"
             android:exported="true" />
         <activity

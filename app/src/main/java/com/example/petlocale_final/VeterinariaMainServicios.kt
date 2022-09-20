@@ -48,6 +48,10 @@ class VeterinariaMainServicios : AppCompatActivity() {
         addServiceButton.setOnClickListener {
             startActivity(Intent(this, AddService::class.java).putExtra("nit",  Nombre))
         }
+
+        deleteServiceButton.setOnClickListener{
+            startActivity(Intent(this, DeleteService::class.java).putExtra("nit",  Nombre))
+        }
     }
 
     private fun EventChangeListener() {

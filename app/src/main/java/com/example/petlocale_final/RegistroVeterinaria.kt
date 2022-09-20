@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_registro.*
 import kotlinx.android.synthetic.main.activity_registro.registrarse
 import kotlinx.android.synthetic.main.activity_registro_veterinaria.*
 
@@ -22,18 +21,20 @@ class RegistroVeterinaria : AppCompatActivity() {
         registrarse.setOnClickListener {
 
             //Si el usuario digitó todos los datos
-            if( nit.text.isNotEmpty() &&
-                nameVeterinaria.text.isNotEmpty() &&
+            if( nitDetailed.text.isNotEmpty() &&
+                nameVeterinariaDetailed.text.isNotEmpty() &&
                 passwordVeterinaria.text.isNotEmpty() &&
-                yearsExperience.text.isNotEmpty() &&
+                yearsExperienceDetailed.text.isNotEmpty() &&
                     passwordVeterinaria2.text.isNotEmpty()){
 
                         //Se verifica que las contraseñas sean iguales
                         if(passwordVeterinaria.text.toString() == passwordVeterinaria2.text.toString()){
-                            db.collection("veterinarias").document(nit.text.toString()).set(
-                                hashMapOf( "nombre" to nameVeterinaria.text.toString(),
+                            db.collection("veterinarias").document(nitDetailed.text.toString()).set(
+                                hashMapOf( "nombre" to nameVeterinariaDetailed.text.toString(),
                                     "password" to passwordVeterinaria.text.toString(),
-                                    "years" to yearsExperience.text.toString()
+                                    "years" to yearsExperienceDetailed.text.toString(),
+                                    "email" to correoVeterinaria.text.toString(),
+                                    "nit" to nitDetailed.text.toString()
                                 ))
                             startActivity(Intent(this, LogeoVeterinaria::class.java))
                         }
@@ -44,10 +45,10 @@ class RegistroVeterinaria : AppCompatActivity() {
             }
 
             //Si el usuario no digitó todos los datos
-            if( nit.text.isEmpty() ||
-                nameVeterinaria.text.isEmpty() ||
+            if( nitDetailed.text.isEmpty() ||
+                nameVeterinariaDetailed.text.isEmpty() ||
                 passwordVeterinaria.text.isEmpty() ||
-                yearsExperience.text.isEmpty()){
+                yearsExperienceDetailed.text.isEmpty()){
                 Toast.makeText(this, "Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
 

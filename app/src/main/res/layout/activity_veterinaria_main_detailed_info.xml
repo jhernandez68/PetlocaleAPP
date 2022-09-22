@@ -10,7 +10,7 @@
         android:id="@+id/imageView7"
         android:layout_width="294dp"
         android:layout_height="222dp"
-        app:layout_constraintBottom_toBottomOf="@+id/nombreDetailed"
+        app:layout_constraintBottom_toBottomOf="@+id/nombreDetailedProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
 
     <TextView
         android:textSize="22dp"
-        android:id="@+id/nombreDetailed"
+        android:id="@+id/nombreDetailedProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="256dp"
@@ -31,49 +31,49 @@
 
     <TextView
         android:textSize="22dp"
-        android:id="@+id/emailDetailed"
+        android:id="@+id/emailDetailedProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Email:"
         android:textColor="#572364"
-        app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2"
+        app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2Product"
         tools:layout_editor_absoluteX="56dp" />
 
     <TextView
         android:textSize="22dp"
-        android:id="@+id/nombreDetailed2"
+        android:id="@+id/nombreDetailed2Product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="256dp"
         android:text="Nombre"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/nombreDetailed"
+        app:layout_constraintStart_toEndOf="@+id/nombreDetailedProduct"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:textSize="22dp"
-        android:id="@+id/nitDetailedInfo"
+        android:id="@+id/nitDetailedInfoProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="NIT"
         android:textColor="#572364"
-        app:layout_constraintTop_toBottomOf="@+id/nombreDetailed2"
+        app:layout_constraintTop_toBottomOf="@+id/nombreDetailed2Product"
         tools:layout_editor_absoluteX="56dp" />
 
     <TextView
         android:textSize="22dp"
-        android:id="@+id/nitDetailed2"
+        android:id="@+id/nitDetailed2Product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="Tipo"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/nitDetailedInfo"
-        app:layout_constraintTop_toBottomOf="@+id/nombreDetailed2" />
+        app:layout_constraintStart_toEndOf="@+id/nitDetailedInfoProduct"
+        app:layout_constraintTop_toBottomOf="@+id/nombreDetailed2Product" />
 
     <TextView
         android:textSize="22dp"
@@ -83,24 +83,24 @@
         android:layout_marginTop="8dp"
         android:text="Experiencia: "
         android:textColor="#572364"
-        app:layout_constraintTop_toBottomOf="@+id/nitDetailed2"
+        app:layout_constraintTop_toBottomOf="@+id/nitDetailed2Product"
         tools:layout_editor_absoluteX="56dp" />
 
     <TextView
         android:textSize="22dp"
-        android:id="@+id/emailDetailed2"
+        android:id="@+id/emailDetailed2Product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Descripción"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/emailDetailed"
-        app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2" />
+        app:layout_constraintStart_toEndOf="@+id/emailDetailedProduct"
+        app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2Product" />
 
     <TextView
         android:textSize="22dp"
-        android:id="@+id/yearsDetailed2"
+        android:id="@+id/yearsDetailed2Product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -108,7 +108,7 @@
         android:text="precio"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/yearsDetailed"
-        app:layout_constraintTop_toBottomOf="@+id/nitDetailed2" />
+        app:layout_constraintTop_toBottomOf="@+id/nitDetailed2Product" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

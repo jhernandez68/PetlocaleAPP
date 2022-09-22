@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddService">
+    tools:context=".AddProduct">
 
     <EditText
         android:id="@+id/nombreDeleteProduct"
@@ -17,7 +17,7 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.384" />
@@ -38,6 +38,23 @@
         app:layout_constraintTop_toBottomOf="@+id/nombreDeleteProduct"
         app:layout_constraintVertical_bias="0.245" />
 
+
+    <EditText
+        android:id="@+id/costoProduct2"
+        android:layout_width="368dp"
+        android:layout_height="44dp"
+        android:autofillHints="text"
+        android:hint="Cantidad"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreDeleteProduct"
+        app:layout_constraintVertical_bias="0.433" />
+
     <EditText
         android:id="@+id/descripcionProduct"
         android:layout_width="366dp"
@@ -49,18 +66,16 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.355"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/costoProduct"
-        app:layout_constraintVertical_bias="0.1" />
-
-
+        app:layout_constraintVertical_bias="0.398" />
 
     <Button
-        android:id="@+id/addServicebutton2"
+        android:id="@+id/addProductButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="52dp"
         android:text="Añadir"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +85,7 @@
         android:id="@+id/imageView6"
         android:layout_width="278dp"
         android:layout_height="222dp"
-        app:layout_constraintBottom_toTopOf="@+id/addServicebutton2"
+        app:layout_constraintBottom_toTopOf="@+id/addProductButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,9 +99,9 @@
         android:layout_height="37dp"
         app:layout_constraintBottom_toTopOf="@+id/costoProduct"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreDeleteProduct"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.696" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

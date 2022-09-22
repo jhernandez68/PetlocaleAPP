@@ -13,7 +13,7 @@
     tools:context=".Logeo">
 
     <EditText
-        android:id="@+id/nombreService"
+        android:id="@+id/nombreDeleteProduct"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="228dp"
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreService"
+        app:layout_constraintTop_toBottomOf="@+id/nombreDeleteProduct"
         app:layout_constraintVertical_bias="0.041" />
 
 

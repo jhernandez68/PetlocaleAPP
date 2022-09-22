@@ -6,32 +6,101 @@
 
     <ImageView
         android:id="@+id/ivProducto"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_width="144dp"
+        android:layout_height="130dp"
+        app:srcCompat="@mipmap/petlocaleicon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvProductoName"
+        android:id="@+id/nombreDetailedProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#572364"
+        android:text="Nombre: "
         app:layout_constraintStart_toEndOf="@+id/ivProducto"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvRealName"
+        android:id="@+id/nombreDetailed2Product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvProductoName"
-        app:layout_constraintStart_toEndOf="@+id/ivProducto"
-        />
+        android:text="Nombre"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreDetailedProduct"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvPublisher"
+        android:id="@+id/nitDetailedInfoProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvProductoName"
+        android:text="Tipo: "
+        android:textColor="#572364"
         app:layout_constraintStart_toEndOf="@+id/ivProducto"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/nombreDetailed2Product" />
+
+    <TextView
+        android:id="@+id/nitDetailed2Product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nitDetailedInfoProduct"
+        app:layout_constraintTop_toBottomOf="@+id/nombreDetailed2Product" />
+
+    <TextView
+        android:id="@+id/yearsDetailed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Costo: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/ivProducto"
+        app:layout_constraintTop_toBottomOf="@+id/nitDetailed2Product" />
+
+    <TextView
+        android:id="@+id/yearsDetailed2Product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="precio"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/yearsDetailed"
+        app:layout_constraintTop_toBottomOf="@+id/nitDetailed2Product" />
+
+
+    <TextView
+        android:id="@+id/emailDetailedProduct"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Descripción: "
+    android:textColor="#572364"
+    app:layout_constraintStart_toEndOf="@+id/ivProducto"
+    app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2Product" />
+
+    <TextView
+        android:id="@+id/emailDetailed2Product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/emailDetailedProduct"
+        app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2Product" />
+
+    <TextView
+        android:id="@+id/categoriaDetailedProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/ivProducto"
+        app:layout_constraintTop_toBottomOf="@+id/emailDetailedProduct" />
+
+    <TextView
+        android:id="@+id/categoriaDetailedProduct2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/categoriaDetailedProduct"
+        app:layout_constraintTop_toBottomOf="@+id/emailDetailedProduct" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

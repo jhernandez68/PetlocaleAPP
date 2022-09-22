@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/ivServicio"
+        android:id="@+id/ivProducto"
         android:layout_width="144dp"
         android:layout_height="130dp"
         app:srcCompat="@mipmap/petlocaleicon"
@@ -13,40 +13,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nombreDetailed"
+        android:id="@+id/nombreDetailedProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#572364"
         android:text="Nombre: "
-        app:layout_constraintStart_toEndOf="@+id/ivServicio"
+        app:layout_constraintStart_toEndOf="@+id/ivProducto"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nombreDetailed2"
+        android:id="@+id/nombreDetailed2Product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/nombreDetailed"
+        app:layout_constraintStart_toEndOf="@+id/nombreDetailedProduct"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nitDetailedInfo"
+        android:id="@+id/nitDetailedInfoProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tipo: "
         android:textColor="#572364"
-        app:layout_constraintStart_toEndOf="@+id/ivServicio"
-        app:layout_constraintTop_toBottomOf="@+id/nombreDetailed2" />
+        app:layout_constraintStart_toEndOf="@+id/ivProducto"
+        app:layout_constraintTop_toBottomOf="@+id/nombreDetailed2Product" />
 
     <TextView
-        android:id="@+id/nitDetailed2"
+        android:id="@+id/nitDetailed2Product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tipo"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/nitDetailedInfo"
-        app:layout_constraintTop_toBottomOf="@+id/nombreDetailed2" />
+        app:layout_constraintStart_toEndOf="@+id/nitDetailedInfoProduct"
+        app:layout_constraintTop_toBottomOf="@+id/nombreDetailed2Product" />
 
     <TextView
         android:id="@+id/yearsDetailed"
@@ -54,35 +54,35 @@
         android:layout_height="wrap_content"
         android:text="Costo: "
         android:textColor="#572364"
-        app:layout_constraintStart_toEndOf="@+id/ivServicio"
-        app:layout_constraintTop_toBottomOf="@+id/nitDetailed2" />
+        app:layout_constraintStart_toEndOf="@+id/ivProducto"
+        app:layout_constraintTop_toBottomOf="@+id/nitDetailed2Product" />
 
     <TextView
-        android:id="@+id/yearsDetailed2"
+        android:id="@+id/yearsDetailed2Product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="precio"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/yearsDetailed"
-        app:layout_constraintTop_toBottomOf="@+id/nitDetailed2" />
+        app:layout_constraintTop_toBottomOf="@+id/nitDetailed2Product" />
 
 
     <TextView
-        android:id="@+id/emailDetailed"
+        android:id="@+id/emailDetailedProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Descripción: "
         android:textColor="#572364"
-        app:layout_constraintStart_toEndOf="@+id/ivServicio"
-        app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2" />
+        app:layout_constraintStart_toEndOf="@+id/ivProducto"
+        app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2Product" />
 
     <TextView
-        android:id="@+id/emailDetailed2"
+        android:id="@+id/emailDetailed2Product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Descripción"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/emailDetailed"
-        app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2" />
+        app:layout_constraintStart_toEndOf="@+id/emailDetailedProduct"
+        app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2Product" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

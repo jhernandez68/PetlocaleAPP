@@ -58,7 +58,7 @@ class VeterinariaMainServicios : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-        db.collection("veterinarias").document(Nombre2).collection("productos")
+        db.collection("veterinarias").document(Nombre2).collection("servicios")
             .addSnapshotListener(object : EventListener<QuerySnapshot>{
             override fun onEvent(
                 value: QuerySnapshot?,

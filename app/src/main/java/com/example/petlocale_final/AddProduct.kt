@@ -9,9 +9,9 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_add_service.*
+import kotlinx.android.synthetic.main.activity_add_product.*
 
-class AddService : AppCompatActivity() {
+class AddProduct : AppCompatActivity() {
 
     //Instancia de la DB
     private val db = FirebaseFirestore.getInstance()
@@ -24,7 +24,7 @@ class AddService : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_service)
+        setContentView(R.layout.activity_add_product)
 
         //Se trae el nombre de la veterinaria
         val objetoIntent: Intent = intent
@@ -47,24 +47,28 @@ class AddService : AppCompatActivity() {
             }
 
         }
-        addServicebutton2.setOnClickListener {
+
+        addProductButton2.setOnClickListener {
 
             if(nombreDeleteProduct.text.isNotEmpty() &&
                 descripcionProduct.text.isNotEmpty() &&
-                costoProduct.text.isNotEmpty()){
-                db.collection("veterinarias").document(Nombre.toString()).collection("servicios").document(nombreDeleteProduct.text.toString()).set(
+                costoProduct.text.isNotEmpty() &&
+                costoProduct2.text.isNotEmpty()){
+                db.collection("veterinarias").document(Nombre.toString()).collection("productos").document(nombreDeleteProduct.text.toString()).set(
                     hashMapOf(
                         "nombre" to nombreDeleteProduct.text.toString(),
                         "precio" to costoProduct.text.toString(),
                         "descripcion" to descripcionProduct.text.toString(),
-                        "tipo" to tipo_mascota
+                        "tipo" to tipo_mascota,
+                        "cantidad" to costoProduct2.text.toString()
                     ))
-                startActivity(Intent(this, VeterinariaMainServicios::class.java).putExtra("Nombre", Nombre ))
+                startActivity(Intent(this, VeterinariaMainProductos::class.java).putExtra("Nombre", Nombre ))
             }
 
             if(nombreDeleteProduct.text.isEmpty() &&
                 descripcionProduct.text.isEmpty() &&
-                costoProduct.text.isEmpty()){
+                costoProduct.text.isEmpty() &&
+                    costoProduct2.text.isEmpty()){
                 Toast.makeText(this, "¡Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
 
@@ -72,6 +76,3 @@ class AddService : AppCompatActivity() {
 
     }
 }
-
-
-

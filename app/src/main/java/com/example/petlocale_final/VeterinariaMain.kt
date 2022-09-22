@@ -17,8 +17,7 @@ class VeterinariaMain : AppCompatActivity() {
         var nit = objetoIntent.getStringExtra("nit")
 
         productosButton.setOnClickListener {
-            Toast.makeText(this, "Nombre + $nit", Toast.LENGTH_LONG).show()
-            startActivity(Intent(this, VeterinariaMainProductos::class.java))
+            startActivity(Intent(this, VeterinariaMainProductos::class.java).putExtra("Nombre",  nit))
         }
 
         serviciosButton.setOnClickListener {

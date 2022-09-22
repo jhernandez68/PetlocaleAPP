@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_add_service.*
 import kotlinx.android.synthetic.main.activity_veterinaria_main_detailed_info.*
 
 class VeterinariaMainDetailedInfo : AppCompatActivity() {
@@ -22,10 +21,10 @@ class VeterinariaMainDetailedInfo : AppCompatActivity() {
         var nit = objetoIntent.getStringExtra("Nombre")
 
         db.collection("veterinarias").document(nit.toString()).get().addOnSuccessListener {
-            nombreDetailed2.setText(it.get("nombre") as String?)
-            yearsDetailed2.setText(it.get("years") as String?)
-            nitDetailed2.setText(it.get("nit") as String?)
-            emailDetailed2.setText(it.get("email") as String?)
+            nombreDetailed2Product.setText(it.get("nombre") as String?)
+            yearsDetailed2Product.setText(it.get("years") as String?)
+            nitDetailed2Product.setText(it.get("nit") as String?)
+            emailDetailed2Product.setText(it.get("email") as String?)
         }
 
     }

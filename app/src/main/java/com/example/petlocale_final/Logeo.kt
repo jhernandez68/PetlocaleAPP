@@ -34,8 +34,8 @@ class Logeo : AppCompatActivity() {
 
             if(password.text.isNotEmpty() &&
                 password.text.isNotEmpty() &&
-                nombreService.text.isNotEmpty() ){
-                FirebaseAuth.getInstance().signInWithEmailAndPassword(nombreService.text.toString()
+                nombreDeleteProduct.text.isNotEmpty() ){
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(nombreDeleteProduct.text.toString()
                     , password.text.toString()).addOnCompleteListener{
                     if(it.isSuccessful){
                         showMain(it.result?.user?.email?: "", ProviderType.BASIC)

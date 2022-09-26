@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -41,7 +42,15 @@ class MainActivity : AppCompatActivity() {
 
         //Boton para ir a INFO de usuario
         infoUsers.setOnClickListener {
+            startActivity(Intent(this, UsuarioMainInfo::class.java).putExtra("email", email))
+        }
 
+        searchProductUserButton.setOnClickListener {
+            startActivity(Intent(this, UsuarioMainProductos::class.java).putExtra("email", email))
+        }
+
+        searchServiceUserButton.setOnClickListener {
+            startActivity(Intent(this, UsuarioMainServicios::class.java).putExtra("email", email))
         }
     }
 

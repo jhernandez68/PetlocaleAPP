@@ -82,6 +82,8 @@ class Logeo : AppCompatActivity() {
 
     private fun showMain(email: String, provider: ProviderType){
         val homeIntent = Intent(this,MainActivity::class.java).apply {
+            putExtra("email", email)
+            putExtra("email", email)
         }
         startActivity(homeIntent)
     }

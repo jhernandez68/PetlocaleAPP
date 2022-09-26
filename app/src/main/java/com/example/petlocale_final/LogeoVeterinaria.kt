@@ -14,8 +14,6 @@ class LogeoVeterinaria : AppCompatActivity() {
     //Instancia de la DB
     private val db = FirebaseFirestore.getInstance()
 
-    var test = String
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_logeo_veterinaria)

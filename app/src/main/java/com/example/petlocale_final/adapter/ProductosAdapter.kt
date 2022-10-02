@@ -29,6 +29,7 @@ class ProductosAdapter (private val productosList : ArrayList<Productos>): Recyc
         val precio: TextView = itemView.findViewById(R.id.yearsDetailed2Product)
         val descripcion: TextView = itemView.findViewById(R.id.emailDetailed2Product)
         val categoria: TextView = itemView.findViewById(R.id.categoriaDetailedProduct2)
+        val nombre_veterinaria: TextView = itemView.findViewById(R.id.nameVeterinaria2ProductXD)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -38,5 +39,6 @@ class ProductosAdapter (private val productosList : ArrayList<Productos>): Recyc
         holder.precio.text = producto.precio
         holder.descripcion.text = producto.descripcion
         holder.categoria.text = producto.categoria
+        holder.nombre_veterinaria.text = producto.nombre_veterinaria
     }
 }

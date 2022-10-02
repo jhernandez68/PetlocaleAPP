@@ -4,15 +4,22 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petlocale_final.adapter.ServiciosAdapter
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
+import kotlinx.android.synthetic.main.activity_veterinaria_main_productos.*
 import kotlinx.android.synthetic.main.activity_veterinaria_main_servicios.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class VeterinariaMainServicios : AppCompatActivity() {
 
+    private lateinit var tempArrayList : ArrayList<Servicio>
     private lateinit var recyclerView: RecyclerView
     private lateinit var servicioArrayList: ArrayList<Servicio>
     private lateinit var myAdapter: ServiciosAdapter
@@ -39,7 +46,9 @@ class VeterinariaMainServicios : AppCompatActivity() {
 
         servicioArrayList = arrayListOf()
 
-        myAdapter = ServiciosAdapter(servicioArrayList)
+        tempArrayList = arrayListOf()
+
+        myAdapter = ServiciosAdapter(tempArrayList)
 
         recyclerView.adapter = myAdapter
 
@@ -52,8 +61,56 @@ class VeterinariaMainServicios : AppCompatActivity() {
         deleteServiceButton.setOnClickListener{
             startActivity(Intent(this, DeleteService::class.java).putExtra("nit",  Nombre))
         }
+
+        textView5.setOnClickListener{
+            startActivity(Intent(this, VeterinariaMain::class.java).putExtra("nit",  Nombre))
+        }
     }
 
+
+    //Lógica para filtrar
+    //Lógica para filtrar
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        menuInflater.inflate(R.menu.menu_item, menu)
+
+        val item = menu?.findItem(R.id.search_action)
+
+        val searchView = item?.actionView as SearchView
+
+        searchView.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                tempArrayList.clear()
+
+                val searchText = p0!!.toLowerCase(Locale.getDefault())
+
+                if (searchText.isNotEmpty()){
+                    servicioArrayList.forEach{
+                        if(it.nombre?.toLowerCase(Locale.getDefault())!!.contains(searchText)){
+
+                            tempArrayList.add(it)
+                        }
+                    }
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                }else{
+                    tempArrayList.clear()
+                    tempArrayList.addAll(servicioArrayList)
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                }
+
+                return false
+            }
+
+        })
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    //Lógica de FB
     private fun EventChangeListener() {
 
         db = FirebaseFirestore.getInstance()
@@ -73,7 +130,7 @@ class VeterinariaMainServicios : AppCompatActivity() {
                         servicioArrayList.add(dc.document.toObject(Servicio::class.java))
                     }
                 }
-
+                tempArrayList.addAll(servicioArrayList)
                 myAdapter.notifyDataSetChanged()
             }
         })

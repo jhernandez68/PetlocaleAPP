@@ -104,4 +104,13 @@
         app:layout_constraintTop_toBottomOf="@+id/nombreDeleteProduct"
         app:layout_constraintVertical_bias="0.696" />
 
+    <TextView
+        android:id="@+id/nombreVeterinariaXD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="elwapo"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="22dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,37 +11,38 @@
         android:id="@+id/recyclerViewProduct"
         android:layout_width="390dp"
         android:layout_height="606dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="@id/addProductButton"
+        app:layout_constraintTop_toBottomOf="@+id/addProductButton" />
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menú principal"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.872" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/addProductButton"
-        android:layout_width="165dp"
-        android:layout_height="48dp"
+        android:layout_width="182dp"
+        android:layout_height="57dp"
         android:backgroundTint="#689F38"
         android:text="Añadir"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewProduct"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207" />
+        app:layout_constraintTop_toBottomOf="@id/textView4"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/deleteProductButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="182dp"
+        android:layout_height="57dp"
         android:backgroundTint="#D32F2F"
         android:text="Borrar producto"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewProduct"
+        app:layout_constraintTop_toBottomOf="@id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toEndOf="@+id/addProductButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

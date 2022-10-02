@@ -22,14 +22,25 @@ class AddProduct : AppCompatActivity() {
     //Variable para guardar el tipo
     private lateinit var tipo_mascota : String
 
+    //Variable para el nombre de la veterinaria
+    private lateinit var nombre_veterinaria : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_product)
+
 
         //Se trae el nombre de la veterinaria
         val objetoIntent: Intent = intent
 
         var Nombre = objetoIntent.getStringExtra("nit")
+
+        //Variable para nombre de veterinaria
+
+        db.collection("veterinarias").document(Nombre.toString()).get().addOnSuccessListener {
+            nombreVeterinariaXD.setText(it.get("nombre") as String?)
+            nombre_veterinaria = nombreVeterinariaXD.text.toString()
+        }
 
         //Spinner
         val spinner = findViewById<Spinner>(R.id.spinnerProduct)
@@ -60,7 +71,8 @@ class AddProduct : AppCompatActivity() {
                         "precio" to costoProduct.text.toString(),
                         "descripcion" to descripcionProduct.text.toString(),
                         "tipo" to tipo_mascota,
-                        "cantidad" to costoProduct2.text.toString()
+                        "cantidad" to costoProduct2.text.toString(),
+                        "nombre_veterinaria" to nombre_veterinaria
                     ))
                 startActivity(Intent(this, VeterinariaMainProductos::class.java).putExtra("Nombre", Nombre ))
             }

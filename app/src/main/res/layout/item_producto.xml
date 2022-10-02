@@ -2,7 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+   android:layout_margin="8dp"
+    >
+
 
     <ImageView
         android:id="@+id/ivProducto"
@@ -102,5 +105,25 @@
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/categoriaDetailedProduct"
         app:layout_constraintTop_toBottomOf="@+id/emailDetailedProduct" />
+
+    <TextView
+        android:id="@+id/nameVeterinariaProductXD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Veterinaria: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/ivProducto"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaDetailedProduct" />
+
+    <TextView
+        android:id="@+id/nameVeterinaria2ProductXD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre veterinaria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nameVeterinariaProductXD"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaDetailedProduct2" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

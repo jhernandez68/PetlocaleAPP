@@ -4,17 +4,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petlocale_final.adapter.ProductosAdapter
-import com.example.petlocale_final.databinding.ActivityVeterinariaMainProductosBinding
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
 import kotlinx.android.synthetic.main.activity_veterinaria_main_productos.*
 import kotlinx.android.synthetic.main.activity_veterinaria_main_servicios.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class VeterinariaMainProductos : AppCompatActivity() {
 
+    private lateinit var tempArrayList : ArrayList<Productos>
     private lateinit var recyclerView: RecyclerView
     private lateinit var productoArrayList: ArrayList<Productos>
     private lateinit var myAdapter: ProductosAdapter
@@ -22,7 +26,6 @@ class VeterinariaMainProductos : AppCompatActivity() {
 
     private lateinit var Nombre2 : String
 
-    private lateinit var binding : ActivityVeterinariaMainProductosBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +44,9 @@ class VeterinariaMainProductos : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
 
         productoArrayList = arrayListOf()
+        tempArrayList = arrayListOf()
 
-        myAdapter = ProductosAdapter(productoArrayList)
+        myAdapter = ProductosAdapter(tempArrayList)
 
         recyclerView.adapter = myAdapter
 
@@ -57,9 +61,56 @@ class VeterinariaMainProductos : AppCompatActivity() {
         deleteProductButton.setOnClickListener{
             startActivity(Intent(this, DeleteProduct::class.java).putExtra("nit",  Nombre))
         }
+
+        textView4.setOnClickListener{
+            startActivity(Intent(this, VeterinariaMain::class.java).putExtra("nit",  Nombre))
+        }
         
     }
 
+    //Lógica para buscar en la lista
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        menuInflater.inflate(R.menu.menu_item, menu)
+
+        val item = menu?.findItem(R.id.search_action)
+
+        val searchView = item?.actionView as androidx.appcompat.widget.SearchView
+
+        searchView.setOnQueryTextListener( object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                tempArrayList.clear()
+
+                val searchText = p0!!.toLowerCase(Locale.getDefault())
+
+                if (searchText.isNotEmpty()){
+                    productoArrayList.forEach{
+                        if(it.nombre?.toLowerCase(Locale.getDefault())!!.contains(searchText)){
+
+                            tempArrayList.add(it)
+                        }
+                    }
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                }else{
+                    tempArrayList.clear()
+                    tempArrayList.addAll(productoArrayList)
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                }
+
+                return false
+            }
+
+        })
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    //Lógica para traer info de FB
     private fun EventChangeListener() {
 
         db = FirebaseFirestore.getInstance()
@@ -79,7 +130,7 @@ class VeterinariaMainProductos : AppCompatActivity() {
                             productoArrayList.add(dc.document.toObject(Productos::class.java))
                         }
                     }
-
+                    tempArrayList.addAll(productoArrayList)
                     myAdapter.notifyDataSetChanged()
                 }
             })

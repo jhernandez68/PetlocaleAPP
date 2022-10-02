@@ -9,7 +9,11 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_add_product.*
 import kotlinx.android.synthetic.main.activity_add_service.*
+import kotlinx.android.synthetic.main.activity_add_service.costoProduct
+import kotlinx.android.synthetic.main.activity_add_service.descripcionProduct
+import kotlinx.android.synthetic.main.activity_add_service.nombreDeleteProduct
 
 class AddService : AppCompatActivity() {
 
@@ -22,6 +26,9 @@ class AddService : AppCompatActivity() {
     //Variable para guardar el tipo
     private lateinit var tipo_mascota : String
 
+    //Variable para el nombre de la veterinaria
+    private lateinit var nombre_veterinaria : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_service)
@@ -30,6 +37,14 @@ class AddService : AppCompatActivity() {
         val objetoIntent: Intent = intent
 
         var Nombre = objetoIntent.getStringExtra("nit")
+
+
+        //Variable para nombre de veterinaria
+
+        db.collection("veterinarias").document(Nombre.toString()).get().addOnSuccessListener {
+            nombreVeterinariaXDService.setText(it.get("nombre") as String?)
+            nombre_veterinaria = nombreVeterinariaXDService.text.toString()
+        }
 
         //Spinner
         val spinner = findViewById<Spinner>(R.id.spinnerProduct)
@@ -57,7 +72,8 @@ class AddService : AppCompatActivity() {
                         "nombre" to nombreDeleteProduct.text.toString(),
                         "precio" to costoProduct.text.toString(),
                         "descripcion" to descripcionProduct.text.toString(),
-                        "tipo" to tipo_mascota
+                        "tipo" to tipo_mascota,
+                        "nombre_veterinaria" to nombre_veterinaria
                     ))
                 startActivity(Intent(this, VeterinariaMainServicios::class.java).putExtra("Nombre", Nombre ))
             }

@@ -19,14 +19,10 @@
     <ImageView
         android:id="@+id/infoUsers"
         android:layout_width="144dp"
-        android:layout_height="145dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
+        android:layout_height="130dp"
+        app:srcCompat="@mipmap/petlocaleicon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046"
-        app:srcCompat="@mipmap/petlocaleicon" />
+        app:layout_constraintTop_toTopOf="parent"  />
 
     <TextView
         android:id="@+id/textView2"
@@ -36,7 +32,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoUsers"
         app:layout_constraintVertical_bias="0.0" />
@@ -60,4 +56,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchProductUserButton"
         app:srcCompat="@mipmap/servicio" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonVeterinarias"
+        android:layout_width="306dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#572364"
+        android:text="Lista de veterinarias!"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/google_mapsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.892" />
 </androidx.constraintlayout.widget.ConstraintLayout>

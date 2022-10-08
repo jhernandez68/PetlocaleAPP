@@ -17,7 +17,7 @@ class VeterinariaMainInfo : AppCompatActivity() {
         var nit = objetoIntent.getStringExtra("Nombre")
 
         horariosButton.setOnClickListener {
-            startActivity(Intent(this, VeterinariaMainInfo::class.java).putExtra("Nombre",  nit))
+            startActivity(Intent(this, VeterinariaMainHorarios::class.java).putExtra("Nombre",  nit))
         }
 
         datosButton.setOnClickListener {

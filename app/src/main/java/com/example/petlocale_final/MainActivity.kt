@@ -52,6 +52,10 @@ class MainActivity : AppCompatActivity() {
         searchServiceUserButton.setOnClickListener {
             startActivity(Intent(this, UsuarioMainServicios::class.java).putExtra("email", email))
         }
+
+        buttonVeterinarias.setOnClickListener {
+            startActivity(Intent(this, UsuarioMainVeterinarias::class.java).putExtra("email", email))
+        }
     }
 
 }

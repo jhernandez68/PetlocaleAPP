@@ -4,31 +4,111 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UsuarioMainInfo"
-    android:background="@mipmap/fondo_veterinaria_3">
+    tools:context=".UsuarioMainInfo">
+
+
+    <ImageView
+        android:id="@+id/picHorariosINfo"
+        android:layout_width="294dp"
+        android:layout_height="222dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nombreUserInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077"
+        app:srcCompat="@mipmap/petlocaleicon" />
+
+    <TextView
+        android:id="@+id/nombreUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="256dp"
+        android:text="Nombre: "
+        android:textColor="#572364"
+        android:textSize="22dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="56dp" />
+
+
+    <EditText
+        android:id="@+id/nombreUserInfo2"
+        android:layout_width="245dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="256dp"
+        android:text="Nombre"
+        android:textColor="#000000"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nombreUserInfo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/emailUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Email"
+        android:textColor="#572364"
+        android:textSize="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/nombreUserInfo2"
+        tools:layout_editor_absoluteX="56dp" />
+
+    <TextView
+        android:id="@+id/emailUserInfo2XD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Correo"
+        android:textColor="#000000"
+        android:textSize="22dp"
+        app:layout_constraintStart_toEndOf="@+id/emailUserInfo"
+        app:layout_constraintTop_toBottomOf="@+id/nombreUserInfo2" />
+
+    <TextView
+        android:id="@+id/mascotasUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Mascotas: "
+        android:textColor="#572364"
+        android:textSize="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/emailUserInfo2XD"
+        tools:layout_editor_absoluteX="56dp" />
+
 
     <Spinner
         android:id="@+id/spinnerMascota"
-        android:layout_width="364dp"
-        android:layout_height="37dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="165dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174" />
+        app:layout_constraintStart_toEndOf="@+id/mascotasUserInfo"
+        app:layout_constraintTop_toBottomOf="@+id/emailUserInfo2XD" />
 
     <Button
         android:id="@+id/guardarInfoUserButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Guardar!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerMascota"
-        app:layout_constraintVertical_bias="0.215" />
+        app:layout_constraintVertical_bias="0.323" />
+
+    <TextView
+        android:id="@+id/infoTipoMascotaFirebase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guardarInfoUserButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

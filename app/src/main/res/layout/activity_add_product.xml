@@ -17,10 +17,11 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384" />
+        app:layout_constraintVertical_bias="0.342" />
+
 
     <EditText
         android:id="@+id/costoProduct"
@@ -36,8 +37,7 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreDeleteProduct"
-        app:layout_constraintVertical_bias="0.245" />
-
+        app:layout_constraintVertical_bias="0.286" />
 
     <EditText
         android:id="@+id/costoProduct2"
@@ -53,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreDeleteProduct"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintVertical_bias="0.465" />
 
     <EditText
         android:id="@+id/descripcionProduct"
@@ -66,10 +66,10 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/costoProduct"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintVertical_bias="0.427" />
 
     <Button
         android:id="@+id/addProductButton2"
@@ -87,10 +87,10 @@
         android:layout_height="222dp"
         app:layout_constraintBottom_toTopOf="@+id/addProductButton2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.068"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/petlocaleicon" />
 
     <Spinner
@@ -99,10 +99,21 @@
         android:layout_height="37dp"
         app:layout_constraintBottom_toTopOf="@+id/costoProduct"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreDeleteProduct"
-        app:layout_constraintVertical_bias="0.696" />
+        app:layout_constraintVertical_bias="0.786" />
+
+    <Spinner
+        android:id="@+id/spinnerProduct2"
+        android:layout_width="364dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/costoProduct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreDeleteProduct"
+        app:layout_constraintVertical_bias="0.196" />
 
     <TextView
         android:id="@+id/nombreVeterinariaXD"

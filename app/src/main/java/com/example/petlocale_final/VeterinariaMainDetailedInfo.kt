@@ -21,9 +21,9 @@ class VeterinariaMainDetailedInfo : AppCompatActivity() {
         var nit = objetoIntent.getStringExtra("Nombre")
 
         db.collection("veterinarias").document(nit.toString()).get().addOnSuccessListener {
-            nombreDetailed2Product.setText(it.get("nombre") as String?)
+            nombreUserInfo2.setText(it.get("nombre") as String?)
             yearsDetailed2Product.setText(it.get("years") as String?)
-            nitDetailed2Product.setText(it.get("nit") as String?)
+            emailUserInfo2XD.setText(it.get("nit") as String?)
             emailDetailed2Product.setText(it.get("email") as String?)
         }
 

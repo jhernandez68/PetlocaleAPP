@@ -6,52 +6,115 @@
     android:layout_height="match_parent"
     tools:context=".VeterinariaMainHorarios">
 
+    <ImageView
+        android:id="@+id/picHorariosINfo"
+        android:layout_width="294dp"
+        android:layout_height="222dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/petlocaleicon" />
+
+    <TextView
+        android:id="@+id/anuncio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entre semana: "
+        android:textColor="#572364"
+        android:textSize="30dp"
+        app:layout_constraintTop_toBottomOf="@id/picHorariosINfo"
+        >
+
+    </TextView>
+
     <TextView
         android:id="@+id/dia1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="De (día)"
+        app:layout_constraintTop_toBottomOf="@id/anuncio1"
+        android:text="De"
         android:textColor="#000000"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+ />
 
-    <Spinner
-        android:id="@+id/spinnerProduct"
-        android:layout_width="136dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="96dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
+    <EditText
+        android:id="@+id/horarioDia1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Hora: "
+        android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@+id/dia1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.108" />
+        app:layout_constraintTop_toTopOf="@id/dia1" />
 
     <TextView
         android:id="@+id/dia2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
-        android:text="Hasta (día)"
+        android:text="Hasta"
         android:textColor="#000000"
         android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dia1" />
+        app:layout_constraintTop_toBottomOf="@id/dia1" />
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="136dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toEndOf="@+id/dia2"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerProduct" />
+    <EditText
+        android:id="@+id/horarioDia2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Hora: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/dia2"
+        app:layout_constraintTop_toTopOf="@id/dia2" />
+
+    <TextView
+        android:id="@+id/anuncio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Sábado y Domingo: "
+        android:textColor="#572364"
+        android:textSize="30dp"
+        app:layout_constraintTop_toBottomOf="@id/dia2"
+        tools:layout_editor_absoluteX="7dp" />
+
+    <TextView
+        android:id="@+id/dia3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="De (sábado): "
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:layout_constraintTop_toBottomOf="@id/anuncio2" />
+
+    <EditText
+        android:id="@+id/horarioDia3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Hora: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/dia3"
+        app:layout_constraintTop_toTopOf="@id/dia3" />
+
+    <TextView
+        android:id="@+id/dia4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Hasta (domingo): "
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:layout_constraintTop_toBottomOf="@id/dia3" />
+
+    <EditText
+        android:id="@+id/horarioDia4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Hora: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/dia4"
+        app:layout_constraintTop_toTopOf="@id/dia4" />
 
 
 

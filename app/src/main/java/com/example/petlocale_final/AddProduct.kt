@@ -19,8 +19,14 @@ class AddProduct : AppCompatActivity() {
     //Tipos de mascota
     val tipos = arrayOf("Gato", "Perro")
 
+    //Tipos de mascota
+    val categorias = arrayOf("Medicina", "Accesorios", "Juguetes", "Ropa","Alimentos", "Higiene", "Limpieza" )
+
     //Variable para guardar el tipo
     private lateinit var tipo_mascota : String
+
+    //Variable para guardar la categoria
+    private lateinit var categoria_mascota : String
 
     //Variable para el nombre de la veterinaria
     private lateinit var nombre_veterinaria : String
@@ -42,7 +48,7 @@ class AddProduct : AppCompatActivity() {
             nombre_veterinaria = nombreVeterinariaXD.text.toString()
         }
 
-        //Spinner
+        //Spinner 1 - tipo de mascota
         val spinner = findViewById<Spinner>(R.id.spinnerProduct)
         val arrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, tipos)
         spinner.adapter = arrayAdapter
@@ -59,6 +65,25 @@ class AddProduct : AppCompatActivity() {
 
         }
 
+
+        //Spinner 2 - categorias
+        val spinnerCategoria = findViewById<Spinner>(R.id.spinnerProduct2)
+        val arrayAdapterCategoria = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, categorias)
+        spinnerCategoria.adapter = arrayAdapterCategoria
+
+        spinnerCategoria.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                //Variable para guardar el tipo
+                categoria_mascota = categorias[p2]
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                categoria_mascota = categorias[0]
+            }
+
+        }
+
+
         addProductButton2.setOnClickListener {
 
             if(nombreDeleteProduct.text.isNotEmpty() &&
@@ -72,7 +97,8 @@ class AddProduct : AppCompatActivity() {
                         "descripcion" to descripcionProduct.text.toString(),
                         "tipo" to tipo_mascota,
                         "cantidad" to costoProduct2.text.toString(),
-                        "nombre_veterinaria" to nombre_veterinaria
+                        "nombre_veterinaria" to nombre_veterinaria,
+                        "categoria" to categoria_mascota
                     ))
                 startActivity(Intent(this, VeterinariaMainProductos::class.java).putExtra("Nombre", Nombre ))
             }

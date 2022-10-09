@@ -40,15 +40,16 @@
         app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2Product"
         tools:layout_editor_absoluteX="56dp" />
 
-    <TextView
-        android:textSize="22dp"
+    <EditText
         android:id="@+id/nombreUserInfo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="256dp"
+        android:editable="true"
         android:text="Nombre"
         android:textColor="#000000"
+        android:textSize="22dp"
         app:layout_constraintStart_toEndOf="@+id/nombreUserInfo"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,14 +87,14 @@
         app:layout_constraintTop_toBottomOf="@+id/emailUserInfo2XD"
         tools:layout_editor_absoluteX="56dp" />
 
-    <TextView
+    <EditText
         android:textSize="22dp"
         android:id="@+id/emailDetailed2Product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
-        android:text="Descripción"
+        android:text="Email"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/emailDetailedProduct"
         app:layout_constraintTop_toBottomOf="@+id/yearsDetailed2Product" />
@@ -105,10 +106,31 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="precio"
+        android:text="No disponible"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/mascotasUserInfo"
         app:layout_constraintTop_toBottomOf="@+id/emailUserInfo2XD" />
+
+    <Button
+        android:id="@+id/buttonGuardarInfoVeterinaria"
+        android:layout_width="236dp"
+        android:layout_height="70dp"
+        android:text="Guardar!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailDetailed2Product"
+        app:layout_constraintVertical_bias="0.278" />
+
+    <TextView
+        android:id="@+id/passwordFBVet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="19dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

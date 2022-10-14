@@ -24,15 +24,25 @@ class UsuarioMainProductosInfo : AppCompatActivity() {
 
         var nit_product = objetoIntent.getStringExtra("nit")
 
+        var email = objetoIntent.getStringExtra("email")
+
         db.collection("veterinarias")
-            .document(nit_product.toString()).collection("productos").document(nombre_producto.toString()).get().addOnSuccessListener {
+            .document(nit_product.toString())
+            .collection("productos")
+            .document(nombre_producto.toString())
+            .get().addOnSuccessListener {
            main_name_product_detailed_info2.setText(it.get("nombre") as String?)
             main_name_vet_product_detailed_info2.setText(it.get("nombre_veterinaria") as String?)
             main_precio_product_detailed_info2.setText(it.get("precio") as String?)
         }
 
         rateButton.setOnClickListener {
-            startActivity(Intent(this, RateProduct::class.java).putExtra("nit", nit_product ))
+            val intent = Intent(this@UsuarioMainProductosInfo, RateProduct::class.java)
+            intent.putExtra("nombre_veterinaria", nombre_veterinaria)
+            intent.putExtra("nombre_producto", nombre_producto)
+            intent.putExtra("nit", nit_product)
+            intent.putExtra("email", email)
+            startActivity(intent)
         }
     }
 

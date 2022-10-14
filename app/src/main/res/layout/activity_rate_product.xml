@@ -6,4 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".RateProduct">
 
+    <RatingBar
+        android:id="@+id/ratingBarProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="515dp"
+        app:layout_constraintTop_toBottomOf="@id/rating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:rating="4"
+        android:stepSize="1"
+        android:progressBackgroundTint="@color/black"
+        android:progressTint="@android:color/holo_orange_dark"
+        />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="227dp"
+        android:layout_height="182dp"
+        android:layout_marginStart="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:srcCompat="@mipmap/petlocaleicon" />
+
+    <TextView
+        android:id="@+id/Reseña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Reseña"
+        android:textColor="#572364"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="270dp"
+        app:layout_constraintTop_toBottomOf="@id/imageView"/>
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calificación"
+        android:textColor="#572364"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="406dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reseña2"/>
+
+    <EditText
+        android:id="@+id/reseña2"
+        android:layout_width="386dp"
+        android:layout_height="98dp"
+        android:hint="¡Escribe aquí tu reseña!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Reseña" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/guardarRatingButton"
+        android:layout_width="172dp"
+        android:layout_height="43dp"
+        android:backgroundTint="#388E3C"
+        android:text="Guardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancelarRatingButton"
+        android:layout_width="142dp"
+        android:layout_height="45dp"
+        android:backgroundTint="#D32F2F"
+        android:text="Cancelar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calificando el producto:"
+        android:textColor="#572364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cancelarRatingButton" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/cancelarRatingButton" />
+
+    <TextView
+        android:id="@+id/calificacion_producto_firebase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="471dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

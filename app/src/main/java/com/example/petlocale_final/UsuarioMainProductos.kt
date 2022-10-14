@@ -67,6 +67,7 @@ class UsuarioMainProductos : AppCompatActivity() {
                 intent.putExtra("nombre_veterinaria", nombre_veterinaria)
                 intent.putExtra("nombre_producto", nombre_producto)
                 intent.putExtra("nit", nit_product)
+                intent.putExtra("email", email)
 
                 startActivity(intent)
 

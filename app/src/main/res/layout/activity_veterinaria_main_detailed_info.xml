@@ -7,10 +7,10 @@
     tools:context=".VeterinariaMainDetailedInfo">
 
     <ImageView
-        android:id="@+id/picHorariosINfo"
+        android:id="@+id/main_product_detailed"
         android:layout_width="294dp"
         android:layout_height="222dp"
-        app:layout_constraintBottom_toBottomOf="@+id/nombreUserInfo"
+        app:layout_constraintBottom_toBottomOf="@+id/main_name_product_detailed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
 
     <TextView
         android:textSize="22dp"
-        android:id="@+id/nombreUserInfo"
+        android:id="@+id/main_name_product_detailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="256dp"
@@ -41,7 +41,7 @@
         tools:layout_editor_absoluteX="56dp" />
 
     <EditText
-        android:id="@+id/nombreUserInfo2"
+        android:id="@+id/main_name_product_detailed2XD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -50,31 +50,31 @@
         android:text="Nombre"
         android:textColor="#000000"
         android:textSize="22dp"
-        app:layout_constraintStart_toEndOf="@+id/nombreUserInfo"
+        app:layout_constraintStart_toEndOf="@+id/main_name_product_detailed"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:textSize="22dp"
-        android:id="@+id/emailUserInfo"
+        android:id="@+id/main_name_vet_product_detailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="NIT"
         android:textColor="#572364"
-        app:layout_constraintTop_toBottomOf="@+id/nombreUserInfo2"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_product_detailed2XD"
         tools:layout_editor_absoluteX="56dp" />
 
     <TextView
         android:textSize="22dp"
-        android:id="@+id/emailUserInfo2XD"
+        android:id="@+id/main_name_vet_product_detailed2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="Tipo"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/emailUserInfo"
-        app:layout_constraintTop_toBottomOf="@+id/nombreUserInfo2" />
+        app:layout_constraintStart_toEndOf="@+id/main_name_vet_product_detailed"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_product_detailed2XD" />
 
     <TextView
         android:textSize="22dp"
@@ -84,7 +84,7 @@
         android:layout_marginTop="8dp"
         android:text="Experiencia: "
         android:textColor="#572364"
-        app:layout_constraintTop_toBottomOf="@+id/emailUserInfo2XD"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_vet_product_detailed2"
         tools:layout_editor_absoluteX="56dp" />
 
     <EditText
@@ -109,7 +109,7 @@
         android:text="No disponible"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/mascotasUserInfo"
-        app:layout_constraintTop_toBottomOf="@+id/emailUserInfo2XD" />
+        app:layout_constraintTop_toBottomOf="@+id/main_name_vet_product_detailed2" />
 
     <Button
         android:id="@+id/buttonGuardarInfoVeterinaria"

@@ -71,4 +71,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.892" />
+
+    <TextView
+        android:id="@+id/email_user_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="23dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

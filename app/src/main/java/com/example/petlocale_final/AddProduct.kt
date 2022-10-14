@@ -98,7 +98,8 @@ class AddProduct : AppCompatActivity() {
                         "tipo" to tipo_mascota,
                         "cantidad" to costoProduct2.text.toString(),
                         "nombre_veterinaria" to nombre_veterinaria,
-                        "categoria" to categoria_mascota
+                        "categoria" to categoria_mascota,
+                        "nit" to Nombre
                     ))
                 startActivity(Intent(this, VeterinariaMainProductos::class.java).putExtra("Nombre", Nombre ))
             }

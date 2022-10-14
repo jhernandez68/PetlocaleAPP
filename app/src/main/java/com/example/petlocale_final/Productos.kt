@@ -6,6 +6,7 @@ data class Productos(val nombre:String ?= null,
                      val cantidad : String ?= null,
                      val descripcion : String ?= null,
                      val categoria : String ?= null,
-                     val nombre_veterinaria: String ?= null) {
+                     val nombre_veterinaria: String ?= null,
+                     val nit: String ?= null) {
 
 }

@@ -11,4 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <TextView
+        android:id="@+id/tipo_mascota_productos_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="308dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

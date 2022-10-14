@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
@@ -14,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nombreUserInfo"
+        android:id="@+id/main_name_product_detailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#572364"
@@ -23,31 +24,31 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nombreUserInfo2"
+        android:id="@+id/main_name_product_detailed2XD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/nombreUserInfo"
+        app:layout_constraintStart_toEndOf="@+id/main_name_product_detailed"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/emailUserInfo"
+        android:id="@+id/main_name_vet_product_detailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tipo: "
         android:textColor="#572364"
         app:layout_constraintStart_toEndOf="@+id/ivProducto"
-        app:layout_constraintTop_toBottomOf="@+id/nombreUserInfo2" />
+        app:layout_constraintTop_toBottomOf="@+id/main_name_product_detailed2XD" />
 
     <TextView
-        android:id="@+id/emailUserInfo2XD"
+        android:id="@+id/main_name_vet_product_detailed2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tipo"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/emailUserInfo"
-        app:layout_constraintTop_toBottomOf="@+id/nombreUserInfo2" />
+        app:layout_constraintStart_toEndOf="@+id/main_name_vet_product_detailed"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_product_detailed2XD" />
 
     <TextView
         android:id="@+id/mascotasUserInfo"
@@ -56,7 +57,7 @@
         android:text="Costo: "
         android:textColor="#572364"
         app:layout_constraintStart_toEndOf="@+id/ivProducto"
-        app:layout_constraintTop_toBottomOf="@+id/emailUserInfo2XD" />
+        app:layout_constraintTop_toBottomOf="@+id/main_name_vet_product_detailed2" />
 
     <TextView
         android:id="@+id/yearsDetailed2Product"
@@ -65,7 +66,7 @@
         android:text="precio"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/mascotasUserInfo"
-        app:layout_constraintTop_toBottomOf="@+id/emailUserInfo2XD" />
+        app:layout_constraintTop_toBottomOf="@+id/main_name_vet_product_detailed2" />
 
 
     <TextView
@@ -121,5 +122,14 @@
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/categoriaService"
         app:layout_constraintTop_toBottomOf="@+id/nameVeterinariaXD" />
+
+    <TextView
+        android:id="@+id/nit_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="110dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

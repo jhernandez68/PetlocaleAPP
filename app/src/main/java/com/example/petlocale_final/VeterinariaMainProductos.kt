@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petlocale_final.adapter.ProductosAdapter
@@ -50,7 +51,13 @@ class VeterinariaMainProductos : AppCompatActivity() {
 
         recyclerView.adapter = myAdapter
 
+        myAdapter.setOnClickItemListener(object : ProductosAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+                var xd = tempArrayList[position].nombre
+                Toast.makeText(this@VeterinariaMainProductos, "item $xd", Toast.LENGTH_SHORT).show()
+            }
 
+        })
 
         EventChangeListener()
 

@@ -33,8 +33,8 @@ class ServiciosAdapter (private val serviciosList : ArrayList<Servicio>): Recycl
     }
 
     public class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        val nombre : TextView = itemView.findViewById(R.id.nombreUserInfo2)
-        val tipo : TextView = itemView.findViewById(R.id.emailUserInfo2XD)
+        val nombre : TextView = itemView.findViewById(R.id.main_name_product_detailed2XD)
+        val tipo : TextView = itemView.findViewById(R.id.main_name_vet_product_detailed2)
         val precio: TextView = itemView.findViewById(R.id.yearsDetailed2Product)
         val descripcion: TextView = itemView.findViewById(R.id.emailDetailed2Product)
         val nombre_veterinaria : TextView = itemView.findViewById(R.id.nameVeterinaria2XD)

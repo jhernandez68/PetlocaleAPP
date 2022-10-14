@@ -27,6 +27,8 @@ class VeterinariaMainServicios : AppCompatActivity() {
 
     private lateinit var Nombre2 : String
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_veterinaria_main_servicios)

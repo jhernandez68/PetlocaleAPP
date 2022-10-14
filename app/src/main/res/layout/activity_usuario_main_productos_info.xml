@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UsuarioMainInfo">
-
+    tools:context=".UsuarioMainProductosInfo">
 
     <ImageView
         android:id="@+id/main_product_detailed"
         android:layout_width="294dp"
         android:layout_height="222dp"
-        app:layout_constraintBottom_toBottomOf="@+id/main_name_product_detailed"
+        app:layout_constraintBottom_toBottomOf="@+id/main_name_product_detailed_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,95 +19,93 @@
         app:srcCompat="@mipmap/petlocaleicon" />
 
     <TextView
-        android:id="@+id/main_name_product_detailed"
+        android:textSize="22dp"
+        android:id="@+id/main_name_product_detailed_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="256dp"
         android:text="Nombre: "
         android:textColor="#572364"
-        android:textSize="22dp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="56dp" />
 
-
-    <EditText
-        android:id="@+id/main_name_product_detailed2XD"
-        android:layout_width="245dp"
-        android:layout_height="43dp"
+    <TextView
+        android:id="@+id/main_name_product_detailed_info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="256dp"
         android:text="Nombre"
         android:textColor="#000000"
         android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/main_name_product_detailed"
+        app:layout_constraintStart_toEndOf="@+id/main_name_product_detailed_info"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/main_name_vet_product_detailed"
+        android:textSize="22dp"
+        android:id="@+id/main_name_vet_product_detailed_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Email"
+        android:text="Veterinaria"
         android:textColor="#572364"
-        android:textSize="22dp"
-        app:layout_constraintTop_toBottomOf="@+id/main_name_product_detailed2XD"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_product_detailed_info2"
         tools:layout_editor_absoluteX="56dp" />
 
     <TextView
-        android:id="@+id/main_name_vet_product_detailed2"
+        android:textSize="22dp"
+        android:id="@+id/main_name_vet_product_detailed_info2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Correo"
+        android:text="Veterinaria"
         android:textColor="#000000"
-        android:textSize="22dp"
-        app:layout_constraintStart_toEndOf="@+id/main_name_vet_product_detailed"
-        app:layout_constraintTop_toBottomOf="@+id/main_name_product_detailed2XD" />
+        app:layout_constraintStart_toEndOf="@+id/main_name_vet_product_detailed_info"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_product_detailed_info2" />
 
     <TextView
-        android:id="@+id/mascotasUserInfo"
+        android:textSize="22dp"
+        android:id="@+id/main_precio_product_detailed_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Mascotas: "
+        android:layout_marginTop="16dp"
+        android:text="Precio"
         android:textColor="#572364"
-        android:textSize="22dp"
-        app:layout_constraintTop_toBottomOf="@+id/main_name_vet_product_detailed2"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_vet_product_detailed_info2"
         tools:layout_editor_absoluteX="56dp" />
 
-
-    <Spinner
-        android:id="@+id/spinnerMascota"
-        android:layout_width="165dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mascotasUserInfo"
-        app:layout_constraintTop_toBottomOf="@+id/main_name_vet_product_detailed2" />
-
-    <Button
-        android:id="@+id/guardarInfoUserButton"
+    <TextView
+        android:textSize="22dp"
+        android:id="@+id/main_precio_product_detailed_info2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guardar!"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Precio"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/main_precio_product_detailed_info"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_vet_product_detailed_info2" />
+
+    <Button
+        android:id="@+id/rateButton"
+        android:layout_width="244dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="24dp"
+        android:text="Calificar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerMascota"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintTop_toBottomOf="@+id/main_precio_product_detailed_info"
+        app:layout_constraintVertical_bias="0.148" />
 
     <TextView
-        android:id="@+id/infoTipoMascotaFirebase"
+        android:id="@+id/nit_usuario_main_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guardarInfoUserButton" />
-
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

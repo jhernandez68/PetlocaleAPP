@@ -10,7 +10,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_usuario_main_info.*
-import kotlinx.android.synthetic.main.activity_usuario_main_info.nombreUserInfo2
+import kotlinx.android.synthetic.main.activity_usuario_main_info.main_name_product_detailed2XD
 
 class UsuarioMainInfo : AppCompatActivity() {
 
@@ -25,7 +25,7 @@ class UsuarioMainInfo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_usuario_main_info)
 
-        //Se obtiene el nit
+        //Se obtiene el email
         val objetoIntent: Intent = intent
 
         var email = objetoIntent.getStringExtra("email")
@@ -58,27 +58,25 @@ class UsuarioMainInfo : AppCompatActivity() {
 
         }
 
-
-
         db.collection("usuarios").document(email.toString()).get().addOnSuccessListener {
-            nombreUserInfo2.setText(it.get("nombre") as String?)
-            emailUserInfo2XD.setText(it.get("email") as String?)
-            nombreUserInfo2.setText(it.get("nombre") as String?)
+            main_name_product_detailed2XD.setText(it.get("nombre") as String?)
+            main_name_vet_product_detailed2.setText(it.get("email") as String?)
+            main_name_product_detailed2XD.setText(it.get("nombre") as String?)
         }
 
-        if(nombreUserInfo2.text.isNotEmpty()){
+        if(main_name_product_detailed2XD.text.isNotEmpty()){
             guardarInfoUserButton.setOnClickListener {
                 db.collection("usuarios").document(email.toString()).set(
                     hashMapOf(
                         "email" to email.toString(),
                         "tipo_mascota" to tipo_mascota,
-                        "nombre" to nombreUserInfo2.text.toString()
+                        "nombre" to main_name_product_detailed2XD.text.toString()
                     ))
                 startActivity(Intent(this, MainActivity::class.java).putExtra("email", email ))
             }
         }
 
-        if(nombreUserInfo2.text.isEmpty()){
+        if(main_name_product_detailed2XD.text.isEmpty()){
             Toast.makeText(this, "¡Rellena todos los campos!", Toast.LENGTH_LONG).show()
         }
     }

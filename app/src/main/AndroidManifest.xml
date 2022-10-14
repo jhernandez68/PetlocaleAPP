@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Petlocale_final">
         <activity
+            android:name=".UsuarioMainProductosInfo"
+            android:exported="true" />
+        <activity
+            android:name=".RateProduct"
+            android:exported="true" />
+        <activity
             android:name=".UsuarioMainVeterinarias"
             android:exported="true" />
         <activity

@@ -45,6 +45,4 @@ class UsuarioMainProductosInfo : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-
 }

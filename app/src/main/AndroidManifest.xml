@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Petlocale_final">
         <activity
+            android:name=".RateService"
+            android:exported="true" />
+        <activity
+            android:name=".UsuarioMainServiciosInfo"
+            android:exported="true" />
+        <activity
             android:name=".UsuarioMainProductosInfo"
             android:exported="true" />
         <activity

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UsuarioMainServiciosInfo">
+
+
+    <ImageView
+        android:id="@+id/main_service_detailed"
+        android:layout_width="294dp"
+        android:layout_height="222dp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_name_service_detailed_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077"
+        app:srcCompat="@mipmap/petlocaleicon" />
+
+    <TextView
+        android:textSize="22dp"
+        android:id="@+id/main_name_service_detailed_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="256dp"
+        android:text="Nombre: "
+        android:textColor="#572364"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="56dp" />
+
+    <TextView
+        android:id="@+id/main_name_service_detailed_info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="256dp"
+        android:text="Nombre"
+        android:textColor="#000000"
+        android:textSize="22dp"
+        app:layout_constraintStart_toEndOf="@+id/main_name_service_detailed_info"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:textSize="22dp"
+        android:id="@+id/main_name_vet_service_detailed_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Veterinaria"
+        android:textColor="#572364"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_service_detailed_info2"
+        tools:layout_editor_absoluteX="56dp" />
+
+    <TextView
+        android:textSize="22dp"
+        android:id="@+id/main_name_vet_service_detailed_info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Veterinaria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/main_name_vet_service_detailed_info"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_service_detailed_info2" />
+
+    <TextView
+        android:textSize="22dp"
+        android:id="@+id/main_precio_service_detailed_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Precio"
+        android:textColor="#572364"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_vet_service_detailed_info2"
+        tools:layout_editor_absoluteX="56dp" />
+
+    <TextView
+        android:textSize="22dp"
+        android:id="@+id/main_precio_service_detailed_info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Precio"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/main_precio_service_detailed_info"
+        app:layout_constraintTop_toBottomOf="@+id/main_name_vet_service_detailed_info2" />
+
+    <Button
+        android:id="@+id/rateButtonService"
+        android:layout_width="244dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="24dp"
+        android:text="Calificar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_precio_service_detailed_info"
+        app:layout_constraintVertical_bias="0.148" />
+
+    <Button
+        android:id="@+id/compararButtonService"
+        android:layout_width="244dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="24dp"
+        android:text="Comparar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_precio_service_detailed_info"
+        app:layout_constraintVertical_bias="0.431" />
+
+    <TextView
+        android:id="@+id/nit_usuario_main_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

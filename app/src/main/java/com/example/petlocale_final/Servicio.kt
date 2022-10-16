@@ -5,4 +5,5 @@ data class Servicio (var nombre:String ?= null,
                      var precio:String ?= null,
                      var descripcion: String?=null,
                      val categoria : String ?= null,
-                     val nombre_veterinaria: String ?= null)
+                     val nombre_veterinaria: String ?= null,
+                     val nit: String ?= null)

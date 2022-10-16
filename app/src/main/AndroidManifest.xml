@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Petlocale_final">
         <activity
+            android:name=".UsuarioMainProductosInfoOpiniones"
+            android:exported="true" />
+        <activity
             android:name=".RateService"
             android:exported="true" />
         <activity

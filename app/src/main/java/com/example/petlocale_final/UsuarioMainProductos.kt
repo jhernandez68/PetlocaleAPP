@@ -63,7 +63,7 @@ class UsuarioMainProductos : AppCompatActivity() {
                 var nombre_producto = tempArrayList[position].nombre
                 var nit_product = tempArrayList[position].nit
 
-                val intent = Intent(this@UsuarioMainProductos, UsuarioMainServiciosInfo::class.java)
+                val intent = Intent(this@UsuarioMainProductos, UsuarioMainProductosInfo::class.java)
                 intent.putExtra("nombre_veterinaria", nombre_veterinaria)
                 intent.putExtra("nombre_producto", nombre_producto)
                 intent.putExtra("nit", nit_product)
@@ -100,7 +100,6 @@ class UsuarioMainProductos : AppCompatActivity() {
                 if (searchText.isNotEmpty()){
                     productoArrayList.forEach{
                         if(it.nombre?.toLowerCase(Locale.getDefault())!!.contains(searchText)){
-
                             tempArrayList.add(it)
                         }
                     }

@@ -81,7 +81,7 @@ class RateProduct : AppCompatActivity() {
                         hashMapOf(
                             "producto" to nombre_producto.toString(),
                             "reseña" to reseña2.text.toString(),
-                            "calificación" to ratingBar.rating.toString()
+                            "calificacion" to ratingBar.rating.toString()
                         )
                     )
 
@@ -97,7 +97,7 @@ class RateProduct : AppCompatActivity() {
                             "usuario" to email.toString(),
                             "producto" to nombre_producto.toString(),
                             "reseña" to reseña2.text.toString(),
-                            "calificación" to ratingBar.rating.toString()
+                            "calificacion" to ratingBar.rating.toString()
                         )
                     )
                 //Se pasa a la nueva actividad

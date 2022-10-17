@@ -33,7 +33,7 @@ class Registro : AppCompatActivity() {
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(editTextTextEmailAddress.text.toString()
                         , editTextTextPassword.text.toString()).addOnCompleteListener{
                         if(it.isSuccessful){
-                            showMain()
+                            startActivity(Intent(this, Logeo::class.java))
                         }else{
                             showAlert()
                         }

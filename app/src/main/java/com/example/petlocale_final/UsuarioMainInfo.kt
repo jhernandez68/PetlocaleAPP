@@ -48,7 +48,13 @@ class UsuarioMainInfo : AppCompatActivity() {
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                     //Variable para guardar el tipo
-                    tipo_mascota = tipos[p2]
+                    if(p2 != 0){
+                        tipo_mascota = tipos[p2]
+                    }
+
+                    if(p2 == 0){
+                        tipo_mascota = XDD
+                    }
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {

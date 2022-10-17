@@ -9,11 +9,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/petlocaleicon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Petlocale_final">
+        <activity
+            android:name=".UsuarioMainServiciosInfoOpiniones"
+            android:exported="true" />
         <activity
             android:name=".UsuarioMainProductosInfoOpiniones"
             android:exported="true" />

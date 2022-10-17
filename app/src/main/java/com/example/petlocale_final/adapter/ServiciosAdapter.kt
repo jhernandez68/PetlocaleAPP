@@ -26,7 +26,7 @@ class ServiciosAdapter (private val serviciosList : ArrayList<Servicio>): Recycl
         viewType: Int
     ): ServiciosAdapter.MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_servicio, parent, false)
-        return MyViewHolder(itemView, mListener)
+        return ServiciosAdapter.MyViewHolder(itemView, mListener)
     }
 
 
@@ -34,14 +34,13 @@ class ServiciosAdapter (private val serviciosList : ArrayList<Servicio>): Recycl
         return serviciosList.size
     }
 
-
     public class MyViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
-        val nombre : TextView = itemView.findViewById(R.id.main_name_product_detailed2XD)
-        val tipo : TextView = itemView.findViewById(R.id.main_name_vet_product_detailed2)
-        val precio: TextView = itemView.findViewById(R.id.yearsDetailed2Product)
-        val descripcion: TextView = itemView.findViewById(R.id.emailDetailed2Product)
-        val nombre_veterinaria : TextView = itemView.findViewById(R.id.nameVeterinaria2XD)
-        val categoria : TextView = itemView.findViewById(R.id.categoriaService2)
+        val nombre : TextView = itemView.findViewById(R.id.main_name_servicio_detailed2XD)
+        val tipo : TextView = itemView.findViewById(R.id.main_name_vet_servicio_detailed2)
+        val precio: TextView = itemView.findViewById(R.id.yearsDetailed2Servicio)
+        val descripcion: TextView = itemView.findViewById(R.id.emailDetailed2Servicio)
+        val nombre_veterinaria : TextView = itemView.findViewById(R.id.nameVeterinaria2XDServicio)
+        val categoria : TextView = itemView.findViewById(R.id.categoriaServicio2)
         val nit : TextView = itemView.findViewById(R.id.nit_service)
 
         init {
@@ -61,8 +60,5 @@ class ServiciosAdapter (private val serviciosList : ArrayList<Servicio>): Recycl
         holder.categoria.text = servicio.categoria
         holder.nit.text = servicio.nit
     }
-
-
-
 
 }

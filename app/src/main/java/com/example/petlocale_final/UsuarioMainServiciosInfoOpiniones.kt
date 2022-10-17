@@ -5,17 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petlocale_final.adapter.OpinionesAdapter
 import com.google.firebase.firestore.*
-import kotlinx.android.synthetic.main.activity_usuario_main_productos_info.*
-import kotlinx.android.synthetic.main.activity_usuario_main_productos_info_opiniones.*
-import kotlin.collections.ArrayList
+import kotlinx.android.synthetic.main.activity_usuario_main_servicios_info_opiniones.*
 
-class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
-
+class UsuarioMainServiciosInfoOpiniones : AppCompatActivity() {
     //Variables para hacer el recyclerview
     private lateinit var tempArrayList : ArrayList<Opinion>
     private lateinit var recyclerView: RecyclerView
@@ -26,7 +22,7 @@ class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
 
     //Variable para guardar el correo de usuario
     private lateinit var correo : String
-    private lateinit var nombreproducto : String
+    private lateinit var nombreservicio : String
     private lateinit var nombreveterinaria : String
     private lateinit var nitfb : String
     private lateinit var tamaño : String
@@ -34,18 +30,19 @@ class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_usuario_main_productos_info_opiniones)
+        setContentView(R.layout.activity_usuario_main_servicios_info_opiniones)
 
         //Se trae los datos de la veterinaria
         val objetoIntent: Intent = intent
 
-        var nombre_producto = objetoIntent.getStringExtra("nombre_producto")
+        var nombre_servicio = objetoIntent.getStringExtra("nombre_servicio")
 
         var nombre_veterinaria = objetoIntent.getStringExtra("nombre_veterinaria")
 
-        var nit_product = objetoIntent.getStringExtra("nit")
+        var nit_servicio = objetoIntent.getStringExtra("nit")
 
         var email = objetoIntent.getStringExtra("email")
+
 
         //Se asignan para usar globalmente.
 
@@ -53,12 +50,14 @@ class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
 
         nombreveterinaria = nombre_veterinaria.toString()
 
-        nitfb = nit_product.toString()
-        nombreproducto = nombre_producto.toString()
+        nitfb = nit_servicio.toString()
+
+        nombreservicio = nombre_servicio.toString()
+
 
         //Lógica del recylclerview
 
-        recyclerView = findViewById(R.id.recyclerViewOpiniones)
+        recyclerView = findViewById(R.id.recyclerViewOpinionesServicio)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
@@ -72,9 +71,9 @@ class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
 
         EventChangeListener()
 
-        main_name_product_detailed_info2_opiniones.setText(nombre_producto.toString())
+        main_name_servicio_detailed_info2_opiniones.setText(nombre_servicio.toString())
 
-        main_name_vet_product_detailed_info2_opiniones.setText(nombre_veterinaria.toString())
+        main_name_vet_servicio_detailed_info2_opiniones.setText(nombre_veterinaria.toString())
 
 
     }
@@ -86,8 +85,8 @@ class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
 
         db.collection("veterinarias")
             .document(nitfb.toString())
-            .collection("productos")
-            .document(nombreproducto.toString())
+            .collection("servicios")
+            .document(nombreservicio.toString())
             .collection("reseñas")
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(
@@ -106,7 +105,7 @@ class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
                     tempArrayList.addAll(opinionArrayList)
 
                     if(opinionArrayList.size > 0){
-                        cantidad_opiniones_producto2.setText(tempArrayList.size.toString())
+                        cantidad_opiniones_servicio2.setText(tempArrayList.size.toString())
 
                         var contador : Int = 0
 
@@ -121,12 +120,11 @@ class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
 
                         total = sumatoria / opinionArrayList.size
 
-                        main_precio_product_detailed_info2_opiniones.setText(total.toString())
+                        main_precio_servicio_detailed_info2_opiniones.setText(total.toString())
                     }
 
                     myAdapter.notifyDataSetChanged()
                 }
             })
     }
-
 }

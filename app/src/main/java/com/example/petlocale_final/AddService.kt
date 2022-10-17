@@ -98,7 +98,8 @@ class AddService : AppCompatActivity() {
                         "descripcion" to descripcionProduct.text.toString(),
                         "tipo" to tipo_mascota,
                         "nombre_veterinaria" to nombre_veterinaria,
-                        "categoria" to categoria_mascota
+                        "categoria" to categoria_mascota,
+                        "nit" to Nombre.toString()
                     ))
                 startActivity(Intent(this, VeterinariaMainServicios::class.java).putExtra("Nombre", Nombre ))
             }

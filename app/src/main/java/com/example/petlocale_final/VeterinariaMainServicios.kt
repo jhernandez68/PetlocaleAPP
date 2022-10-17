@@ -5,14 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.petlocale_final.adapter.ProductosAdapter
 import com.example.petlocale_final.adapter.ServiciosAdapter
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
-import kotlinx.android.synthetic.main.activity_veterinaria_main_productos.*
 import kotlinx.android.synthetic.main.activity_veterinaria_main_servicios.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -27,8 +27,6 @@ class VeterinariaMainServicios : AppCompatActivity() {
 
     private lateinit var Nombre2 : String
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_veterinaria_main_servicios)
@@ -41,7 +39,7 @@ class VeterinariaMainServicios : AppCompatActivity() {
 
         Nombre2 = Nombre.toString()
 
-        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView = findViewById(R.id.recyclerViewServicios)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
@@ -53,6 +51,14 @@ class VeterinariaMainServicios : AppCompatActivity() {
         myAdapter = ServiciosAdapter(tempArrayList)
 
         recyclerView.adapter = myAdapter
+
+        myAdapter.setOnClickItemListener(object : ServiciosAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+                var xd = tempArrayList[position].nombre
+                Toast.makeText(this@VeterinariaMainServicios, "item $xd", Toast.LENGTH_SHORT).show()
+            }
+
+        })
 
         EventChangeListener()
 
@@ -69,8 +75,6 @@ class VeterinariaMainServicios : AppCompatActivity() {
         }
     }
 
-
-    //Lógica para filtrar
     //Lógica para filtrar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
@@ -111,6 +115,7 @@ class VeterinariaMainServicios : AppCompatActivity() {
 
         return super.onCreateOptionsMenu(menu)
     }
+
 
     //Lógica de FB
     private fun EventChangeListener() {

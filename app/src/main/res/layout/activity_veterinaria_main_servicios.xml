@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"  />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewServicios"
         android:layout_width="405dp"
         android:layout_height="668dp"
         app:layout_constraintStart_toStartOf="@id/addServiceButton"

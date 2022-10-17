@@ -23,5 +23,9 @@ class VeterinariaMainInfo : AppCompatActivity() {
         datosButton.setOnClickListener {
             startActivity(Intent(this, VeterinariaMainDetailedInfo::class.java).putExtra("Nombre",  nit))
         }
+
+        UbicacionButton.setOnClickListener {
+            startActivity(Intent(this, VeterinariaMainMaps::class.java).putExtra("Nombre",  nit))
+        }
     }
 }

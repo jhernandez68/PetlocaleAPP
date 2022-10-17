@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Petlocale</string>
     <string name="prefs_file">com.example.petlocale_final.PREFERENCE_FILE_KEY </string>
+    <string name="title_activity_maps2">MapsActivity2</string>
 </resources>

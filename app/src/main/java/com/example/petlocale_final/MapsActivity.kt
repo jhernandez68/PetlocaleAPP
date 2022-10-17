@@ -13,6 +13,12 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.Marker
+
+import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener
+
+
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener {
 
@@ -38,15 +44,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         map = googleMap
         createMarker()
         enableLocation()
+        map.setOnMarkerDragListener(object : OnMarkerDragListener {
+            override fun onMarkerDragStart(marker: Marker) {}
+            override fun onMarkerDragEnd(marker: Marker) {}
+            override fun onMarkerDrag(marker: Marker) {}
+        })
+
     }
 
     private fun createMarker(){
         val coordinates = LatLng(4.494263200850947, -74.25779643356155)
-        val marker = MarkerOptions().position(coordinates).title("Veterinaria")
+        val marker = MarkerOptions().position(coordinates).title("Veterinaria").draggable(true)
         map.addMarker(marker)
         map.animateCamera(
                 CameraUpdateFactory.newLatLngZoom(coordinates, 18f),4000, null
         )
+
+
+        Toast.makeText(this, "${marker.position.latitude}", Toast.LENGTH_SHORT).show()
+
     }
 
     private fun isLocationPermissionGranted() =

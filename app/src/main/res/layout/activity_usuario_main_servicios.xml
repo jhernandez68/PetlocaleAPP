@@ -8,9 +8,25 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewUserService"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="378dp"
+        android:layout_height="602dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerFiltrarCategoriaServicio"
+        app:layout_constraintVertical_bias="0.097"
+        />
 
+
+    <Spinner
+        android:id="@+id/spinnerFiltrarCategoriaServicio"
+        android:layout_width="197dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/tipo_mascota_servicios_usuario"
@@ -20,6 +36,18 @@
         android:visibility="invisible"
         tools:layout_editor_absoluteX="164dp"
         tools:layout_editor_absoluteY="286dp" />
+
+    <Button
+        android:id="@+id/searchCategoriaServicio"
+        android:layout_width="99dp"
+        android:layout_height="42dp"
+        android:text="Filtrar"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewUserService"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintStart_toEndOf="@+id/spinnerFiltrarCategoriaServicio"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.421" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

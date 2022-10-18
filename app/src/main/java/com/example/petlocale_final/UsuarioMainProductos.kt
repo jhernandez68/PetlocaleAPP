@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +36,12 @@ class UsuarioMainProductos : AppCompatActivity() {
     //Variable para guardar el correo de usuario
     private lateinit var correo : String
 
+    //Tipos de mascota
+    var categorias = arrayOf("Filtrar - Todos", "Medicina", "Accesorios", "Juguetes", "Ropa","Alimentos", "Higiene", "Limpieza" )
+
+    //Variable para guardar la categoria
+    private lateinit var categoria_mascota : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_usuario_main_productos)
@@ -55,6 +65,28 @@ class UsuarioMainProductos : AppCompatActivity() {
         myAdapter = ProductosAdapter(tempArrayList)
 
         recyclerView.adapter = myAdapter
+
+
+        //Spinner - categorias
+        val spinnerCategoria = findViewById<Spinner>(R.id.spinnerFiltrarCategoria)
+        val arrayAdapterCategoria = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, categorias)
+        spinnerCategoria.adapter = arrayAdapterCategoria
+
+        spinnerCategoria.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                //Variable para guardar el tipo
+                categoria_mascota = categorias[p2]
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                categoria_mascota = categorias[0]
+            }
+
+        }
+
+        searchCategoriaProducto.setOnClickListener {
+            FiltroCategoria(categoria_mascota)
+        }
 
 
         myAdapter.setOnClickItemListener(object : ProductosAdapter.onItemClickListener{
@@ -93,23 +125,42 @@ class UsuarioMainProductos : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {
-                tempArrayList.clear()
 
-                val searchText = p0!!.toLowerCase(Locale.getDefault())
-
-                if (searchText.isNotEmpty()){
-                    productoArrayList.forEach{
-                        if(it.nombre?.toLowerCase(Locale.getDefault())!!.contains(searchText)){
-                            tempArrayList.add(it)
-                        }
-                    }
-                    recyclerView.adapter!!.notifyDataSetChanged()
-                }else{
+                if(categoria_mascota == "Filtrar - Todos"){
                     tempArrayList.clear()
-                    tempArrayList.addAll(productoArrayList)
-                    recyclerView.adapter!!.notifyDataSetChanged()
+
+                    val searchText = p0!!.toLowerCase(Locale.getDefault())
+
+                    if (searchText.isNotEmpty()){
+                        productoArrayList.forEach{
+                            if(it.nombre?.toLowerCase(Locale.getDefault())!!.contains(searchText)){
+                                tempArrayList.add(it)
+                            }
+                        }
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }else{
+                        tempArrayList.clear()
+                        tempArrayList.addAll(productoArrayList)
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }
                 }
 
+                if(categoria_mascota != "Filtrar - Todos"){
+                    tempArrayList.clear()
+
+                    val searchText = p0!!.toLowerCase(Locale.getDefault())
+
+                    if (searchText.isNotEmpty()){
+                        productoArrayList.forEach{
+                            if(it.nombre?.toLowerCase(Locale.getDefault())!!.contains(searchText) && it.categoria?.contains(categoria_mascota) == true){
+                                tempArrayList.add(it)
+                            }
+                        }
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }else{
+                        FiltroCategoria(categoria_mascota)
+                    }
+                }
                 return false
             }
 
@@ -147,7 +198,8 @@ class UsuarioMainProductos : AppCompatActivity() {
                         }
                     })
             }else{
-                db.collectionGroup("productos").whereEqualTo("tipo", tipo_mascota_productos_usuario.text.toString())
+                db.collectionGroup("productos")
+                    .whereEqualTo("tipo", tipo_mascota_productos_usuario.text.toString())
                     .addSnapshotListener(object : EventListener<QuerySnapshot> {
                         override fun onEvent(
                             value: QuerySnapshot?,
@@ -169,5 +221,31 @@ class UsuarioMainProductos : AppCompatActivity() {
                     })
             }
         }
+    }
+
+    private fun FiltroCategoria( categoria : String){
+
+        if(categoria == "Filtrar - Todos"){
+            tempArrayList.clear()
+            tempArrayList.addAll(productoArrayList)
+            recyclerView.adapter!!.notifyDataSetChanged()
+        }
+
+        if(categoria != "Filtrar - Todos"){
+            if(categoria.isNotEmpty()){
+                tempArrayList.clear()
+                productoArrayList.forEach{
+                    if(it.categoria?.contains(categoria) == true){
+                        tempArrayList.add(it)
+                    }
+                }
+                recyclerView.adapter!!.notifyDataSetChanged()
+            }else{
+                tempArrayList.clear()
+                tempArrayList.addAll(productoArrayList)
+                recyclerView.adapter!!.notifyDataSetChanged()
+            }
+        }
+
     }
 }

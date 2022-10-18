@@ -54,9 +54,16 @@ class VeterinariaMainServicios : AppCompatActivity() {
 
         myAdapter.setOnClickItemListener(object : ServiciosAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                var xd = tempArrayList[position].nombre
-                Toast.makeText(this@VeterinariaMainServicios, "item $xd", Toast.LENGTH_SHORT).show()
-            }
+                var nombre_veterinaria = tempArrayList[position].nombre_veterinaria
+                var nombre_servicio = tempArrayList[position].nombre
+                var nit_servicio = tempArrayList[position].nit
+
+                val intent = Intent(this@VeterinariaMainServicios, VeterinariaMainServiciosDetailed::class.java)
+                intent.putExtra("nombre_veterinaria", nombre_veterinaria)
+                intent.putExtra("nombre_servicio", nombre_servicio)
+                intent.putExtra("nit", nit_servicio)
+
+                startActivity(intent)}
 
         })
 

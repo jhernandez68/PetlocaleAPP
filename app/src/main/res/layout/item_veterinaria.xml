@@ -55,7 +55,7 @@
         android:id="@+id/yearsVeterinaria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Experiencia: "
+        android:text="Experiencia (años): "
         android:textColor="#572364"
         app:layout_constraintStart_toEndOf="@+id/ivVeterinaria"
         app:layout_constraintTop_toBottomOf="@+id/emailVeterinaria" />

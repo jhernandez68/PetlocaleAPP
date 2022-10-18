@@ -110,7 +110,17 @@ class AddProduct : AppCompatActivity() {
                     costoProduct2.text.isEmpty()){
                 Toast.makeText(this, "¡Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
+        }
 
+        imageView6.setOnClickListener {
+
+            if(nombreDeleteProduct.text.isNotEmpty()){
+                startActivity(Intent(this, AddProductImage::class.java).putExtra("Nombre", Nombre ).putExtra("Nombre_Producto",nombreDeleteProduct.text.toString() ))
+            }
+
+            if(nombreDeleteProduct.text.isEmpty()){
+                Toast.makeText(this, "¡Primero digita el nombre!!", Toast.LENGTH_LONG).show()
+            }
         }
 
     }

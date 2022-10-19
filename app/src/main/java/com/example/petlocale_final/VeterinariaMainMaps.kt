@@ -3,6 +3,7 @@ package com.example.petlocale_final
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -22,7 +24,7 @@ import kotlinx.android.synthetic.main.activity_veterinaria_main_maps.*
 import kotlin.math.log
 
 
-class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener {
+class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
     private lateinit var map: GoogleMap
 
@@ -32,7 +34,7 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
 
     private lateinit var nombre_veterinaria_maps : String
 
-    var coordinates = LatLng(4.494263200850947, -74.25779643356155)
+    private var control_marcadores  = "No creado"
 
 
     //Instancia de la DB
@@ -46,11 +48,13 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_veterinaria_main_maps)
 
-
         //Se obtiene el nit
         val objetoIntent: Intent = intent
 
         var nit = objetoIntent.getStringExtra("Nombre")
+
+
+        createFragment()
 
         //Se trae los datos del producto en la bd
         db.collection("veterinarias")
@@ -70,15 +74,37 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
                 latitud_veterinaria = latitudVeterinaria.text.toString()
 
                 if(longitud_veterinaria.isNotEmpty() && latitud_veterinaria.isNotEmpty()){
-                    coordinates = LatLng(latitud_veterinaria.toDouble(), longitud_veterinaria.toDouble())
-
+                    createMarker(latitud_veterinaria.toDouble(), longitud_veterinaria.toDouble(),nombre_veterinariaMaps.text.toString())
+                    control_marcadores = "Creado"
+                }else{
+                    Toast.makeText(this, "Toca el botón superior derecho para ir a tu ubicación", Toast.LENGTH_SHORT).show()
                 }
-                createFragment()
             }
 
 
         cancelarUbicacionButton.setOnClickListener {
             startActivity(Intent(this, VeterinariaMainInfo::class.java).putExtra("Nombre",  nit))
+        }
+
+        createmarkerButton.setOnClickListener {
+
+            //Primero se evalua si se ha creado un marcador.
+
+            if(control_marcadores == "Creado"){
+                Toast.makeText(this, "Solo puedes crear un marcador!", Toast.LENGTH_LONG).show()
+            }
+
+            if(control_marcadores != "Creado"){
+                Toast.makeText(this, "Mantenlo presionado y muevelo hasta la ubicación de tu negocio, ahí guardalo!", Toast.LENGTH_LONG).show()
+                if(latitud_veterinaria.isNotEmpty() && longitud_veterinaria.isNotEmpty()){
+                    createMarker(latitud_veterinaria.toDouble(), longitud_veterinaria.toDouble(), "hola")
+                    control_marcadores = "Creado"
+                }
+
+                if(latitud_veterinaria.isEmpty() && longitud_veterinaria.isEmpty()){
+                    Toast.makeText(this, "Primero toca el botón azul!", Toast.LENGTH_LONG).show()
+                }
+            }
         }
 
         saveUbicationButton.setOnClickListener {
@@ -87,6 +113,15 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
                 .collection("ubicaciones")
                 .document("ubicacion").set(
                     hashMapOf(
+                        "nit" to nit.toString(),
+                        "latitud" to latitud_veterinaria,
+                        "longitud" to longitud_veterinaria,
+                    ))
+
+            db.collection("ubicaciones_veterinarias")
+                .document(nit.toString()).set(
+                    hashMapOf(
+                        "nombre" to nombre_veterinariaMaps.text.toString(),
                         "latitud" to latitud_veterinaria,
                         "longitud" to longitud_veterinaria,
                     ))
@@ -102,8 +137,9 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        createMarker()
         enableLocation()
+        map.setOnMyLocationButtonClickListener(this)
+        map.setOnMyLocationClickListener(this)
         map.setOnMarkerDragListener(object : GoogleMap.OnMarkerDragListener {
             override fun onMarkerDragStart(marker: Marker) {}
             override fun onMarkerDragEnd(marker: Marker) {
@@ -115,18 +151,13 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
 
     }
 
-    private fun createMarker(){
-
-        val marker = MarkerOptions()
-            .position(coordinates)
-            .title(nombre_veterinaria_maps)
-            .draggable(true)
-
+    private fun createMarker(latitud: Double, longitud: Double , nombre: String){
+        val coordinates = com.google.android.gms.maps.model.LatLng(latitud, longitud)
+        val marker = MarkerOptions().position(coordinates).title(nombre).draggable(true)
         map.addMarker(marker)
         map.animateCamera(
-            CameraUpdateFactory.newLatLngZoom(coordinates, 18f),4000, null
+            CameraUpdateFactory.newLatLngZoom(coordinates,18f), 4000, null
         )
-
     }
 
     private fun isLocationPermissionGranted() =
@@ -174,7 +205,24 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
     }
 
     override fun onMyLocationButtonClick(): Boolean {
+        if(control_marcadores == "Creado"){
+            Toast.makeText(this, "Diriengose a tu ubicación", Toast.LENGTH_LONG).show()
+        }
+        if(control_marcadores != "Creado"){
+            Toast.makeText(this, "Toca el botón azul y crea un marcador", Toast.LENGTH_SHORT).show()
+        }
         return false
+    }
+
+    override fun onMyLocationClick(p0: Location) {
+        if(control_marcadores == "Creado"){
+            Toast.makeText(this, "Ya has creado un marcador!", Toast.LENGTH_LONG).show()
+        }
+        if(control_marcadores != "Creado"){
+            Toast.makeText(this, "Ahora crea el marcador", Toast.LENGTH_SHORT).show()
+            longitud_veterinaria = p0.longitude.toString()
+            latitud_veterinaria = p0.latitude.toString()
+        }
     }
 
 }

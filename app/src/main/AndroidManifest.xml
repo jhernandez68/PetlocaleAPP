@@ -12,6 +12,9 @@
         tools:ignore="CoarseFineLocation" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -21,9 +24,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Petlocale_final">
-        <activity
-            android:name=".UsuarioMainProductosCategoriaFilter"
-            android:exported="true" />
+
         <activity
             android:name=".AddProductImage"
             android:exported="true" />
@@ -45,10 +46,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".MapsActivity2"
-            android:exported="true"
-            android:label="@string/title_activity_maps2" />
         <activity
             android:name=".VeterinariaMainMaps"
             android:exported="true" />

@@ -3,9 +3,13 @@ package com.example.petlocale_final
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_usuario_main_info.*
@@ -22,10 +26,19 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var testino : String
 
+    private var longitud : String = "1"
+
+    private var latitud : String = "1"
+
+    private lateinit var fusedLocationProviderClient : FusedLocationProviderClient
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+
+        fetchLocation()
         //Setup
         val bundle = intent.extras
         val email = bundle?.getString("email")
@@ -42,7 +55,6 @@ class MainActivity : AppCompatActivity() {
             email_user_main.setText(it.get("email") as String?)
             testino = email_user_main.text.toString()
 
-
             if (testino == ""){
 
                 Toast.makeText(this, "entró", Toast.LENGTH_LONG).show()
@@ -58,7 +70,8 @@ class MainActivity : AppCompatActivity() {
 
         //Botón para utilizar API de Google Maps
         google_mapsButton.setOnClickListener{
-            startActivity(Intent(this, MapsActivity::class.java))
+            fetchLocation()
+            startActivity(Intent(this, MapsActivity::class.java).putExtra("email", email).putExtra("longitud_usuario", longitud).putExtra("latitud_usuario", latitud))
         }
 
         //Boton para ir a INFO de usuario
@@ -77,6 +90,27 @@ class MainActivity : AppCompatActivity() {
         buttonVeterinarias.setOnClickListener {
             startActivity(Intent(this, UsuarioMainVeterinarias::class.java).putExtra("email", email))
         }
+    }
+
+    private fun fetchLocation() {
+
+        val task = fusedLocationProviderClient.lastLocation
+
+        if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 101)
+            return
+        }
+
+        task.addOnSuccessListener {
+            if(it != null){
+                longitud = it.longitude.toString()
+                latitud = it.latitude.toString()
+            }
+        }
+
     }
 
 }

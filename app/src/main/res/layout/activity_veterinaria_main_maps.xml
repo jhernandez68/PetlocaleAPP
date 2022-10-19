@@ -13,6 +13,20 @@
         android:layout_height="match_parent"
         tools:context=".VeterinariaMainMaps" />
 
+
+    <Button
+        android:id="@+id/createmarkerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/saveUbicationButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="207dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="33dp"
+        android:text="Crear marcador" />
+
     <Button
         android:id="@+id/saveUbicationButton"
         android:layout_width="wrap_content"

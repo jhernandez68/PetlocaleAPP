@@ -1,12 +1,17 @@
 package com.example.petlocale_final
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -16,23 +21,104 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.Marker
 
 import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener
+import com.google.firebase.firestore.*
+import kotlinx.android.synthetic.main.activity_veterinaria_main_maps.*
 
 
-
-
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener, GoogleMap.OnMyLocationChangeListener {
 
     private lateinit var map:GoogleMap
+
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     companion object{
         const val REQUEST_CODE_LOCATION = 0
     }
 
+    //Instancia de la DB
+    private val db = FirebaseFirestore.getInstance()
+
+    private lateinit var ubicacionesArrayList: ArrayList<UbicacionVeterinaria>
+    private lateinit var ubicacionesArrayList2: ArrayList<UbicacionVeterinaria>
+
+    private lateinit var distanciasArrayList : ArrayList<Double>
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        distanciasArrayList = arrayListOf()
+
+        ubicacionesArrayList = arrayListOf()
+        ubicacionesArrayList2 = arrayListOf()
+
+        inicio()
+
         createFragment()
+
+    }
+
+    private fun inicio() {
+
+        val objetoIntent: Intent = intent
+
+        var latitud_usuario = objetoIntent.getStringExtra("latitud_usuario")
+
+        var longitud_usuario = objetoIntent.getStringExtra("longitud_usuario")
+
+
+        val resultados = FloatArray(1000)
+
+        //Se trae los datos del producto en la bd
+        db.collectionGroup("ubicaciones_veterinarias")
+            .get().addOnSuccessListener { resultado ->
+                for (document in resultado) {
+                    ubicacionesArrayList.add(document.toObject(UbicacionVeterinaria::class.java))
+                    Log.d("Datos", "${document.id} => ${document.data}")
+                }
+                ubicacionesArrayList2.addAll(ubicacionesArrayList)
+
+
+                ubicacionesArrayList2.forEach {
+
+                    //Se crea el marcador
+                    createMarker(it.latitud!!.toDouble(), it.longitud!!.toDouble(), it.nombre.toString())
+
+                    //Se calcula la distancia entre el marcador y el usuario
+                    Location.distanceBetween(latitud_usuario!!.toDouble(),longitud_usuario!!.toDouble(), it.latitud!!.toDouble(), it.longitud!!.toDouble(), resultados)
+
+                    val s = String.format("%.1f", resultados[0]/100)
+                    Log.d("Resultados", "$s")
+                    distanciasArrayList.add((resultados[0]/100).toDouble())
+                }
+
+                Log.d("Resultados", "${distanciasArrayList[0]}")
+                Log.d("Resultados", "${distanciasArrayList.size}")
+
+                //Se calcula la distancia menor
+                var distancia_menor = distanciasArrayList[0]
+                distanciasArrayList.forEach {
+                    if(distancia_menor > it){
+                        distancia_menor = it
+                    }
+                }
+
+                //Según la distancia menor se crea el ultimo marcador
+
+                for (i in distanciasArrayList.indices){
+                    if(distanciasArrayList[i] == distancia_menor){
+                        createLastMarker(ubicacionesArrayList2[i].latitud!!.toDouble(),
+                            ubicacionesArrayList2[i].longitud!!.toDouble(),
+                            ubicacionesArrayList2[i].nombre.toString())
+                    }
+                }
+
+            }
+
     }
 
     private fun createFragment(){
@@ -42,8 +128,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        createMarker()
+        //createMarker()
         enableLocation()
+        map.setOnMyLocationButtonClickListener(this)
+        map.setOnMyLocationClickListener(this)
         map.setOnMarkerDragListener(object : OnMarkerDragListener {
             override fun onMarkerDragStart(marker: Marker) {}
             override fun onMarkerDragEnd(marker: Marker) {}
@@ -52,17 +140,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
 
     }
 
-    private fun createMarker(){
-        val coordinates = LatLng(4.494263200850947, -74.25779643356155)
-        val marker = MarkerOptions().position(coordinates).title("Veterinaria").draggable(true)
+    private fun createMarker(latitud: Double, longitud: Double , nombre: String){
+        val coordinates = com.google.android.gms.maps.model.LatLng(latitud, longitud)
+        val marker = MarkerOptions().position(coordinates).title(nombre)
+        map.addMarker(marker)
+    }
+
+    private fun createLastMarker(latitud: Double, longitud: Double , nombre: String){
+        val coordinates = com.google.android.gms.maps.model.LatLng(latitud, longitud)
+        val marker = MarkerOptions().position(coordinates).title(nombre)
         map.addMarker(marker)
         map.animateCamera(
-                CameraUpdateFactory.newLatLngZoom(coordinates, 18f),4000, null
+            CameraUpdateFactory.newLatLngZoom(coordinates,18f), 2000, null
         )
-
-
-        Toast.makeText(this, "${marker.position.latitude}", Toast.LENGTH_SHORT).show()
-
+        Toast.makeText(this, "Veterinaria más cercana: $nombre", Toast.LENGTH_SHORT).show()
     }
 
     private fun isLocationPermissionGranted() =
@@ -111,4 +202,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     override fun onMyLocationButtonClick(): Boolean {
         return false
      }
+
+    override fun onMyLocationClick(p0: Location) {
+
+    }
+
+    override fun onMyLocationChange(p0: Location) {
+        val target = Location("target")
+        for (point in arrayOf<LatLng>()) {
+            target.latitude = point.latitude
+            target.longitude = point.longitude
+            if (p0.distanceTo(target) < 100) {
+                // bingo!
+            }
+        }
+    }
+
+
 }

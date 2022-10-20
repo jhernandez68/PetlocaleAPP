@@ -1,15 +1,13 @@
 package com.example.petlocale_final
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,8 +15,10 @@ import com.example.petlocale_final.R.menu
 import com.example.petlocale_final.adapter.ProductosAdapter
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_usuario_main_productos.*
 import kotlinx.android.synthetic.main.item_producto.*
+import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 

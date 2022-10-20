@@ -1,20 +1,28 @@
 package com.example.petlocale_final
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.petlocale_final.databinding.ActivityUsuarioMainProductosInfoBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_usuario_main_info.*
 import kotlinx.android.synthetic.main.activity_usuario_main_productos_info.*
+import java.io.File
 
 class UsuarioMainProductosInfo : AppCompatActivity() {
 
     //Instancia de la DB
     private val db = FirebaseFirestore.getInstance()
+
+    lateinit var binding : ActivityUsuarioMainProductosInfoBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_usuario_main_productos_info)
+        binding = ActivityUsuarioMainProductosInfoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val objetoIntent: Intent = intent
 
@@ -25,6 +33,19 @@ class UsuarioMainProductosInfo : AppCompatActivity() {
         var nit_product = objetoIntent.getStringExtra("nit")
 
         var email = objetoIntent.getStringExtra("email")
+
+
+
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nombre_producto}.jpg")
+        val localfile = File.createTempFile("tempImage", "jpg")
+
+
+        storageRef.getFile(localfile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            binding.mainProductDetailed.setImageBitmap(bitmap)
+
+        }
 
         db.collection("veterinarias")
             .document(nit_product.toString())

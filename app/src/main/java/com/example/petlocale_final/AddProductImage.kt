@@ -60,7 +60,7 @@ class AddProductImage : AppCompatActivity() {
         var formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
         val now = Date()
 
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$nombre_productoXD")
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$nombre_productoXD.jpg")
 
         storageReference.putFile(ImageUri).addOnSuccessListener {
             binding.imageView2.setImageURI(null)

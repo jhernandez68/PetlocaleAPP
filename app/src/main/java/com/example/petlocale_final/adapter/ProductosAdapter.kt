@@ -71,7 +71,7 @@ class ProductosAdapter (private val productosList : ArrayList<Productos>): Recyc
         holder.nombre_veterinaria.text = producto.nombre_veterinaria
         holder.nit.text = producto.nit
 
-        val storageRef = FirebaseStorage.getInstance().reference.child("images/${holder.nombre.text}.jpg")
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${holder.nit.text}/${holder.nombre.text}.jpg")
         val localfile = File.createTempFile("tempImage", "jpg")
 
         storageRef.getFile(localfile).addOnSuccessListener {

@@ -1,12 +1,16 @@
 package com.example.petlocale_final
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RatingBar
 import android.widget.Toast
+import com.example.petlocale_final.databinding.ActivityRateProductBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_rate_product.*
+import java.io.File
 
 class RateProduct : AppCompatActivity() {
 
@@ -17,9 +21,12 @@ class RateProduct : AppCompatActivity() {
 
     private lateinit var prueba : String
 
+    lateinit var binding : ActivityRateProductBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rate_product)
+        binding = ActivityRateProductBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val objetoIntent: Intent = intent
 
@@ -32,6 +39,18 @@ class RateProduct : AppCompatActivity() {
         var email = objetoIntent.getStringExtra("email")
 
         val ratingBar = findViewById<RatingBar>(R.id.ratingBarProduct)
+
+        //datos de a imagen
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_product}/${nombre_producto}.jpg")
+        val localfile = File.createTempFile("tempImage", "jpg")
+
+
+        storageRef.getFile(localfile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            binding.imageView.setImageBitmap(bitmap)
+
+        }
 
         //Se trae los datos del producto en la bd
         db.collection("veterinarias")

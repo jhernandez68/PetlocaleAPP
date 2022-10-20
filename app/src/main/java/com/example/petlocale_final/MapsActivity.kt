@@ -151,7 +151,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         val marker = MarkerOptions().position(coordinates).title(nombre)
         map.addMarker(marker)
         map.animateCamera(
-            CameraUpdateFactory.newLatLngZoom(coordinates,18f), 2000, null
+            CameraUpdateFactory.newLatLngZoom(coordinates,16f), 2000, null
         )
         Toast.makeText(this, "Veterinaria más cercana: $nombre", Toast.LENGTH_SHORT).show()
     }

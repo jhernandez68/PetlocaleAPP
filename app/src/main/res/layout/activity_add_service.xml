@@ -7,11 +7,11 @@
     tools:context=".AddService">
 
     <EditText
-        android:id="@+id/nombreDeleteProduct"
+        android:id="@+id/nombreAddService"
         android:layout_width="368dp"
         android:layout_height="44dp"
         android:autofillHints="text"
-        android:hint="Nombre"
+        android:hint="Nombre Servicio"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:textColor="#000000"
@@ -24,7 +24,7 @@
 
 
     <EditText
-        android:id="@+id/costoProduct"
+        android:id="@+id/costoAddService"
         android:layout_width="368dp"
         android:layout_height="44dp"
         android:layout_marginBottom="244dp"
@@ -39,7 +39,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/descripcionProduct"
+        android:id="@+id/descripcionAddService"
         android:layout_width="366dp"
         android:layout_height="76dp"
         android:autofillHints="text"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/costoProduct"
+        app:layout_constraintTop_toBottomOf="@+id/costoAddService"
         app:layout_constraintVertical_bias="0.148" />
 
     <Button
@@ -65,7 +65,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageView6Service"
         android:layout_width="278dp"
         android:layout_height="222dp"
         app:layout_constraintBottom_toTopOf="@+id/addServicebutton2"
@@ -77,22 +77,22 @@
         app:srcCompat="@mipmap/petlocaleicon" />
 
     <Spinner
-        android:id="@+id/spinnerProduct"
+        android:id="@+id/spinnerAddService"
         android:layout_width="364dp"
         android:layout_height="37dp"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerProduct3"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerAddService3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreDeleteProduct"
+        app:layout_constraintTop_toBottomOf="@+id/nombreAddService"
         app:layout_constraintVertical_bias="0.322" />
 
     <Spinner
-        android:id="@+id/spinnerProduct3"
+        android:id="@+id/spinnerAddService3"
         android:layout_width="364dp"
         android:layout_height="37dp"
         android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/costoProduct"
+        app:layout_constraintBottom_toTopOf="@+id/costoAddService"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent" />

@@ -41,7 +41,9 @@ class VeterinariaMainDetailedInfo : AppCompatActivity() {
                         "nit" to main_name_vet_product_detailed2.text.toString(),
                         "password" to passwordFBVet.text.toString()
                     ))
-                startActivity(Intent(this, VeterinariaMainInfo::class.java).putExtra("Nombre", nit ))
+
+
+                startActivity(Intent(this, VeterinariaMain::class.java).putExtra("Nombre", nit ))
             }
         }
 

@@ -1,6 +1,7 @@
 package com.example.petlocale_final
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,9 +10,13 @@ import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petlocale_final.adapter.OpinionesAdapter
+import com.example.petlocale_final.databinding.ActivityUsuarioMainInfoBinding
+import com.example.petlocale_final.databinding.ActivityUsuarioMainProductosInfoOpinionesBinding
 import com.google.firebase.firestore.*
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_usuario_main_productos_info.*
 import kotlinx.android.synthetic.main.activity_usuario_main_productos_info_opiniones.*
+import java.io.File
 import kotlin.collections.ArrayList
 
 class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
@@ -32,9 +37,12 @@ class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
     private lateinit var tamaño : String
 
 
+    lateinit var binding : ActivityUsuarioMainProductosInfoOpinionesBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_usuario_main_productos_info_opiniones)
+        binding = ActivityUsuarioMainProductosInfoOpinionesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //Se trae los datos de la veterinaria
         val objetoIntent: Intent = intent
@@ -75,6 +83,17 @@ class UsuarioMainProductosInfoOpiniones : AppCompatActivity() {
         main_name_product_detailed_info2_opiniones.setText(nombre_producto.toString())
 
         main_name_vet_product_detailed_info2_opiniones.setText(nombre_veterinaria.toString())
+
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_product}/${nombre_producto}.jpg")
+        val localfile = File.createTempFile("tempImage", "jpg")
+
+
+        storageRef.getFile(localfile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            binding.mainProductDetailedOpiniones.setImageBitmap(bitmap)
+
+        }
 
 
     }

@@ -1,19 +1,27 @@
 package com.example.petlocale_final
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.petlocale_final.databinding.ActivityRateServiceBinding
+import com.example.petlocale_final.databinding.ActivityUsuarioMainServiciosInfoBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_usuario_main_servicios_info.*
+import java.io.File
 
 class UsuarioMainServiciosInfo : AppCompatActivity() {
     //Instancia de la DB
     private val db = FirebaseFirestore.getInstance()
 
+    lateinit var binding: ActivityUsuarioMainServiciosInfoBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_usuario_main_servicios_info)
+        binding = ActivityUsuarioMainServiciosInfoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val objetoIntent: Intent = intent
 
@@ -24,6 +32,17 @@ class UsuarioMainServiciosInfo : AppCompatActivity() {
         var nit_servicio = objetoIntent.getStringExtra("nit")
 
         var email = objetoIntent.getStringExtra("email")
+
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_servicio}/${nombre_servicio}.jpg")
+        val localfile = File.createTempFile("tempImage", "jpg")
+
+
+        storageRef.getFile(localfile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            binding.mainServiceDetailed.setImageBitmap(bitmap)
+
+        }
 
         db.collection("veterinarias")
             .document(nit_servicio.toString())

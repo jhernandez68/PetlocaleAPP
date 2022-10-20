@@ -1,11 +1,15 @@
 package com.example.petlocale_final
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.petlocale_final.databinding.ActivityComparacionServiciosBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_comparacion_servicios.*
+import java.io.File
 
 class ComparacionServicios : AppCompatActivity() {
     //Instancia de la DB
@@ -15,13 +19,16 @@ class ComparacionServicios : AppCompatActivity() {
 
     private lateinit var opinionesArrayList2: ArrayList<Opinion>
 
+    lateinit var binding : ActivityComparacionServiciosBinding
+
     var calificacion_servicio1 : Double = 0.0
     var calificacion_servicio2 : Double = 0.0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_comparacion_servicios)
+        binding = ActivityComparacionServiciosBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         cargarDatos()
     }
 
@@ -49,6 +56,30 @@ class ComparacionServicios : AppCompatActivity() {
         var nombre_veterinaria2 = objetoIntent.getStringExtra("nombre_veterinaria2")
 
         var nit_servicio2 = objetoIntent.getStringExtra("nit_servicio2")
+
+
+        //Se cargan las imagenes
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_servicio1}/${nombre_servicio1}.jpg")
+        val localfile = File.createTempFile("tempImage", "jpg")
+
+
+        storageRef.getFile(localfile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            binding.imagenServicio1.setImageBitmap(bitmap)
+
+        }
+
+        val storageRef2 = FirebaseStorage.getInstance().reference.child("images/${nit_servicio2}/${nombre_servicio2}.jpg")
+        val localfile2 = File.createTempFile("tempImage", "jpg")
+
+
+        storageRef2.getFile(localfile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            binding.imagenServicio2.setImageBitmap(bitmap)
+
+        }
 
         //Variables de comparación
         var mayor : Double = 0.0

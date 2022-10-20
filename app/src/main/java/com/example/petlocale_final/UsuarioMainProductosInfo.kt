@@ -36,7 +36,7 @@ class UsuarioMainProductosInfo : AppCompatActivity() {
 
 
 
-        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nombre_producto}.jpg")
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_product}/${nombre_producto}.jpg")
         val localfile = File.createTempFile("tempImage", "jpg")
 
 

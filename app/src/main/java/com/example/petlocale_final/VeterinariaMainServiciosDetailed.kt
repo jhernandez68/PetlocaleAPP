@@ -1,6 +1,7 @@
 package com.example.petlocale_final
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,8 +9,11 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import com.example.petlocale_final.databinding.ActivityVeterinariaMainServiciosDetailedBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_veterinaria_main_servicios_detailed.*
+import java.io.File
 
 class VeterinariaMainServiciosDetailed : AppCompatActivity() {
 
@@ -31,10 +35,13 @@ class VeterinariaMainServiciosDetailed : AppCompatActivity() {
     //Variable para el nombre de la veterinaria
     private lateinit var nombre_veterinaria : String
 
+    lateinit var binding : ActivityVeterinariaMainServiciosDetailedBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_veterinaria_main_servicios_detailed)
+        binding = ActivityVeterinariaMainServiciosDetailedBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val objetoIntent: Intent = intent
 
@@ -43,6 +50,18 @@ class VeterinariaMainServiciosDetailed : AppCompatActivity() {
         var nombre_veterinaria = objetoIntent.getStringExtra("nombre_veterinaria")
 
         var nit_servicio = objetoIntent.getStringExtra("nit")
+
+        //datos de a imagen
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_servicio}/${nombre_servicio}.jpg")
+        val localfile = File.createTempFile("tempImage", "jpg")
+
+
+        storageRef.getFile(localfile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            binding.imageView6EditService.setImageBitmap(bitmap)
+
+        }
 
         db.collection("veterinarias")
             .document(nit_servicio.toString())

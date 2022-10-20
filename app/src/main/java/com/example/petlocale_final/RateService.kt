@@ -1,12 +1,16 @@
 package com.example.petlocale_final
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RatingBar
 import android.widget.Toast
+import com.example.petlocale_final.databinding.ActivityRateServiceBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_rate_service.*
+import java.io.File
 
 
 //Instancia de la DB
@@ -16,10 +20,13 @@ private lateinit var valor : String
 
 private lateinit var prueba : String
 
+lateinit var binding : ActivityRateServiceBinding
+
 class RateService : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rate_service)
+        binding = ActivityRateServiceBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         val objetoIntent: Intent = intent
@@ -33,6 +40,19 @@ class RateService : AppCompatActivity() {
         var email = objetoIntent.getStringExtra("email")
 
         val ratingBar = findViewById<RatingBar>(R.id.ratingBarService)
+
+        //datos de a imagen
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_servicio}/${nombre_servicio}.jpg")
+        val localfile = File.createTempFile("tempImage", "jpg")
+
+
+        storageRef.getFile(localfile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            binding.imageViewService.setImageBitmap(bitmap)
+
+        }
+
 
         //Se trae los datos del servicio en la bd
         db.collection("veterinarias")

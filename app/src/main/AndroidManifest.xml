@@ -24,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Petlocale_final">
         <activity
+            android:name=".AddServiceImage"
+            android:exported="true" />
+        <activity
             android:name=".ComparacionServicios"
             android:exported="true" />
         <activity

@@ -1,12 +1,16 @@
 package com.example.petlocale_final.adapter
 
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petlocale_final.R
 import com.example.petlocale_final.Servicio
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
 class ServiciosAdapter (private val serviciosList : ArrayList<Servicio>): RecyclerView.Adapter<ServiciosAdapter.MyViewHolder>() {
 
@@ -42,6 +46,7 @@ class ServiciosAdapter (private val serviciosList : ArrayList<Servicio>): Recycl
         val nombre_veterinaria : TextView = itemView.findViewById(R.id.nameVeterinaria2XDServicio)
         val categoria : TextView = itemView.findViewById(R.id.categoriaServicio2)
         val nit : TextView = itemView.findViewById(R.id.nit_service)
+        val imagenServicio : ImageView = itemView.findViewById(R.id.ivServicio)
 
         init {
             itemView.setOnClickListener{
@@ -59,6 +64,15 @@ class ServiciosAdapter (private val serviciosList : ArrayList<Servicio>): Recycl
         holder.nombre_veterinaria.text = servicio.nombre_veterinaria
         holder.categoria.text = servicio.categoria
         holder.nit.text = servicio.nit
+
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${holder.nit.text}/${holder.nombre.text}.jpg")
+        val localfile = File.createTempFile("tempImage", "jpg")
+
+        storageRef.getFile(localfile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            holder.imagenServicio.setImageBitmap(bitmap)
+        }
     }
 
 }

@@ -10,26 +10,19 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.petlocale_final.databinding.ActivityAddProductBinding
-import com.example.petlocale_final.databinding.ActivityAddProductImageBinding
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreSettings
-import com.google.firebase.ktx.Firebase
+import com.example.petlocale_final.databinding.ActivityAddServiceImageBinding
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_add_product.*
-import kotlinx.android.synthetic.main.activity_add_product_image.*
-import java.net.URI
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AddProductImage : AppCompatActivity() {
+class AddServiceImage : AppCompatActivity() {
 
-    lateinit var binding: ActivityAddProductImageBinding
+    lateinit var binding: ActivityAddServiceImageBinding
     lateinit var ImageUri : Uri
 
-    lateinit var nombre_productoXD : String
+    lateinit var nombre_servicioXD : String
 
-    lateinit var nit_producto : String
+    lateinit var nit_servicio : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,23 +30,23 @@ class AddProductImage : AppCompatActivity() {
         //Se trae el nombre de la veterinaria
         val objetoIntent: Intent = intent
 
-        var Nombre = objetoIntent.getStringExtra("Nombre_Producto")
+        var Nombre = objetoIntent.getStringExtra("Nombre_Servicio")
 
         var nit = objetoIntent.getStringExtra("Nombre")
 
-        nombre_productoXD = Nombre.toString()
+        nombre_servicioXD = Nombre.toString()
 
-        nit_producto = nit.toString()
+        nit_servicio = nit.toString()
 
 
-        binding = ActivityAddProductImageBinding.inflate(layoutInflater)
+        binding = ActivityAddServiceImageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.selectImageButton.setOnClickListener {
+        binding.selectImageButtonService.setOnClickListener {
             checkPermission()
         }
 
-        binding.uploadImageButton.setOnClickListener {
+        binding.uploadImageButtonService.setOnClickListener {
             uploadImage()
         }
     }
@@ -67,19 +60,19 @@ class AddProductImage : AppCompatActivity() {
         var formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
         val now = Date()
 
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$nit_producto/$nombre_productoXD.jpg")
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$nit_servicio/$nombre_servicioXD.jpg")
 
         storageReference.putFile(ImageUri).addOnSuccessListener {
-            binding.imageView2.setImageURI(null)
+            binding.imageViewService.setImageURI(null)
             if (progressDialog.isShowing) progressDialog.dismiss()
-            startActivity(Intent(this, AddProduct::class.java).putExtra("nombre_producto_imagen", nombre_productoXD ).putExtra("nit", nit_producto))
+            startActivity(Intent(this, AddService::class.java).putExtra("nombre_servicio_imagen", nombre_servicioXD ).putExtra("nit", nit_servicio))
         }.addOnFailureListener{
             if (progressDialog.isShowing) progressDialog.dismiss()
 
         }
 
 
-        Toast.makeText(this, "Ahora termina de rellenar los datos de tu producto!", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "¡Ahora termina de rellenar!", Toast.LENGTH_LONG).show()
     }
 
     private fun selectImage(){
@@ -94,7 +87,7 @@ class AddProductImage : AppCompatActivity() {
 
         if(requestCode == 100 && resultCode == RESULT_OK){
             ImageUri = data?.data!!
-            binding.imageView2.setImageURI(ImageUri)
+            binding.imageViewService.setImageURI(ImageUri)
         }
     }
 

@@ -1,6 +1,7 @@
 package com.example.petlocale_final
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,8 +9,11 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import com.example.petlocale_final.databinding.ActivityAddProductBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_add_product.*
+import java.io.File
 
 class AddProduct : AppCompatActivity() {
 
@@ -31,9 +35,13 @@ class AddProduct : AppCompatActivity() {
     //Variable para el nombre de la veterinaria
     private lateinit var nombre_veterinaria : String
 
+    lateinit var binding : ActivityAddProductBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_product)
+        binding = ActivityAddProductBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         //Se trae el nombre de la veterinaria
@@ -41,7 +49,21 @@ class AddProduct : AppCompatActivity() {
 
         var Nombre = objetoIntent.getStringExtra("nit")
 
-        //Variable para nombre de veterinaria
+        var nombre_producto_imagen = objetoIntent.getStringExtra("nombre_producto_imagen")
+
+
+        cargarImagen(Nombre.toString(), nombre_producto_imagen.toString())
+
+        setUp()
+
+
+    }
+
+    private fun setUp() {
+        //Se trae el nombre de la veterinaria
+        val objetoIntent: Intent = intent
+
+        var Nombre = objetoIntent.getStringExtra("nit")
 
         db.collection("veterinarias").document(Nombre.toString()).get().addOnSuccessListener {
             nombreVeterinariaXD.setText(it.get("nombre") as String?)
@@ -107,7 +129,7 @@ class AddProduct : AppCompatActivity() {
             if(nombreDeleteProduct.text.isEmpty() &&
                 descripcionProduct.text.isEmpty() &&
                 costoProduct.text.isEmpty() &&
-                    costoProduct2.text.isEmpty()){
+                costoProduct2.text.isEmpty()){
                 Toast.makeText(this, "¡Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
         }
@@ -123,5 +145,23 @@ class AddProduct : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun cargarImagen(nombre_producto : String, nit_veterinaria : String ) {
+        if(nombre_producto != "null"){
+            nombreDeleteProduct.setText(nombre_producto)
+
+            val storageRef = FirebaseStorage.getInstance().reference.child("images/$nit_veterinaria/$nombre_producto.jpg")
+            val localfile = File.createTempFile("tempImage", "jpg")
+
+
+            storageRef.getFile(localfile).addOnSuccessListener {
+
+                val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+                 binding.imageView6.setImageBitmap(bitmap)
+
+            }
+
+        }
     }
 }

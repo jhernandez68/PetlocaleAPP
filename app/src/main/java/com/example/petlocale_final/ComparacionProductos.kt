@@ -52,6 +52,19 @@ class ComparacionProductos : AppCompatActivity() {
 
         var nit_producto1 = objetoIntent.getStringExtra("nit_producto1")
 
+
+
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_producto1}/${nombre_producto1}.jpg")
+        val localfile = File.createTempFile("tempImage", "jpg")
+
+        storageRef.getFile(localfile).addOnSuccessListener {
+
+            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+            binding.imagenProducto1.setImageBitmap(bitmap)
+
+        }
+
+
         //Se obtienen los datos del producto 2
 
         var nombre_producto2 = objetoIntent.getStringExtra("nombre_producto2")
@@ -61,25 +74,14 @@ class ComparacionProductos : AppCompatActivity() {
         var nit_producto2 = objetoIntent.getStringExtra("nit_producto2")
 
 
-        val storageRef = FirebaseStorage.getInstance().reference.child("images/${nombre_producto1}.jpg")
-        val localfile = File.createTempFile("tempImage", "jpg")
-
-
-        storageRef.getFile(localfile).addOnSuccessListener {
-
-            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
-            binding.imagenProducto1.setImageBitmap(bitmap)
-
-        }
-
-        val storageRef2 = FirebaseStorage.getInstance().reference.child("images/${nombre_producto2}.jpg")
+        val storageRef2 = FirebaseStorage.getInstance().reference.child("images/${nit_producto2}/${nombre_producto2}.jpg")
         val localfile2 = File.createTempFile("tempImage", "jpg")
 
 
-        storageRef2.getFile(localfile).addOnSuccessListener {
+        storageRef2.getFile(localfile2).addOnSuccessListener {
 
-            val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
-            binding.imagenProducto2.setImageBitmap(bitmap)
+            val bitmap2 = BitmapFactory.decodeFile(localfile2.absolutePath)
+            binding.imagenProducto2.setImageBitmap(bitmap2)
 
         }
 
@@ -217,5 +219,7 @@ class ComparacionProductos : AppCompatActivity() {
                     }
             }
     }
+
+
 
 }

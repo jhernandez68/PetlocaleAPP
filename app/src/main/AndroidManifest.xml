@@ -15,7 +15,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/petlocaleicon"
@@ -24,7 +23,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Petlocale_final">
-
+        <activity
+            android:name=".ComparacionServicios"
+            android:exported="true" />
+        <activity
+            android:name=".UsuarioMainServiciosComparacion"
+            android:exported="true" />
+        <activity
+            android:name=".ComparacionProductos"
+            android:exported="true" />
+        <activity
+            android:name=".UsuarioMainProductosComparacion"
+            android:exported="true" />
         <activity
             android:name=".AddProductImage"
             android:exported="true" />

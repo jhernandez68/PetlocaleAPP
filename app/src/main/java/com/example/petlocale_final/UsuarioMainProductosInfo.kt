@@ -53,5 +53,14 @@ class UsuarioMainProductosInfo : AppCompatActivity() {
             intent.putExtra("email", email)
             startActivity(intent)
         }
+
+        compararButton.setOnClickListener {
+                val intent = Intent(this@UsuarioMainProductosInfo, UsuarioMainProductosComparacion::class.java)
+                intent.putExtra("nombre_veterinaria1", nombre_veterinaria)
+                intent.putExtra("nombre_producto1", nombre_producto)
+                intent.putExtra("nit_producto1", nit_product)
+                intent.putExtra("email", email)
+                startActivity(intent)
+        }
     }
 }

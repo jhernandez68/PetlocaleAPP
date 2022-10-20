@@ -52,5 +52,14 @@ class UsuarioMainServiciosInfo : AppCompatActivity() {
             intent.putExtra("email", email)
             startActivity(intent)
         }
+
+        compararButtonService.setOnClickListener {
+            val intent = Intent(this@UsuarioMainServiciosInfo, UsuarioMainServiciosComparacion::class.java)
+            intent.putExtra("nombre_veterinaria1", nombre_veterinaria)
+            intent.putExtra("nombre_servicio1", nombre_servicio)
+            intent.putExtra("nit_servicio1", nit_servicio)
+            intent.putExtra("email", email)
+            startActivity(intent)
+        }
     }
 }

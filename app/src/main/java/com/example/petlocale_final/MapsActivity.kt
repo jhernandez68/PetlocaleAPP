@@ -113,7 +113,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
                     if(distanciasArrayList[i] == distancia_menor){
                         createLastMarker(ubicacionesArrayList2[i].latitud!!.toDouble(),
                             ubicacionesArrayList2[i].longitud!!.toDouble(),
-                            ubicacionesArrayList2[i].nombre.toString())
+                            ubicacionesArrayList2[i].nombre!!.toString())
                     }
                 }
 

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ComparacionProductos">
+
+    <ImageView
+        android:id="@+id/imagenProducto1"
+        android:layout_width="143dp"
+        android:layout_height="152dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/petlocaleicon" />
+
+    <TextView
+        android:id="@+id/nombreComparacionProducto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#572364"
+        android:text="Nombre: "
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreComparacionProducto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreComparacionProducto1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tipoComparacionProducto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto1"
+        app:layout_constraintTop_toBottomOf="@+id/nombreComparacionProducto2" />
+
+    <TextView
+        android:id="@+id/tipoComparacionProducto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreComparacionProducto1"
+        app:layout_constraintTop_toBottomOf="@+id/nombreComparacionProducto2" />
+
+    <TextView
+        android:id="@+id/costoComparacionProducto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Costo: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto1"
+        app:layout_constraintTop_toBottomOf="@+id/tipoComparacionProducto1" />
+
+    <TextView
+        android:id="@+id/costoComparacionProducto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="precio"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/costoComparacionProducto1"
+        app:layout_constraintTop_toBottomOf="@+id/tipoComparacionProducto2" />
+
+
+    <TextView
+        android:id="@+id/categoriaComparacionProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto1"
+        app:layout_constraintTop_toBottomOf="@+id/costoComparacionProducto2" />
+
+    <TextView
+        android:id="@+id/categoriaComparacionProducto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/categoriaComparacionProducto"
+        app:layout_constraintTop_toBottomOf="@+id/costoComparacionProducto1" />
+
+    <TextView
+        android:id="@+id/nombreVeterinariaComparacionProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Veterinaria: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto1"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaComparacionProducto" />
+
+    <TextView
+        android:id="@+id/nombreVeterinariaComparacionProducto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre veterinaria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreVeterinariaComparacionProducto"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaComparacionProducto" />
+
+
+    <TextView
+        android:id="@+id/calificacionComparacionProducto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calificacion promedio: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto1"
+        app:layout_constraintTop_toBottomOf="@+id/nombreVeterinariaComparacionProducto" />
+
+    <TextView
+        android:id="@+id/calificacionComparacionProducto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No tiene"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/calificacionComparacionProducto1"
+        app:layout_constraintTop_toBottomOf="@+id/nombreVeterinariaComparacionProducto" />
+
+    <TextView
+        android:id="@+id/nit_comparacion_producto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="131dp" />
+
+    <ImageView
+        android:id="@+id/imagenProducto2"
+        android:layout_width="143dp"
+        android:layout_height="152dp"
+        app:srcCompat="@mipmap/petlocaleicon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagenProducto1"
+        />
+
+    <TextView
+        android:id="@+id/nombreComparacionProducto3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="Nombre: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto2"
+        app:layout_constraintTop_toBottomOf="@+id/imagenProducto1" />
+
+    <TextView
+        android:id="@+id/nombreComparacionProducto4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreComparacionProducto3"
+        app:layout_constraintTop_toBottomOf="@+id/imagenProducto1"/>
+
+    <TextView
+        android:id="@+id/tipoComparacionProducto3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto2"
+        app:layout_constraintTop_toBottomOf="@+id/nombreComparacionProducto4" />
+
+    <TextView
+        android:id="@+id/tipoComparacionProducto4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreComparacionProducto3"
+        app:layout_constraintTop_toBottomOf="@+id/nombreComparacionProducto4" />
+
+    <TextView
+        android:id="@+id/costoComparacionProducto3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Costo: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto2"
+        app:layout_constraintTop_toBottomOf="@+id/tipoComparacionProducto3" />
+
+    <TextView
+        android:id="@+id/costoComparacionProducto4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="precio"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/costoComparacionProducto3"
+        app:layout_constraintTop_toBottomOf="@+id/tipoComparacionProducto4" />
+
+
+    <TextView
+        android:id="@+id/categoriaComparacionProducto3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto2"
+        app:layout_constraintTop_toBottomOf="@+id/costoComparacionProducto4" />
+
+    <TextView
+        android:id="@+id/categoriaComparacionProducto4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/categoriaComparacionProducto3"
+        app:layout_constraintTop_toBottomOf="@+id/costoComparacionProducto3" />
+
+    <TextView
+        android:id="@+id/nombreVeterinariaComparacionProducto3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Veterinaria: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto2"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaComparacionProducto3" />
+
+    <TextView
+        android:id="@+id/nombreVeterinariaComparacionProducto4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre veterinaria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreVeterinariaComparacionProducto3"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaComparacionProducto3" />
+
+    <TextView
+        android:id="@+id/nit_comparacion_producto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="241dp" />
+
+    <TextView
+        android:id="@+id/calificacionComparacionProducto3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calificacion promedio: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenProducto2"
+        app:layout_constraintTop_toBottomOf="@+id/nombreVeterinariaComparacionProducto3" />
+
+    <TextView
+        android:id="@+id/calificacionComparacionProducto4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No tiene"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/calificacionComparacionProducto3"
+        app:layout_constraintTop_toBottomOf="@+id/nombreVeterinariaComparacionProducto4" />
+
+
+    <TextView
+        android:id="@+id/calificacionMejorPrecioProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mejor calificación: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagenProducto2" />
+
+    <TextView
+        android:id="@+id/calificacionMejorPrecioProducto2"
+        app:layout_constraintTop_toBottomOf="@+id/imagenProducto2"
+        app:layout_constraintStart_toEndOf="@id/calificacionMejorPrecioProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Un producto sin calificación"
+        android:textColor="#000000"
+         />
+
+    <TextView
+        android:id="@+id/calificacionMejorCostoProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Más barato: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calificacionMejorPrecioProducto" />
+
+    <TextView
+        android:id="@+id/calificacionMejorCostoProducto2"
+        app:layout_constraintTop_toBottomOf="@+id/calificacionMejorPrecioProducto"
+        app:layout_constraintStart_toEndOf="@id/calificacionMejorCostoProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Un producto sin calificación"
+        android:textColor="#000000"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

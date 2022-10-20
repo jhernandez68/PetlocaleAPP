@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ComparacionServicios">
+
+
+    <ImageView
+        android:id="@+id/imagenServicio1"
+        android:layout_width="143dp"
+        android:layout_height="152dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/petlocaleicon" />
+
+    <TextView
+        android:id="@+id/nombreComparacionServicio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#572364"
+        android:text="Nombre: "
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreComparacionServicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreComparacionServicio1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tipoComparacionServicio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio1"
+        app:layout_constraintTop_toBottomOf="@+id/nombreComparacionServicio2" />
+
+    <TextView
+        android:id="@+id/tipoComparacionServicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreComparacionServicio1"
+        app:layout_constraintTop_toBottomOf="@+id/nombreComparacionServicio2" />
+
+    <TextView
+        android:id="@+id/costoComparacionServicio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Costo: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio1"
+        app:layout_constraintTop_toBottomOf="@+id/tipoComparacionServicio1" />
+
+    <TextView
+        android:id="@+id/costoComparacionServicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="precio"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/costoComparacionServicio1"
+        app:layout_constraintTop_toBottomOf="@+id/tipoComparacionServicio2" />
+
+
+    <TextView
+        android:id="@+id/categoriaComparacionServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio1"
+        app:layout_constraintTop_toBottomOf="@+id/costoComparacionServicio2" />
+
+    <TextView
+        android:id="@+id/categoriaComparacionServicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/categoriaComparacionServicio"
+        app:layout_constraintTop_toBottomOf="@+id/costoComparacionServicio1" />
+
+    <TextView
+        android:id="@+id/nombreVeterinariaComparacionServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Veterinaria: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio1"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaComparacionServicio" />
+
+    <TextView
+        android:id="@+id/nombreVeterinariaComparacionServicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre veterinaria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreVeterinariaComparacionServicio"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaComparacionServicio" />
+
+
+    <TextView
+        android:id="@+id/calificacionComparacionServicio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calificacion promedio: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio1"
+        app:layout_constraintTop_toBottomOf="@+id/nombreVeterinariaComparacionServicio" />
+
+    <TextView
+        android:id="@+id/calificacionComparacionServicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No tiene"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/calificacionComparacionServicio1"
+        app:layout_constraintTop_toBottomOf="@+id/nombreVeterinariaComparacionServicio" />
+
+    <TextView
+        android:id="@+id/nit_comparacion_servicio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="131dp" />
+
+    <ImageView
+        android:id="@+id/imagenServicio2"
+        android:layout_width="143dp"
+        android:layout_height="152dp"
+        app:srcCompat="@mipmap/petlocaleicon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagenServicio1"
+        />
+
+    <TextView
+        android:id="@+id/nombreComparacionServicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="Nombre: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio2"
+        app:layout_constraintTop_toBottomOf="@+id/imagenServicio1" />
+
+    <TextView
+        android:id="@+id/nombreComparacionServicio4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreComparacionServicio3"
+        app:layout_constraintTop_toBottomOf="@+id/imagenServicio1"/>
+
+    <TextView
+        android:id="@+id/tipoComparacionServicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio2"
+        app:layout_constraintTop_toBottomOf="@+id/nombreComparacionServicio4" />
+
+    <TextView
+        android:id="@+id/tipoComparacionServicio4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreComparacionServicio3"
+        app:layout_constraintTop_toBottomOf="@+id/nombreComparacionServicio4" />
+
+    <TextView
+        android:id="@+id/costoComparacionServicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Costo: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio2"
+        app:layout_constraintTop_toBottomOf="@+id/tipoComparacionServicio3" />
+
+    <TextView
+        android:id="@+id/costoComparacionServicio4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="precio"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/costoComparacionServicio3"
+        app:layout_constraintTop_toBottomOf="@+id/tipoComparacionServicio4" />
+
+
+    <TextView
+        android:id="@+id/categoriaComparacionServicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio2"
+        app:layout_constraintTop_toBottomOf="@+id/costoComparacionServicio4" />
+
+    <TextView
+        android:id="@+id/categoriaComparacionServicio4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/categoriaComparacionServicio3"
+        app:layout_constraintTop_toBottomOf="@+id/costoComparacionServicio3" />
+
+    <TextView
+        android:id="@+id/nombreVeterinariaComparacionServicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Veterinaria: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio2"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaComparacionServicio3" />
+
+    <TextView
+        android:id="@+id/nombreVeterinariaComparacionServicio4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre veterinaria"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreVeterinariaComparacionServicio3"
+        app:layout_constraintTop_toBottomOf="@+id/categoriaComparacionServicio3" />
+
+    <TextView
+        android:id="@+id/nit_comparacion_servicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="241dp" />
+
+    <TextView
+        android:id="@+id/calificacionComparacionServicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calificacion promedio: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/imagenServicio2"
+        app:layout_constraintTop_toBottomOf="@+id/nombreVeterinariaComparacionServicio3" />
+
+    <TextView
+        android:id="@+id/calificacionComparacionServicio4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No tiene"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/calificacionComparacionServicio3"
+        app:layout_constraintTop_toBottomOf="@+id/nombreVeterinariaComparacionServicio4" />
+
+
+    <TextView
+        android:id="@+id/calificacionMejorPrecioServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mejor calificación: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagenServicio2" />
+
+    <TextView
+        android:id="@+id/calificacionMejorPrecioServicio2"
+        app:layout_constraintTop_toBottomOf="@+id/imagenServicio2"
+        app:layout_constraintStart_toEndOf="@id/calificacionMejorPrecioServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Un servicio sin calificación"
+        android:textColor="#000000"
+        />
+
+    <TextView
+        android:id="@+id/calificacionMejorCostoServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Más barato: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calificacionMejorPrecioServicio" />
+
+    <TextView
+        android:id="@+id/calificacionMejorCostoServicio2"
+        app:layout_constraintTop_toBottomOf="@+id/calificacionMejorPrecioServicio"
+        app:layout_constraintStart_toEndOf="@id/calificacionMejorCostoServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Un servicio sin calificación"
+        android:textColor="#000000"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

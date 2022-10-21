@@ -33,6 +33,7 @@ class UsuarioMainVeterinarias : AppCompatActivity() {
         veterinariaArrayList = arrayListOf()
         tempArrayList = arrayListOf()
 
+
         myAdapter = VeterinariasAdapter(tempArrayList)
 
         recyclerView.adapter = myAdapter

@@ -34,6 +34,10 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
 
     private lateinit var nombre_veterinaria_maps : String
 
+    private lateinit var years_veterinaria_maps : String
+
+    private lateinit var email_veterinaria_maps : String
+
     private var control_marcadores  = "No creado"
 
 
@@ -56,11 +60,19 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
 
         createFragment()
 
-        //Se trae los datos del producto en la bd
+        //Se trae los datos en la bd
         db.collection("veterinarias")
-            .document(nit.toString()).get().addOnSuccessListener {
+            .document(nit.toString())
+            .get()
+            .addOnSuccessListener {
                 nombre_veterinariaMaps.setText(it.get("nombre") as String?)
                 nombre_veterinaria_maps = nombre_veterinariaMaps.text.toString()
+
+                years_veterinariaMaps.setText(it.get("years") as String?)
+                years_veterinaria_maps = nombre_veterinariaMaps.text.toString()
+
+                email_veterinariaMaps.setText(it.get("email") as String?)
+                email_veterinaria_maps = nombre_veterinariaMaps.text.toString()
             }
 
         //Se trae los datos del producto en la bd
@@ -116,6 +128,8 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
                         "nit" to nit.toString(),
                         "latitud" to latitud_veterinaria,
                         "longitud" to longitud_veterinaria,
+                        "email" to email_veterinaria_maps,
+                        "years" to years_veterinaria_maps
                     ))
 
             db.collection("ubicaciones_veterinarias")
@@ -123,7 +137,7 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
                     hashMapOf(
                         "nombre" to nombre_veterinariaMaps.text.toString(),
                         "latitud" to latitud_veterinaria,
-                        "longitud" to longitud_veterinaria,
+                        "longitud" to longitud_veterinaria
                     ))
             Toast.makeText(this, "Ubicación guardada con éxito!", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, VeterinariaMainInfo::class.java).putExtra("Nombre",  nit))

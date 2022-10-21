@@ -34,6 +34,7 @@
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_usuario_main_servicios_info.xml" value="0.1766304347826087" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_usuario_main_servicios_info_opiniones.xml" value="0.16983695652173914" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_usuario_main_veterinarias.xml" value="0.17844202898550723" />
+        <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_usuario_main_veterinarias_cercanas.xml" value="0.1585144927536232" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_veterinaria_main.xml" value="0.13541666666666666" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_veterinaria_main_detailed_info.xml" value="0.25" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/activity_veterinaria_main_horarios.xml" value="0.2" />
@@ -47,6 +48,7 @@
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/item_producto.xml" value="0.33" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/item_servicio.xml" value="0.22" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/item_veterinaria.xml" value="0.17844202898550723" />
+        <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/layout/item_veterinaria_cercana.xml" value="0.1585144927536232" />
         <entry key="..\:/Users/57318/AndroidStudioProjects/petlocale_final/app/src/main/res/menu/menu_item.xml" value="0.15520833333333334" />
       </map>
     </option>

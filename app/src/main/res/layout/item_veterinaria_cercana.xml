@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    >
+
+    <ImageView
+        android:id="@+id/ivVeterinariaCercana"
+        android:layout_width="144dp"
+        android:layout_height="130dp"
+        app:srcCompat="@mipmap/petlocaleicon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreVeterinariaCercanaList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#572364"
+        android:text="Nombre: "
+        app:layout_constraintStart_toEndOf="@+id/ivVeterinariaCercana"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreVeterinariaCercanaList2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombreVeterinariaCercanaList"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/emailVeterinariaCercana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/ivVeterinariaCercana"
+        app:layout_constraintTop_toBottomOf="@+id/nombreVeterinariaCercanaList" />
+
+    <TextView
+        android:id="@+id/emailVeterinariaCercana2"
+        android:layout_width="194dp"
+        android:layout_height="21dp"
+        android:text="Desconocido"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toEndOf="@+id/emailVeterinariaCercana"
+        app:layout_constraintTop_toBottomOf="@+id/nombreVeterinariaCercanaList2" />
+
+    <TextView
+        android:id="@+id/yearsVeterinariaCercana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Experiencia (años): "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/ivVeterinariaCercana"
+        app:layout_constraintTop_toBottomOf="@+id/emailVeterinariaCercana2" />
+
+    <TextView
+        android:id="@+id/yearsVeterinariaCercana2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desconocido"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/yearsVeterinariaCercana"
+        app:layout_constraintTop_toBottomOf="@+id/emailVeterinariaCercana2" />
+
+    <TextView
+        android:id="@+id/distanciaVeterinariaCercana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distancia (KM): "
+        android:textColor="#572364"
+        app:layout_constraintStart_toEndOf="@+id/ivVeterinariaCercana"
+        app:layout_constraintTop_toBottomOf="@+id/yearsVeterinariaCercana" />
+
+    <TextView
+        android:id="@+id/distanciaVeterinariaCercana2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desconocido"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/distanciaVeterinariaCercana"
+        app:layout_constraintTop_toBottomOf="@+id/yearsVeterinariaCercana2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

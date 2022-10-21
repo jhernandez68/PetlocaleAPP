@@ -125,12 +125,12 @@ class ComparacionServicios : AppCompatActivity() {
 
                         if(costoComparacionServicio4.text.toString().toDouble() < menorCosto ){
                             menorCosto = costoComparacionServicio4.text.toString().toDouble()
-                            calificacionMejorCostoServicio2.setText(menorCosto.toString() + " ($nombre_servicio2)")
+                            calificacionMejorCostoServicio2.setText(menorCosto.toString() + " ($nombre_veterinaria2)")
                         }
 
                         if(costoComparacionServicio4.text.toString().toDouble() > menorCosto ){
                             Log.d("Costo", "Entro al segundo if")
-                            calificacionMejorCostoServicio2.setText(menorCosto.toString() + " ($nombre_servicio1)")
+                            calificacionMejorCostoServicio2.setText(menorCosto.toString() + " ($nombre_veterinaria1)")
                         }
 
                     }
@@ -165,7 +165,7 @@ class ComparacionServicios : AppCompatActivity() {
                 if(opinionesArrayList.size > 0){
                     mayor = promedio
                     calificacionComparacionServicio2.setText(promedio.toString())
-                    nombreMayor = nombre_servicio1.toString()
+                    nombreMayor = nombre_veterinaria1.toString()
                     calificacion_servicio1 = promedio
                 }
                 Log.d("Mayor", "Mayor1 ${mayor}")
@@ -201,11 +201,11 @@ class ComparacionServicios : AppCompatActivity() {
                             }
 
                             if(calificacion_servicio2 > mayor){
-                                nombreMayor = nombre_servicio2.toString()
+                                nombreMayor = nombre_veterinaria2.toString()
                                 mayor = calificacion_servicio2
                                 calificacionMejorPrecioServicio2.setText(calificacion_servicio2.toString() + "($nombreMayor)")
                             }
-                            if(calificacion_servicio2 > mayor){
+                            if(calificacion_servicio2 < mayor){
                                 calificacionMejorPrecioServicio2.setText(mayor.toString() + "($nombreMayor)")
                             }
 

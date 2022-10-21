@@ -6,7 +6,6 @@
     android:layout_margin="8dp"
     >
 
-
     <ImageView
         android:id="@+id/ivVeterinaria"
         android:layout_width="144dp"

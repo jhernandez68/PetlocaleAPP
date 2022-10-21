@@ -22,7 +22,11 @@ import com.google.android.gms.maps.model.Marker
 
 import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener
 import com.google.firebase.firestore.*
+import kotlinx.android.synthetic.main.activity_maps.*
 import kotlinx.android.synthetic.main.activity_veterinaria_main_maps.*
+import java.math.RoundingMode
+import java.text.DecimalFormat
+import kotlin.math.roundToInt
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener, GoogleMap.OnMyLocationChangeListener {
@@ -70,10 +74,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
 
         var longitud_usuario = objetoIntent.getStringExtra("longitud_usuario")
 
+        var email_usuario = objetoIntent.getStringExtra("email")
+
 
         val resultados = FloatArray(1000)
 
-        //Se trae los datos del producto en la bd
+        //Se trae los datos en la bd
         db.collectionGroup("ubicaciones_veterinarias")
             .get().addOnSuccessListener { resultado ->
                 for (document in resultado) {
@@ -81,7 +87,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
                     Log.d("Datos", "${document.id} => ${document.data}")
                 }
                 ubicacionesArrayList2.addAll(ubicacionesArrayList)
-
 
                 ubicacionesArrayList2.forEach {
 
@@ -117,8 +122,35 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
                     }
                 }
 
+                //Variable para aproximar el double
+
+                val df = DecimalFormat("#.##")
+                df.roundingMode = RoundingMode.DOWN
+
+                for (i in distanciasArrayList.indices){
+
+                    if(distanciasArrayList[i] < 10.0){
+                        //Se guarda en la bd
+                        db.collection("usuarios")
+                            .document(email_usuario.toString())
+                            .collection("ubicaciones")
+                            .document(ubicacionesArrayList2[i].nombre.toString()).set(
+                                hashMapOf(
+                                    "nombre" to ubicacionesArrayList2[i].nombre.toString(),
+                                    "distancia" to df.format(distanciasArrayList[i]).toString(),
+                                    "years" to ubicacionesArrayList2[i].years.toString(),
+                                    "email" to ubicacionesArrayList2[i].email.toString()
+                                )
+                            )
+                    }
+
+                }
+
             }
 
+        listaVeterinariasCercanasMapsMainButton.setOnClickListener {
+            startActivity(Intent(this, UsuarioMainVeterinariasCercanas::class.java).putExtra("latitud_usuario", latitud_usuario ).putExtra("longitud_usuario", longitud_usuario).putExtra("email", email_usuario))
+        }
     }
 
     private fun createFragment(){

@@ -130,12 +130,12 @@ class ComparacionProductos : AppCompatActivity() {
 
                         if(costoComparacionProducto4.text.toString().toDouble() < menorCosto ){
                             menorCosto = costoComparacionProducto4.text.toString().toDouble()
-                            calificacionMejorCostoProducto2.setText(menorCosto.toString() + " ($nombre_producto2)")
+                            calificacionMejorCostoProducto2.setText(menorCosto.toString() + " ($nombre_veterinaria2)")
                         }
 
                         if(costoComparacionProducto4.text.toString().toDouble() > menorCosto ){
                             Log.d("Costo", "Entro al segundo if")
-                            calificacionMejorCostoProducto2.setText(menorCosto.toString() + " ($nombre_producto1)")
+                            calificacionMejorCostoProducto2.setText(menorCosto.toString() + " ($nombre_veterinaria1)")
                         }
 
                     }
@@ -170,7 +170,7 @@ class ComparacionProductos : AppCompatActivity() {
                 if(opinionesArrayList.size > 0){
                     mayor = promedio
                     calificacionComparacionProducto2.setText(promedio.toString())
-                    nombreMayor = nombre_producto1.toString()
+                    nombreMayor = nombre_veterinaria1.toString()
                     calificacion_producto1 = promedio
                 }
                 Log.d("Mayor", "Mayor1 ${mayor}")
@@ -206,16 +206,15 @@ class ComparacionProductos : AppCompatActivity() {
                             }
 
                             if(calificacion_producto2 > mayor){
-                                nombreMayor = nombre_producto2.toString()
+                                nombreMayor = nombre_veterinaria2.toString()
                                 mayor = calificacion_producto2
                                 calificacionMejorPrecioProducto2.setText(calificacion_producto2.toString() + "($nombreMayor)")
                             }
-                            if(calificacion_producto2 > mayor){
+                            if(calificacion_producto2 < mayor){
                                 calificacionMejorPrecioProducto2.setText(mayor.toString() + "($nombreMayor)")
                             }
 
                         }
-                        Log.d("Mayor", "Mayor??${mayor}")
                     }
             }
     }

@@ -104,7 +104,7 @@ class UsuarioMainProductosComparacion : AppCompatActivity() {
                     Toast.makeText(this@UsuarioMainProductosComparacion, "No puedes comparar el mismo producto!", Toast.LENGTH_LONG).show()
                 }
 
-                if(nombre_producto1 != nombre_producto){
+                if(nit_producto1 != nit_product){
                     val intent = Intent(this@UsuarioMainProductosComparacion, ComparacionProductos::class.java)
                     //Se envian los datos del producto 1
                     intent.putExtra("nombre_veterinaria1", nombre_veterinaria1)

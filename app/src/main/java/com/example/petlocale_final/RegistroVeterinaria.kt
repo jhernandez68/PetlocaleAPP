@@ -51,7 +51,6 @@ class RegistroVeterinaria : AppCompatActivity() {
                 yearsExperienceDetailed.text.isEmpty()){
                 Toast.makeText(this, "Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
-
         }
     }
 

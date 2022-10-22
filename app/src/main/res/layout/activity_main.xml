@@ -10,10 +10,12 @@
         android:id="@+id/google_mapsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.412"
         app:srcCompat="@mipmap/veterinaria" />
 
     <ImageView
@@ -42,19 +44,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/searchServiceUserButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/google_mapsButton"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/producto" />
 
     <ImageView
         android:id="@+id/searchServiceUserButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchProductUserButton"
+        app:layout_constraintTop_toBottomOf="@+id/google_mapsButton"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@mipmap/servicio" />
 
     <androidx.appcompat.widget.AppCompatButton

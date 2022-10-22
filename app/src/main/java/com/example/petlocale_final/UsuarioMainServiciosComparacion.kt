@@ -102,9 +102,7 @@ class UsuarioMainServiciosComparacion : AppCompatActivity() {
                     && nombre_servicio1 == nombre_servicio
                     && nit_servicio1 == nit_servicio){
                     Toast.makeText(this@UsuarioMainServiciosComparacion, "No puedes comparar el mismo servicio!", Toast.LENGTH_LONG).show()
-                }
-
-                if(nombre_servicio1 != nombre_servicio){
+                }else{
                     val intent = Intent(this@UsuarioMainServiciosComparacion, ComparacionServicios::class.java)
                     //Se envian los datos del servicio 1
                     intent.putExtra("nombre_veterinaria1", nombre_veterinaria1)

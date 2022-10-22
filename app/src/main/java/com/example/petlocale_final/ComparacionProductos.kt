@@ -219,6 +219,4 @@ class ComparacionProductos : AppCompatActivity() {
             }
     }
 
-
-
 }

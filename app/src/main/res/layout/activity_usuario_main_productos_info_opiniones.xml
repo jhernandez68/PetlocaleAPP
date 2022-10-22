@@ -119,7 +119,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_precio_product_detailed_info_opiniones" />
+        app:layout_constraintTop_toBottomOf="@+id/cantidad_opiniones_producto" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

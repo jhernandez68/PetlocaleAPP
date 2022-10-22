@@ -151,6 +151,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         listaVeterinariasCercanasMapsMainButton.setOnClickListener {
             startActivity(Intent(this, UsuarioMainVeterinariasCercanas::class.java).putExtra("latitud_usuario", latitud_usuario ).putExtra("longitud_usuario", longitud_usuario).putExtra("email", email_usuario))
         }
+
     }
 
     private fun createFragment(){

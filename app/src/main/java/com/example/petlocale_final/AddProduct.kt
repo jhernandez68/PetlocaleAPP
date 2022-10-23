@@ -51,8 +51,9 @@ class AddProduct : AppCompatActivity() {
 
         var nombre_producto_imagen = objetoIntent.getStringExtra("nombre_producto_imagen")
 
-
-        cargarImagen(Nombre.toString(), nombre_producto_imagen.toString())
+        if(nombre_producto_imagen != "null"){
+            cargarImagen(nombre_producto_imagen.toString(), Nombre.toString())
+        }
 
         setUp()
 
@@ -65,7 +66,8 @@ class AddProduct : AppCompatActivity() {
 
         var Nombre = objetoIntent.getStringExtra("nit")
 
-        db.collection("veterinarias").document(Nombre.toString()).get().addOnSuccessListener {
+        db.collection("veterinarias")
+            .document(Nombre.toString()).get().addOnSuccessListener {
             nombreVeterinariaXD.setText(it.get("nombre") as String?)
             nombre_veterinaria = nombreVeterinariaXD.text.toString()
         }
@@ -112,7 +114,10 @@ class AddProduct : AppCompatActivity() {
                 descripcionProduct.text.isNotEmpty() &&
                 costoProduct.text.isNotEmpty() &&
                 costoProduct2.text.isNotEmpty()){
-                db.collection("veterinarias").document(Nombre.toString()).collection("productos").document(nombreDeleteProduct.text.toString()).set(
+                db.collection("veterinarias")
+                    .document(Nombre.toString())
+                    .collection("productos")
+                    .document(nombreDeleteProduct.text.toString()).set(
                     hashMapOf(
                         "nombre" to nombreDeleteProduct.text.toString(),
                         "precio" to costoProduct.text.toString(),
@@ -148,7 +153,7 @@ class AddProduct : AppCompatActivity() {
     }
 
     private fun cargarImagen(nombre_producto : String, nit_veterinaria : String ) {
-        if(nombre_producto != "null"){
+        if(nombre_producto != "null" && nombre_producto != nit_veterinaria){
             nombreDeleteProduct.setText(nombre_producto)
 
             val storageRef = FirebaseStorage.getInstance().reference.child("images/$nit_veterinaria/$nombre_producto.jpg")

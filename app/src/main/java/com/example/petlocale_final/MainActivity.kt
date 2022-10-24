@@ -59,7 +59,8 @@ class MainActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "entró", Toast.LENGTH_LONG).show()
 
-                db.collection("usuarios").document(email.toString()).set(
+                db.collection("usuarios")
+                    .document(email.toString()).set(
                     hashMapOf(
                         "email" to email.toString(),
                         "tipo_mascota" to "Gato y Perro"

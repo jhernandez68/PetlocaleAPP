@@ -13,57 +13,67 @@
         android:text="REGISTRARSE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintHorizontal_bias="0.414"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793" />
+        app:layout_constraintVertical_bias="0.796" />
 
+    <TextView
+        android:id="@+id/textoTipoMascotaRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Actualmente tengo: "
+        android:textColor="#572364"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="283dp"
         android:layout_height="43dp"
+        android:layout_marginTop="26dp"
         android:ems="10"
         android:hint="Correo electrónico"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.444" />
+        app:layout_constraintTop_toBottomOf="@+id/main_product_detailed" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:textColor="@color/black"
         android:layout_width="273dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/registrarse"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
     <EditText
         android:id="@+id/editTextTextPassword2"
-        android:textColor="@color/black"
         android:layout_width="277dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="116dp"
         android:ems="10"
         android:hint="Repetir Contraseña"
         android:inputType="textPassword"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/registrarse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/main_product_detailed"
@@ -71,10 +81,20 @@
         android:layout_height="222dp"
         app:layout_constraintBottom_toTopOf="@+id/registrarse"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.401"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/petlocaleicon" />
+
+    <Spinner
+        android:id="@+id/spinnerTipoMascotaRegistro"
+        android:layout_width="283dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoTipoMascotaRegistro" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

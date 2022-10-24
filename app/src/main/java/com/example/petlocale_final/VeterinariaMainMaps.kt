@@ -69,17 +69,19 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
                 nombre_veterinaria_maps = nombre_veterinariaMaps.text.toString()
 
                 years_veterinariaMaps.setText(it.get("years") as String?)
-                years_veterinaria_maps = nombre_veterinariaMaps.text.toString()
+                years_veterinaria_maps = years_veterinariaMaps.text.toString()
 
                 email_veterinariaMaps.setText(it.get("email") as String?)
-                email_veterinaria_maps = nombre_veterinariaMaps.text.toString()
+                email_veterinaria_maps = email_veterinariaMaps.text.toString()
             }
 
-        //Se trae los datos del producto en la bd
+        //Se trae los datos en la bd
         db.collection("veterinarias")
             .document(nit.toString())
             .collection("ubicaciones")
-            .document("ubicacion").get().addOnSuccessListener {
+            .document("ubicacion")
+            .get()
+            .addOnSuccessListener {
                 longitudVeterinaria.setText(it.get("longitud") as String?)
                 latitudVeterinaria.setText(it.get("latitud") as String?)
                 longitud_veterinaria = longitudVeterinaria.text.toString()
@@ -109,7 +111,7 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
             if(control_marcadores != "Creado"){
                 Toast.makeText(this, "Mantenlo presionado y muevelo hasta la ubicación de tu negocio, ahí guardalo!", Toast.LENGTH_LONG).show()
                 if(latitud_veterinaria.isNotEmpty() && longitud_veterinaria.isNotEmpty()){
-                    createMarker(latitud_veterinaria.toDouble(), longitud_veterinaria.toDouble(), "hola")
+                    createMarker(latitud_veterinaria.toDouble(), longitud_veterinaria.toDouble(), "Arrastra el marcador")
                     control_marcadores = "Creado"
                 }
 
@@ -125,6 +127,7 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
                 .collection("ubicaciones")
                 .document("ubicacion").set(
                     hashMapOf(
+                        "nombre" to nombre_veterinariaMaps.text.toString(),
                         "nit" to nit.toString(),
                         "latitud" to latitud_veterinaria,
                         "longitud" to longitud_veterinaria,
@@ -136,8 +139,11 @@ class VeterinariaMainMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.O
                 .document(nit.toString()).set(
                     hashMapOf(
                         "nombre" to nombre_veterinariaMaps.text.toString(),
+                        "nit" to nit.toString(),
                         "latitud" to latitud_veterinaria,
-                        "longitud" to longitud_veterinaria
+                        "longitud" to longitud_veterinaria,
+                        "email" to email_veterinaria_maps,
+                        "years" to years_veterinaria_maps
                     ))
             Toast.makeText(this, "Ubicación guardada con éxito!", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, VeterinariaMainInfo::class.java).putExtra("Nombre",  nit))

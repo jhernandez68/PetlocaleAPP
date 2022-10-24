@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.Marker
 
 import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener
 import com.google.firebase.firestore.*
+import kotlinx.android.synthetic.main.activity_delete_service.*
 import kotlinx.android.synthetic.main.activity_maps.*
 import kotlinx.android.synthetic.main.activity_veterinaria_main_maps.*
 import java.math.RoundingMode
@@ -60,10 +61,30 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         ubicacionesArrayList = arrayListOf()
         ubicacionesArrayList2 = arrayListOf()
 
+        borrarDatos()
+
         inicio()
 
         createFragment()
 
+    }
+
+    private fun borrarDatos() {
+        val objetoIntent: Intent = intent
+        var email_usuario = objetoIntent.getStringExtra("email")
+
+        db.collection("usuarios")
+            .document(email_usuario.toString())
+            .collection("ubicaciones")
+            .get().addOnSuccessListener { resultado ->
+                for (document in resultado) {
+                    db.collection("usuarios")
+                        .document(email_usuario.toString())
+                        .collection("ubicaciones")
+                        .document(document.id).delete()
+                    Log.d("Datos", "${document.id} => ${document.data}")
+                }
+            }
     }
 
     private fun inicio() {
@@ -81,7 +102,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
 
         //Se trae los datos en la bd
         db.collectionGroup("ubicaciones_veterinarias")
-            .get().addOnSuccessListener { resultado ->
+            .get()
+            .addOnSuccessListener { resultado ->
                 for (document in resultado) {
                     ubicacionesArrayList.add(document.toObject(UbicacionVeterinaria::class.java))
                     Log.d("Datos", "${document.id} => ${document.data}")

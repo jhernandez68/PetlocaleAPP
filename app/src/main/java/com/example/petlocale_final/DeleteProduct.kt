@@ -33,8 +33,11 @@ class DeleteProduct : AppCompatActivity() {
             builder.setPositiveButton(android.R.string.ok) {
                     dialog, which ->
 
-                db.collection("veterinarias").document(Nombre.toString()).collection("productos")
-                    .document(nombreDeleteProduct.text.toString()).delete()
+                db.collection("veterinarias")
+                    .document(Nombre.toString())
+                    .collection("productos")
+                    .document(nombreDeleteProduct.text.toString())
+                    .delete()
 
                 Toast.makeText(this, "Borrado correctamente", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, VeterinariaMainProductos::class.java).putExtra("Nombre", Nombre ))

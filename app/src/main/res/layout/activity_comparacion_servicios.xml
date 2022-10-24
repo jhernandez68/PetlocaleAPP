@@ -269,6 +269,7 @@
         android:layout_height="wrap_content"
         android:text="Mejor calificación: "
         android:textColor="#572364"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagenServicio2" />
 
@@ -278,6 +279,7 @@
         app:layout_constraintStart_toEndOf="@id/calificacionMejorPrecioServicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18dp"
         android:text="Un servicio sin calificación"
         android:textColor="#000000"
         />
@@ -288,6 +290,7 @@
         android:layout_height="wrap_content"
         android:text="Más barato: "
         android:textColor="#572364"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calificacionMejorPrecioServicio" />
 
@@ -299,6 +302,7 @@
         android:layout_height="wrap_content"
         android:text="Un servicio sin calificación"
         android:textColor="#000000"
+        android:textSize="18dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

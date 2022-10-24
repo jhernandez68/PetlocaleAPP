@@ -53,6 +53,8 @@ class UsuarioMainServiciosComparacion : AppCompatActivity() {
 
         var nit_servicio1 = objetoIntent.getStringExtra("nit_servicio1")
 
+        var categoria_servicio1 = objetoIntent.getStringExtra("categoria_servicio1")
+
         correo = email.toString()
 
         recyclerView = findViewById(R.id.recyclerViewComparacionServicio)
@@ -102,7 +104,11 @@ class UsuarioMainServiciosComparacion : AppCompatActivity() {
                     && nombre_servicio1 == nombre_servicio
                     && nit_servicio1 == nit_servicio){
                     Toast.makeText(this@UsuarioMainServiciosComparacion, "No puedes comparar el mismo servicio!", Toast.LENGTH_LONG).show()
-                }else{
+                } else if(categoria_mascota != categoria_servicio1){
+                    Toast.makeText(this@UsuarioMainServiciosComparacion, "La categoria tiene que ser igual!", Toast.LENGTH_LONG).show()
+                }
+
+                else{
                     val intent = Intent(this@UsuarioMainServiciosComparacion, ComparacionServicios::class.java)
                     //Se envian los datos del servicio 1
                     intent.putExtra("nombre_veterinaria1", nombre_veterinaria1)

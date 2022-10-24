@@ -94,12 +94,14 @@ class UsuarioMainProductos : AppCompatActivity() {
                 var nombre_veterinaria = tempArrayList[position].nombre_veterinaria
                 var nombre_producto = tempArrayList[position].nombre
                 var nit_product = tempArrayList[position].nit
+                var categoria_producto = tempArrayList[position].categoria
 
                 val intent = Intent(this@UsuarioMainProductos, UsuarioMainProductosInfo::class.java)
                 intent.putExtra("nombre_veterinaria", nombre_veterinaria)
                 intent.putExtra("nombre_producto", nombre_producto)
                 intent.putExtra("nit", nit_product)
                 intent.putExtra("email", email)
+                intent.putExtra("categoria_producto", categoria_producto)
 
                 startActivity(intent)
 

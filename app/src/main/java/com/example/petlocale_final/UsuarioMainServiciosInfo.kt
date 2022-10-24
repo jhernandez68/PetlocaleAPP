@@ -31,6 +31,8 @@ class UsuarioMainServiciosInfo : AppCompatActivity() {
 
         var nit_servicio = objetoIntent.getStringExtra("nit")
 
+        val categoria_servicio = objetoIntent.getStringExtra("categoria_servicio")
+
         var email = objetoIntent.getStringExtra("email")
 
         val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_servicio}/${nombre_servicio}.jpg")
@@ -78,6 +80,7 @@ class UsuarioMainServiciosInfo : AppCompatActivity() {
             intent.putExtra("nombre_servicio1", nombre_servicio)
             intent.putExtra("nit_servicio1", nit_servicio)
             intent.putExtra("email", email)
+            intent.putExtra("categoria_servicio1", categoria_servicio)
             startActivity(intent)
         }
     }

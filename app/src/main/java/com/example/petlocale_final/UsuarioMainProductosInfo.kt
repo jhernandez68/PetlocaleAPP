@@ -34,6 +34,7 @@ class UsuarioMainProductosInfo : AppCompatActivity() {
 
         var email = objetoIntent.getStringExtra("email")
 
+        var categoria_producto = objetoIntent.getStringExtra("categoria_producto")
 
 
         val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_product}/${nombre_producto}.jpg")
@@ -80,6 +81,7 @@ class UsuarioMainProductosInfo : AppCompatActivity() {
                 intent.putExtra("nombre_veterinaria1", nombre_veterinaria)
                 intent.putExtra("nombre_producto1", nombre_producto)
                 intent.putExtra("nit_producto1", nit_product)
+                intent.putExtra("categoria_producto1", categoria_producto)
                 intent.putExtra("email", email)
                 startActivity(intent)
         }

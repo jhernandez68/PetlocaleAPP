@@ -53,6 +53,8 @@ class UsuarioMainProductosComparacion : AppCompatActivity() {
 
         var nit_producto1 = objetoIntent.getStringExtra("nit_producto1")
 
+        var categoria_producto1 = objetoIntent.getStringExtra("categoria_producto1")
+
         correo = email.toString()
 
         recyclerView = findViewById(R.id.recyclerViewComparacionProductos)
@@ -97,12 +99,19 @@ class UsuarioMainProductosComparacion : AppCompatActivity() {
                 var nombre_veterinaria = tempArrayList[position].nombre_veterinaria
                 var nombre_producto = tempArrayList[position].nombre
                 var nit_product = tempArrayList[position].nit
+                var categoria_mascota = tempArrayList[position].categoria
+
+                Log.d("Datos", "c1 : $categoria_mascota c2: $categoria_producto1")
 
                 if(nombre_veterinaria1 == nombre_veterinaria
                     && nombre_producto1 == nombre_producto
                     && nit_producto1 == nit_product){
                     Toast.makeText(this@UsuarioMainProductosComparacion, "No puedes comparar el mismo producto!", Toast.LENGTH_LONG).show()
-                }else{
+                }
+                else if(categoria_mascota != categoria_producto1){
+                    Toast.makeText(this@UsuarioMainProductosComparacion, "La categoria tiene que ser igual!", Toast.LENGTH_LONG).show()
+                }
+                else {
                     val intent = Intent(this@UsuarioMainProductosComparacion, ComparacionProductos::class.java)
                     //Se envian los datos del producto 1
                     intent.putExtra("nombre_veterinaria1", nombre_veterinaria1)

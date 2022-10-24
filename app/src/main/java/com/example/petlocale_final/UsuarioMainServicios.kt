@@ -89,10 +89,12 @@ class UsuarioMainServicios : AppCompatActivity() {
                 var nombre_veterinaria = tempArrayList[position].nombre_veterinaria
                 var nombre_servicio = tempArrayList[position].nombre
                 var nit_service = tempArrayList[position].nit
+                var categoria_servicio = tempArrayList[position].categoria
 
                 val intent = Intent(this@UsuarioMainServicios, UsuarioMainServiciosInfo::class.java)
                 intent.putExtra("nombre_veterinaria", nombre_veterinaria)
                 intent.putExtra("nombre_servicio", nombre_servicio)
+                intent.putExtra("categoria_servicio", categoria_servicio)
                 intent.putExtra("nit", nit_service)
                 intent.putExtra("email", email)
 

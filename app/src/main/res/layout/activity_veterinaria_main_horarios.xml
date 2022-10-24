@@ -118,13 +118,28 @@
 
     <Button
         android:id="@+id/guardarHorariosButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="171dp"
+        android:layout_height="53dp"
         android:text="Guardar!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dia4" />
+        app:layout_constraintTop_toBottomOf="@+id/dia4"
+        app:layout_constraintVertical_bias="0.505" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancelarHorariosButton2"
+        android:layout_width="171dp"
+        android:layout_height="53dp"
+        android:background="#FF0000"
+        android:text="Cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dia4"
+        app:layout_constraintVertical_bias="0.502" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

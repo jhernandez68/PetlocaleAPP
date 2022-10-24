@@ -129,12 +129,14 @@
             android:name=".RegistroVeterinaria"
             android:exported="true" />
         <activity
+            android:noHistory="true"
             android:name=".LogeoVeterinaria"
             android:exported="true" />
         <activity
             android:name=".EditUser"
             android:exported="true" />
         <activity
+            android:noHistory="true"
             android:name=".Inicio"
             android:exported="true">
             <intent-filter>
@@ -150,6 +152,7 @@
             android:name=".Registro"
             android:exported="true" />
         <activity
+            android:noHistory="true"
             android:name=".Logeo"
             android:exported="true" />
         <activity

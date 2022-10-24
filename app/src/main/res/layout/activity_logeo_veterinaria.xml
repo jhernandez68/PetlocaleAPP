@@ -45,6 +45,7 @@
         android:layout_height="53dp"
         android:autofillHints="Password"
         android:hint="Contraseña"
+        android:textColor="@color/black"
         android:imeActionLabel="Sign In"
         android:imeOptions="actionDone"
         android:inputType="textPassword"

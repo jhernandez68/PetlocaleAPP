@@ -7,29 +7,43 @@
     tools:context=".VeterinariaMainInfo"
     android:background="@mipmap/fondo_veterinaria_3">
 
+
     <Button
-        android:id="@+id/horariosButton"
+        android:id="@+id/menuPrincipalButton"
         android:layout_width="303dp"
         android:layout_height="91dp"
-        android:text="Horarios de atención"
+        android:text="Menú principal"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/horariosButton"
+        android:layout_width="303dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="28dp"
+        android:text="Horarios de atención"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuPrincipalButton" />
 
     <Button
         android:id="@+id/UbicacionButton"
         android:layout_width="303dp"
         android:layout_height="91dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="276dp"
         android:text="Ubicación"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintTop_toBottomOf="@+id/datosButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/datosButton"
@@ -40,6 +54,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/horariosButton"
+        app:layout_constraintVertical_bias="0.062" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

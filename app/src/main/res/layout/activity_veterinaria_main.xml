@@ -14,33 +14,44 @@
         android:layout_height="91dp"
         android:text="Información Veterinaria"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/productosButton"
         android:layout_width="303dp"
         android:layout_height="91dp"
+        android:layout_marginTop="37dp"
         android:text="Gestión de Productos"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357" />
+        app:layout_constraintTop_toBottomOf="@+id/infoButton" />
 
     <Button
         android:id="@+id/serviciosButton"
         android:layout_width="303dp"
         android:layout_height="91dp"
+        android:layout_marginTop="33dp"
         android:text="Gestión de Servicios"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productosButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/salirAppButon"
+        android:layout_width="300dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="268dp"
+        android:backgroundTint="#D32F2F"
+        android:text="salir"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.547" />
+        app:layout_constraintTop_toBottomOf="@+id/serviciosButton"
+        app:layout_constraintVertical_bias="0.125" />
 </androidx.constraintlayout.widget.ConstraintLayout>

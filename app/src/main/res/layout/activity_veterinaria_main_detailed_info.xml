@@ -113,15 +113,28 @@
 
     <Button
         android:id="@+id/buttonGuardarInfoVeterinaria"
-        android:layout_width="236dp"
-        android:layout_height="70dp"
+        android:layout_width="186dp"
+        android:layout_height="60dp"
         android:text="Guardar!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailDetailed2Product"
-        app:layout_constraintVertical_bias="0.278" />
+        app:layout_constraintVertical_bias="0.252" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonCancelarInfoVeterinaria3"
+        android:background="#FF0000"
+        android:layout_width="186dp"
+        android:layout_height="60dp"
+        android:text="Cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailDetailed2Product"
+        app:layout_constraintVertical_bias="0.252" />
 
     <TextView
         android:id="@+id/passwordFBVet"

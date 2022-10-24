@@ -33,6 +33,7 @@
         android:layout_marginTop="8dp"
         android:autofillHints="Password"
         android:hint="Contraseña"
+        android:textColor="@color/black"
         android:imeActionLabel="Sign In"
         android:imeOptions="actionDone"
         android:inputType="textPassword"

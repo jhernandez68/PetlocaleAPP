@@ -36,6 +36,10 @@ class VeterinariaMainHorarios : AppCompatActivity() {
         horarioDia3.setOnClickListener { showTimePickerDialog3() }
         horarioDia4.setOnClickListener { showTimePickerDialog4() }
 
+        cancelarHorariosButton2.setOnClickListener{
+            startActivity(Intent(this, VeterinariaMainInfo::class.java).putExtra("Nombre", nit))
+        }
+
         guardarHorariosButton.setOnClickListener {
             if(horario1.isNotEmpty()
                 && horario2.isNotEmpty()

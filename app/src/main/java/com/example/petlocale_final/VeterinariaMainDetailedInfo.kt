@@ -29,7 +29,12 @@ class VeterinariaMainDetailedInfo : AppCompatActivity() {
             main_name_vet_product_detailed2.setText(it.get("nit") as String?)
             emailDetailed2Product.setText(it.get("email") as String?)
             passwordFBVet.setText(it.get("password") as String?)
+
+            buttonCancelarInfoVeterinaria3.setOnClickListener{
+                startActivity(Intent(this, VeterinariaMain::class.java).putExtra("nit", nit ))
+            }
         }
+
 
         if(main_name_product_detailed2XD.text.isNotEmpty() && main_name_vet_product_detailed2.text.isNotEmpty()){
             buttonGuardarInfoVeterinaria.setOnClickListener {
@@ -41,7 +46,6 @@ class VeterinariaMainDetailedInfo : AppCompatActivity() {
                         "nit" to main_name_vet_product_detailed2.text.toString(),
                         "password" to passwordFBVet.text.toString()
                     ))
-
 
                 startActivity(Intent(this, VeterinariaMain::class.java).putExtra("Nombre", nit ))
             }

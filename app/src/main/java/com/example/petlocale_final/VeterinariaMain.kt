@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_veterinaria_main.*
+import kotlin.system.exitProcess
 
 class VeterinariaMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +16,11 @@ class VeterinariaMain : AppCompatActivity() {
         val objetoIntent: Intent = intent
 
         var nit = objetoIntent.getStringExtra("nit")
+
+        salirAppButon.setOnClickListener{
+            startActivity(Intent(this, Inicio::class.java))
+            finish()
+        }
 
         productosButton.setOnClickListener {
             startActivity(Intent(this, VeterinariaMainProductos::class.java).putExtra("Nombre",  nit))

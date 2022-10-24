@@ -22,10 +22,19 @@ class Logeo : AppCompatActivity() {
         setContentView(R.layout.activity_logeo)
 
         val registroIntent = Intent(this,Registro::class.java)
+
+        //Textview para ir a registro de usuario
         textView3.setOnClickListener{
             startActivity(registroIntent)
         }
 
+        //Texto para ir a recuperar contraseña
+        textView6.setOnClickListener{
+            val recuperarIntent = Intent(this,Logeo_MissPassword::class.java)
+            startActivity(recuperarIntent)
+        }
+
+        //para entrar en la app
         entrar.setOnClickListener{
 
             if(password.text.isEmpty() || password.text.isEmpty()){

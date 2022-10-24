@@ -96,6 +96,21 @@
         app:layout_constraintTop_toBottomOf="@+id/entrar"
         app:layout_constraintVertical_bias="0.549" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="36dp"
+        android:text="¿Olvidó su contraseña?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#7B1FA2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/googleButton"
         android:layout_width="268dp"

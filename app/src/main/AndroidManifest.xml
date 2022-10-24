@@ -24,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Petlocale_final">
         <activity
+            android:name=".Logeo_MissPassword"
+            android:exported="true" />
+        <activity
             android:name=".UsuarioMainVeterinariasCercanas"
             android:exported="true" />
         <activity
@@ -129,16 +132,16 @@
             android:name=".RegistroVeterinaria"
             android:exported="true" />
         <activity
-            android:noHistory="true"
             android:name=".LogeoVeterinaria"
-            android:exported="true" />
+            android:exported="true"
+            android:noHistory="true" />
         <activity
             android:name=".EditUser"
             android:exported="true" />
         <activity
-            android:noHistory="true"
             android:name=".Inicio"
-            android:exported="true">
+            android:exported="true"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -152,9 +155,9 @@
             android:name=".Registro"
             android:exported="true" />
         <activity
-            android:noHistory="true"
             android:name=".Logeo"
-            android:exported="true" />
+            android:exported="true"
+            android:noHistory="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

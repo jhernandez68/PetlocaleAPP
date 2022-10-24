@@ -80,8 +80,10 @@ class VeterinariaMainServiciosDetailed : AppCompatActivity() {
                 //Tipos de mascota
                 val tipos = arrayOf("Actualmente $tipo_mascota_firebase","Gato", "Perro")
 
+
                 //Tipos de mascota
-                val categorias = arrayOf("Actualmente $categoria_firebase","Medicina", "Accesorios", "Juguetes", "Ropa","Alimentos", "Higiene", "Limpieza" )
+                val categorias = arrayOf("Actualmente $categoria_firebase", "Consulta general", "Cirugia",
+                "Consulta especializada", "Vacunación", "Desparacitación", "Higiene", "Baño", "Peluqueria", "Limpieza de oidos" )
 
                 //Spinner 1 - tipo de mascota
                 val spinner = findViewById<Spinner>(R.id.spinnerServiceEdit)

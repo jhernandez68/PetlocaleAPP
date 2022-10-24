@@ -30,8 +30,9 @@ class UsuarioMainServicios : AppCompatActivity() {
     //Variable para guardar el correo de usuario
     private lateinit var correo : String
 
-    //Tipos de mascota
-    var categorias = arrayOf("Filtrar - Todos", "Medicina", "Accesorios", "Juguetes", "Ropa","Alimentos", "Higiene", "Limpieza" )
+    //Tipos de categoria
+    val categorias = arrayOf("Filtrar - Todos", "Consulta general", "Cirugia",
+        "Consulta especializada", "Vacunación", "Desparacitación", "Higiene", "Baño", "Peluqueria", "Limpieza de oidos" )
 
     //Variable para guardar la categoria
     private lateinit var categoria_mascota : String

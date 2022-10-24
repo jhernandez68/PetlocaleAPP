@@ -23,8 +23,9 @@ class AddService : AppCompatActivity() {
     //Tipos de mascota
     val tipos = arrayOf("Gato", "Perro")
 
-    //Tipos de mascota
-    val categorias = arrayOf("Medicina", "Accesorios", "Juguetes", "Ropa","Alimentos", "Higiene", "Limpieza" )
+    //Tipos de categoria
+    val categorias = arrayOf("Consulta general", "Cirugia",
+        "Consulta especializada", "Vacunación", "Desparacitación", "Higiene", "Baño", "Peluqueria", "Limpieza de oidos" )
 
     //Variable para guardar el tipo
     private lateinit var tipo_mascota : String

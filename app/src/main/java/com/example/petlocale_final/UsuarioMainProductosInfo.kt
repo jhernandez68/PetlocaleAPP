@@ -58,6 +58,12 @@ class UsuarioMainProductosInfo : AppCompatActivity() {
             main_precio_product_detailed_info2.setText(it.get("precio") as String?)
         }
 
+        textView7MainProductosInfo.setOnClickListener{
+            val intent = Intent(this@UsuarioMainProductosInfo, UsuarioMainProductos::class.java)
+            intent.putExtra("email", email)
+            startActivity(intent)
+        }
+
         rateButton.setOnClickListener {
             val intent = Intent(this@UsuarioMainProductosInfo, RateProduct::class.java)
             intent.putExtra("nombre_veterinaria", nombre_veterinaria)

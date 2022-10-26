@@ -55,7 +55,25 @@ class UsuarioMainVeterinarias : AppCompatActivity() {
 
         searchView.setOnQueryTextListener( object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
-                TODO("Not yet implemented")
+                tempArrayList.clear()
+
+                val searchText = p0!!.toLowerCase(Locale.getDefault())
+
+                if (searchText.isNotEmpty()){
+                    veterinariaArrayList.forEach{
+                        if(it.nombre?.toLowerCase(Locale.getDefault())!!.contains(searchText)){
+
+                            tempArrayList.add(it)
+                        }
+                    }
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                }else{
+                    tempArrayList.clear()
+                    tempArrayList.addAll(veterinariaArrayList)
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                }
+
+                return false
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {

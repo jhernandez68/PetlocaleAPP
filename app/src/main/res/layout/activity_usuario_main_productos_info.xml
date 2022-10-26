@@ -10,12 +10,13 @@
         android:id="@+id/main_product_detailed"
         android:layout_width="294dp"
         android:layout_height="222dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="@+id/main_name_product_detailed_info"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@mipmap/petlocaleicon" />
 
     <TextView
@@ -129,6 +130,16 @@
         android:text="TextView"
         android:visibility="invisible"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="48dp" />
+
+    <TextView
+        android:id="@+id/textView7MainProductosInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lista de productos"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import com.example.petlocale_final.databinding.ActivityRateServiceBinding
 import com.example.petlocale_final.databinding.ActivityUsuarioMainServiciosInfoBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_usuario_main_productos_info.*
 import kotlinx.android.synthetic.main.activity_usuario_main_servicios_info.*
 import java.io.File
 
@@ -45,6 +46,14 @@ class UsuarioMainServiciosInfo : AppCompatActivity() {
             binding.mainServiceDetailed.setImageBitmap(bitmap)
 
         }
+
+
+        textView7MainProductosInfo.setOnClickListener{
+            val intent = Intent(this@UsuarioMainServiciosInfo, UsuarioMainServicios::class.java)
+            intent.putExtra("email", email)
+            startActivity(intent)
+        }
+
 
         db.collection("veterinarias")
             .document(nit_servicio.toString())

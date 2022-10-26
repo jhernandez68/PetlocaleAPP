@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".UsuarioMainProductos">
 
+    <TextView
+        android:id="@+id/textViewMainProductosInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menú principal"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewUserProduct"
         android:layout_width="378dp"
@@ -24,7 +34,7 @@
         android:layout_height="39dp"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewMainProductosInfo" />
 
     <TextView
         android:id="@+id/tipo_mascota_productos_usuario"

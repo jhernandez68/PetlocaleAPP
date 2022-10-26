@@ -7,16 +7,28 @@
     tools:context=".UsuarioMainServiciosInfo">
 
 
+    <TextView
+        android:id="@+id/textView7MainSeriviciosInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menú principal"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <ImageView
         android:id="@+id/main_service_detailed"
         android:layout_width="294dp"
         android:layout_height="222dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="@+id/main_name_service_detailed_info"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077"
+        app:layout_constraintTop_toBottomOf="@+id/textView7MainSeriviciosInfo"
         app:srcCompat="@mipmap/petlocaleicon" />
 
     <TextView

@@ -144,7 +144,42 @@ class UsuarioMainProductosComparacion : AppCompatActivity() {
 
         searchView.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
-                TODO("Not yet implemented")
+                if(categoria_mascota == "Filtrar - Todos"){
+                    tempArrayList.clear()
+
+                    val searchText = p0!!.toLowerCase(Locale.getDefault())
+
+                    if (searchText.isNotEmpty()){
+                        productoArrayList.forEach{
+                            if(it.nombre?.toLowerCase(Locale.getDefault())!!.contains(searchText)){
+                                tempArrayList.add(it)
+                            }
+                        }
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }else{
+                        tempArrayList.clear()
+                        tempArrayList.addAll(productoArrayList)
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }
+                }
+
+                if(categoria_mascota != "Filtrar - Todos"){
+                    tempArrayList.clear()
+
+                    val searchText = p0!!.toLowerCase(Locale.getDefault())
+
+                    if (searchText.isNotEmpty()){
+                        productoArrayList.forEach{
+                            if(it.nombre?.toLowerCase(Locale.getDefault())!!.contains(searchText) && it.categoria?.contains(categoria_mascota) == true){
+                                tempArrayList.add(it)
+                            }
+                        }
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }else{
+                        FiltroCategoria(categoria_mascota)
+                    }
+                }
+                return false
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {
@@ -186,7 +221,6 @@ class UsuarioMainProductosComparacion : AppCompatActivity() {
                 }
                 return false
             }
-
         })
 
         return super.onCreateOptionsMenu(menu)

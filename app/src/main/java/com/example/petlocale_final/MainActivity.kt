@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_usuario_main_info.*
@@ -68,6 +69,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
+        //Botón para cerrar sesión y salir
+        cerrarSesionButton.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this, Inicio::class.java))
+            finish()
+        }
 
         //Botón para utilizar API de Google Maps
         google_mapsButton.setOnClickListener{

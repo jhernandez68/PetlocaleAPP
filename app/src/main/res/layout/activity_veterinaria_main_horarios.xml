@@ -8,9 +8,8 @@
 
     <ImageView
         android:id="@+id/main_product_detailed"
-        android:layout_width="294dp"
-        android:layout_height="222dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="272dp"
+        android:layout_height="171dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +42,8 @@
         android:id="@+id/horarioDia1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Hora: "
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@+id/dia1"
@@ -62,17 +63,72 @@
         android:id="@+id/horarioDia2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Hora: "
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@id/dia2"
         app:layout_constraintTop_toTopOf="@id/dia2" />
 
     <TextView
+        android:id="@+id/anuncio_domingo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Domingo:"
+        android:textColor="#572364"
+        android:textSize="30dp"
+        app:layout_constraintTop_toBottomOf="@id/dia4"
+        tools:layout_editor_absoluteX="7dp" />
+
+    <TextView
+        android:id="@+id/dia_domingo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="De: "
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:layout_constraintTop_toBottomOf="@id/anuncio_domingo" />
+
+    <EditText
+        android:id="@+id/horarioDia7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:hint="Hora: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/dia_domingo"
+        app:layout_constraintTop_toTopOf="@id/dia_domingo" />
+
+    <TextView
+        android:id="@+id/dia5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasta:"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:layout_constraintTop_toBottomOf="@id/dia_domingo" />
+
+    <EditText
+        android:id="@+id/horarioDia5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:hint="Hora: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/dia5"
+        app:layout_constraintTop_toTopOf="@id/dia5" />
+
+
+    <TextView
         android:id="@+id/anuncio2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Sábado y Domingo: "
+        android:text="Sábado:"
         android:textColor="#572364"
         android:textSize="30dp"
         app:layout_constraintTop_toBottomOf="@id/dia2"
@@ -83,7 +139,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="De (sábado): "
+        android:text="De: "
         android:textColor="#000000"
         android:textSize="30dp"
         app:layout_constraintTop_toBottomOf="@id/anuncio2" />
@@ -92,6 +148,8 @@
         android:id="@+id/horarioDia3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Hora: "
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@id/dia3"
@@ -102,7 +160,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Hasta (domingo): "
+        android:text="Hasta:"
         android:textColor="#000000"
         android:textSize="30dp"
         app:layout_constraintTop_toBottomOf="@id/dia3" />
@@ -111,35 +169,40 @@
         android:id="@+id/horarioDia4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
         android:hint="Hora: "
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@id/dia4"
         app:layout_constraintTop_toTopOf="@id/dia4" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/guardarHorariosButton"
+        android:background="#572364"
+        android:textColor="#FFFFFF"
         android:layout_width="171dp"
         android:layout_height="53dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="24dp"
         android:text="Guardar!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dia4"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintTop_toBottomOf="@+id/horarioDia5" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cancelarHorariosButton2"
         android:layout_width="171dp"
         android:layout_height="53dp"
+        android:layout_marginTop="36dp"
         android:background="#FF0000"
         android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dia4"
-        app:layout_constraintVertical_bias="0.502" />
+        app:layout_constraintTop_toBottomOf="@+id/dia5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

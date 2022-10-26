@@ -17,6 +17,10 @@ class VeterinariaMainHorarios : AppCompatActivity() {
 
     private lateinit  var horario4 : String
 
+    private lateinit  var horario5 : String
+
+    private lateinit  var horario6 : String
+
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +39,8 @@ class VeterinariaMainHorarios : AppCompatActivity() {
         horarioDia2.setOnClickListener { showTimePickerDialog2() }
         horarioDia3.setOnClickListener { showTimePickerDialog3() }
         horarioDia4.setOnClickListener { showTimePickerDialog4() }
+        horarioDia5.setOnClickListener { showTimePickerDialog5() }
+        horarioDia7.setOnClickListener { showTimePickerDialog6() }
 
         cancelarHorariosButton2.setOnClickListener{
             startActivity(Intent(this, VeterinariaMainInfo::class.java).putExtra("Nombre", nit))
@@ -44,7 +50,9 @@ class VeterinariaMainHorarios : AppCompatActivity() {
             if(horario1.isNotEmpty()
                 && horario2.isNotEmpty()
                 && horario3.isNotEmpty()
-                && horario4.isNotEmpty()){
+                && horario4.isNotEmpty()
+                && horario5.isNotEmpty()
+                && horario6.isNotEmpty()){
 
                 //Se guarda en la bd
                 db.collection("veterinarias")
@@ -55,17 +63,27 @@ class VeterinariaMainHorarios : AppCompatActivity() {
                             "nit_horarios" to nit.toString(),
                             "semana1" to horario1,
                             "semana1_fin" to horario2,
-                            "sabado" to horario3,
-                            "domingo" to horario4
+                            "sabado_inicio" to horario3,
+                            "sabado_fin" to horario4,
+                            "domingo_inicio" to horario5,
+                            "domingo_fin" to horario6
                         )
                     )
-                startActivity(Intent(this, VeterinariaMain::class.java).putExtra("nit", nit))
+                //Se obtiene el nit
+                val objetoIntent: Intent = intent
+
+                var nitxd = objetoIntent.getStringExtra("Nombre")
+
+                startActivity(Intent(this, VeterinariaMain::class.java)
+                    .putExtra("Nombre", nitxd))
             }
 
             if(horario1.isEmpty()
                 || horario2.isEmpty()
                 || horario3.isEmpty()
-                || horario4.isEmpty()){
+                || horario4.isEmpty()
+                || horario5.isEmpty()
+                || horario6.isEmpty()){
                 Toast.makeText(this, "Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
         }
@@ -80,8 +98,16 @@ class VeterinariaMainHorarios : AppCompatActivity() {
             .addOnSuccessListener {
                 horarioDia1.setText(it.get("semana1") as String?)
                 horarioDia2.setText(it.get("semana1_fin") as String?)
-                horarioDia3.setText(it.get("sabado") as String?)
-                horarioDia4.setText(it.get("domingo") as String?)
+                horarioDia3.setText(it.get("sabado_inicio") as String?)
+                horarioDia4.setText(it.get("sabado_fin") as String?)
+                horarioDia5.setText(it.get("domingo_inicio") as String?)
+                horarioDia7.setText(it.get("domingo_fin") as String?)
+                horario1 = horarioDia1.text.toString()
+                horario2 = horarioDia2.text.toString()
+                horario3 = horarioDia3.text.toString()
+                horario4 = horarioDia4.text.toString()
+                horario5 = horarioDia5.text.toString()
+                horario6 = horarioDia7.text.toString()
             }
     }
 
@@ -105,6 +131,16 @@ class VeterinariaMainHorarios : AppCompatActivity() {
         timePicker.show(supportFragmentManager, "time")
     }
 
+    private fun showTimePickerDialog5() {
+        val timePicker = TimePickerFragment {time -> onTimeSelected5(time)}
+        timePicker.show(supportFragmentManager, "time")
+    }
+
+    private fun showTimePickerDialog6() {
+        val timePicker = TimePickerFragment {time -> onTimeSelected6(time)}
+        timePicker.show(supportFragmentManager, "time")
+    }
+
     private fun onTimeSelected(time: String){
         horarioDia1.setText("$time")
         horario1 = time
@@ -122,7 +158,12 @@ class VeterinariaMainHorarios : AppCompatActivity() {
         horarioDia4.setText("$time")
         horario4 = time
     }
-
-
-
+    private fun onTimeSelected5(time: String){
+        horarioDia5.setText("$time")
+        horario5 = time
+    }
+    private fun onTimeSelected6(time: String){
+        horarioDia7.setText("$time")
+        horario6 = time
+    }
 }

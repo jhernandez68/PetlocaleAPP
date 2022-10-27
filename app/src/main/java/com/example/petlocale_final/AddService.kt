@@ -123,8 +123,8 @@ class AddService : AppCompatActivity() {
                 startActivity(Intent(this, VeterinariaMainServicios::class.java).putExtra("Nombre", Nombre ))
             }
 
-            if(nombreAddService.text.isEmpty() &&
-                descripcionAddService.text.isEmpty() &&
+            if(nombreAddService.text.isEmpty() ||
+                descripcionAddService.text.isEmpty() ||
                 costoAddService.text.isEmpty()){
                 Toast.makeText(this, "¡Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }

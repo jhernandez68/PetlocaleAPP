@@ -70,8 +70,15 @@ class UsuarioMainInfo : AppCompatActivity() {
             main_name_product_detailed2XD.setText(it.get("nombre") as String?)
         }
 
-        if(main_name_product_detailed2XD.text.isNotEmpty()){
-            guardarInfoUserButton.setOnClickListener {
+
+
+        guardarInfoUserButton.setOnClickListener {
+
+            if(main_name_product_detailed2XD.text.isEmpty()){
+                Toast.makeText(this, "¡Rellena todos los campos!", Toast.LENGTH_LONG).show()
+            }
+
+            if(main_name_product_detailed2XD.text.isNotEmpty()){
                 db.collection("usuarios").document(email.toString()).set(
                     hashMapOf(
                         "email" to email.toString(),
@@ -80,10 +87,7 @@ class UsuarioMainInfo : AppCompatActivity() {
                     ))
                 startActivity(Intent(this, MainActivity::class.java).putExtra("email", email ))
             }
-        }
 
-        if(main_name_product_detailed2XD.text.isEmpty()){
-            Toast.makeText(this, "¡Rellena todos los campos!", Toast.LENGTH_LONG).show()
         }
     }
 }

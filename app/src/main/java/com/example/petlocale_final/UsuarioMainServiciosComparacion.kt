@@ -100,12 +100,14 @@ class UsuarioMainServiciosComparacion : AppCompatActivity() {
                 var nombre_veterinaria = tempArrayList[position].nombre_veterinaria
                 var nombre_servicio = tempArrayList[position].nombre
                 var nit_servicio = tempArrayList[position].nit
+                var categoria_mascotaxd = tempArrayList[position].categoria
 
                 if(nombre_veterinaria1 == nombre_veterinaria
                     && nombre_servicio1 == nombre_servicio
                     && nit_servicio1 == nit_servicio){
                     Toast.makeText(this@UsuarioMainServiciosComparacion, "No puedes comparar el mismo servicio!", Toast.LENGTH_LONG).show()
-                } else if(categoria_mascota != categoria_servicio1){
+                }
+                else if(categoria_mascotaxd != categoria_servicio1){
                     Toast.makeText(this@UsuarioMainServiciosComparacion, "La categoria tiene que ser igual!", Toast.LENGTH_LONG).show()
                 }
 
@@ -229,7 +231,8 @@ class UsuarioMainServiciosComparacion : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-        db.collection("usuarios").document(correo.toString()).get().addOnSuccessListener{
+        db.collection("usuarios")
+            .document(correo.toString()).get().addOnSuccessListener{
             tipo_mascota_comparacion_servicio.setText(it.get("tipo_mascota") as String?)
 
             if(tipo_mascota_comparacion_servicio.text.toString() == "Gato y Perro"){

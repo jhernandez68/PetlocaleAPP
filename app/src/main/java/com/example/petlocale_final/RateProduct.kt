@@ -69,7 +69,7 @@ class RateProduct : AppCompatActivity() {
             .collection("reseñas_productos")
             .document(nombre_producto.toString()).get().addOnSuccessListener {
                 reseña2.setText(it.get("reseña") as String?)
-                calificacion_producto_firebase.setText(it.get("calificación") as String?)
+                calificacion_producto_firebase.setText(it.get("calificacion") as String?)
 
                 //Se guarda la calificación si el usuario ya la hizo
 

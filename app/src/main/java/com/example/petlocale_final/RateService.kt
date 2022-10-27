@@ -71,7 +71,7 @@ class RateService : AppCompatActivity() {
             .collection("reseñas_servicios")
             .document(nombre_servicio.toString()).get().addOnSuccessListener {
                 reseña2Service.setText(it.get("reseña") as String?)
-                calificacion_servicio_firebase.setText(it.get("calificación") as String?)
+                calificacion_servicio_firebase.setText(it.get("calificacion") as String?)
 
                 //Se guarda la calificación si el usuario ya la hizo
 

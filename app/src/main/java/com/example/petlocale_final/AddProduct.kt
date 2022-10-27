@@ -131,9 +131,9 @@ class AddProduct : AppCompatActivity() {
                 startActivity(Intent(this, VeterinariaMainProductos::class.java).putExtra("Nombre", Nombre ))
             }
 
-            if(nombreDeleteProduct.text.isEmpty() &&
-                descripcionProduct.text.isEmpty() &&
-                costoProduct.text.isEmpty() &&
+            if(nombreDeleteProduct.text.isEmpty() ||
+                descripcionProduct.text.isEmpty() ||
+                costoProduct.text.isEmpty() ||
                 costoProduct2.text.isEmpty()){
                 Toast.makeText(this, "¡Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }

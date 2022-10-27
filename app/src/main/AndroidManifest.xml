@@ -104,6 +104,7 @@
             android:exported="true" />
         <activity
             android:name=".AddProduct"
+            android:noHistory="true"
             android:exported="true" />
         <activity
             android:name=".VeterinariaMainProductos"
@@ -122,6 +123,7 @@
             android:exported="true" />
         <activity
             android:name=".AddService"
+            android:noHistory="true"
             android:exported="true" />
         <activity
             android:name=".VeterinariaMainServicios"

@@ -23,24 +23,37 @@ class DeleteService : AppCompatActivity() {
         var Nombre = objetoIntent.getStringExtra("nit")
 
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
+        builder.setTitle("Alerta")
         builder.setMessage("¿Estás seguro de borrar?")
 
         borrarProducto.setOnClickListener{
 
-            builder.setPositiveButton(android.R.string.ok) {
-                dialog, which ->
-
-                db.collection("veterinarias").document(Nombre.toString()).collection("servicios")
-                    .document(nombreDeleteProduct.text.toString()).delete()
-
-                Toast.makeText(this, "Borrado correctamente", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, VeterinariaMainServicios::class.java).putExtra("Nombre", Nombre ))
+            if(nombreDeleteProduct.text.toString().isEmpty()){
+                Toast.makeText(this, "¡Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
 
-            builder.setNegativeButton("Cancelar", null)
+            if(nombreDeleteProduct.text.toString().isNotEmpty()){
+                builder.setPositiveButton(android.R.string.ok) {
+                        dialog, which ->
 
-            builder.show()
+                    db.collection("veterinarias")
+                        .document(Nombre.toString()).collection("servicios")
+                        .document(nombreDeleteProduct.text.toString())
+                        .delete().addOnSuccessListener {
+                            Toast.makeText(this, "Borrado correctamente", Toast.LENGTH_SHORT).show()
+
+                        }.addOnFailureListener{
+                            Toast.makeText(this, "No se encontró el servicio", Toast.LENGTH_SHORT).show()
+                        }
+
+                    startActivity(Intent(this, VeterinariaMainServicios::class.java).putExtra("Nombre", Nombre ))
+                }
+
+                builder.setNegativeButton("Cancelar", null)
+
+                builder.show()
+            }
+
         }
     }
 }

@@ -195,7 +195,6 @@ class ComparacionServicios : AppCompatActivity() {
                             calificacionComparacionServicio4.setText(promedio2.toString())
                             calificacion_servicio2 = promedio2
 
-
                             if(calificacion_servicio2 == mayor){
                                 calificacionMejorPrecioServicio2.setText("Empate")
                             }

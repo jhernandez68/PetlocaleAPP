@@ -13,6 +13,8 @@ class RegistroVeterinaria : AppCompatActivity() {
     //Instancia de la DB
     private val db = FirebaseFirestore.getInstance()
 
+    var estado = "XD"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_veterinaria)
@@ -29,14 +31,28 @@ class RegistroVeterinaria : AppCompatActivity() {
 
                         //Se verifica que las contraseñas sean iguales
                         if(passwordVeterinaria.text.toString() == passwordVeterinaria2.text.toString()){
-                            db.collection("veterinarias").document(nitDetailed.text.toString()).set(
-                                hashMapOf( "nombre" to nameVeterinariaDetailed.text.toString(),
-                                    "password" to passwordVeterinaria.text.toString(),
-                                    "years" to yearsExperienceDetailed.text.toString(),
-                                    "email" to correoVeterinaria.text.toString(),
-                                    "nit" to nitDetailed.text.toString()
-                                ))
-                            startActivity(Intent(this, LogeoVeterinaria::class.java))
+
+                            //Se verifica que la cuenta no exista
+                                db.collection("veterinarias")
+                                    .document(nitDetailed.text.toString())
+                                    .get().addOnSuccessListener{
+                                    nitFirebase.setText(it.get("nit") as String?)
+                                        if(nitFirebase.text.isEmpty()){
+                                            db.collection("veterinarias").document(nitDetailed.text.toString()).set(
+                                                hashMapOf( "nombre" to nameVeterinariaDetailed.text.toString(),
+                                                    "password" to passwordVeterinaria.text.toString(),
+                                                    "years" to yearsExperienceDetailed.text.toString(),
+                                                    "email" to correoVeterinaria.text.toString(),
+                                                    "nit" to nitDetailed.text.toString()
+                                                ))
+                                            startActivity(Intent(this, LogeoVeterinaria::class.java))
+                                        }
+                                        if(nitFirebase.text.isNotEmpty()){
+                                            Toast.makeText(this, "¡Usuario registradoo!", Toast.LENGTH_LONG).show()
+
+                                        }
+                                }
+
                         }
 
                          if(passwordVeterinaria.text.toString() != passwordVeterinaria2.text.toString()){

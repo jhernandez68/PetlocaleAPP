@@ -74,5 +74,4 @@ class ServiciosAdapter (private val serviciosList : ArrayList<Servicio>): Recycl
             holder.imagenServicio.setImageBitmap(bitmap)
         }
     }
-
 }

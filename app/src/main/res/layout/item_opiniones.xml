@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#572364"
-        android:text="Nombre: "
+        android:text="Email: "
         app:layout_constraintStart_toEndOf="@+id/ivOpinion"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -52,8 +52,6 @@ class ComparacionProductos : AppCompatActivity() {
 
         var nit_producto1 = objetoIntent.getStringExtra("nit_producto1")
 
-
-
         val storageRef = FirebaseStorage.getInstance().reference.child("images/${nit_producto1}/${nombre_producto1}.jpg")
         val localfile = File.createTempFile("tempImage", "jpg")
 

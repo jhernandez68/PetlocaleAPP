@@ -7,7 +7,6 @@
    android:layout_margin="8dp"
     >
 
-
     <ImageView
         android:id="@+id/ivProducto"
         android:layout_width="144dp"

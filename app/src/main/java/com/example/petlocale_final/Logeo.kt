@@ -36,7 +36,6 @@ class Logeo : AppCompatActivity() {
 
         //para entrar en la app
         entrar.setOnClickListener{
-
             if(password.text.isEmpty() || password.text.isEmpty()){
                 Toast.makeText(this, "Rellena todos los campos!", Toast.LENGTH_LONG).show()
             }
